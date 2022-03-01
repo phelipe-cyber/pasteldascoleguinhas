@@ -136,6 +136,9 @@ $clientes = mysqli_query($conn, $tab_clientes);
 												$("#erro_cep").slideUp(500);
 											});
 
+											document.getElementById("cep").value = "";
+											document.getElementById("cep").focus();
+
 
 										},
 										complete: () => document.getElementById("spiner").style = 'display:none;',
