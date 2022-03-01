@@ -1,13 +1,13 @@
 <?php
-session_start();
-print_r($_SESSION);
-exit();
+// session_start();
+// print_r($_SESSION);
+// exit();
 ?>
 
 <script>
 $(function() {
 var atualiza = function() {
-$("#div").load("./mvc/view/teste.php");  
+$("#div").load("./mvc/views/teste.php");
 };
 
 setInterval(function() {

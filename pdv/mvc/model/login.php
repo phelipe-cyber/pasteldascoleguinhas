@@ -7,7 +7,7 @@ $senha = $_POST['senha'];
 
 
 if ($login != null && $senha != null) {
-	$select_table = "SELECT * FROM usuarios WHERE login LIKE '$login'";
+	$select_table = "SELECT * FROM usuarios WHERE login LIKE '%$login%'";
 	$verifica_tabela = mysqli_query($conn, $select_table);
 
 	$verifica_tabela = mysqli_fetch_assoc($verifica_tabela );

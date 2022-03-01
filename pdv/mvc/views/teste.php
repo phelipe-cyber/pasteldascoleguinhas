@@ -5,8 +5,7 @@
     $tab_mesas = "SELECT * FROM mesas";
 
     $mesas = mysqli_query($conn, $tab_mesas);
-    print_r($mesas);
-
+   
   ?>
   <meta charset="utf-8">
 
