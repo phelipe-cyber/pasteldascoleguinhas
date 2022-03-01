@@ -36,7 +36,7 @@ if($_SESSION['login'] == 0){?>
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>e-Comandas</title>
+  <title>Pastel das Coleguinhas</title>
 
   <link href="mvc/common/css/animate.min.css" rel="stylesheet"/><!--ESTE COMANDO CRIA A NOTIFICAÇÃO ANIMADA  -->
   <link href="mvc/common/css/bootstrap-datepicker.css" rel="stylesheet"/>
