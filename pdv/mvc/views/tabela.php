@@ -259,7 +259,7 @@ $produtos = mysqli_query($conn, $tab_produtos);
 						</div>
 					</div>
 					<!-- FIM DO CORPO DA MENSAGEM DO MODAL DE EXCLUZÃO -->
-					          
+					       <br>   
 
 				</div>
 			</div>
