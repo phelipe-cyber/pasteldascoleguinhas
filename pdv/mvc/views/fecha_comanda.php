@@ -40,29 +40,29 @@
   					<input name="gorjeta" id="gorjeta" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="0.00">
   				</div> -->
 
-				  <div class="form-group col-md-12">
-  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago</label>
-  					<input name="valor_pago" id="" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
+  				<div class="form-group col-md-12">
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor do Pedido</label>
+  					<input name="valor_pago" id="" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="<?php echo number_format($total, 2); ?>">
   				</div>
 
   			</div>
 
   			<div class="row" style="padding: 0%;">
 
-			  <div class="form-group col-md-12">
+  				<div class="form-group col-md-12">
   					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #ff6a2e; color: white; ">Acrécimos ou Frete R$ </label>
   					<input name="acrecimo" id="acrecimo" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
   				</div>
 
-  			
+
   			</div>
   			<div class="row" style="padding: 0%;">
 
-			  <div class="form-group col-md-12">
+  				<div class="form-group col-md-12">
   					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #c42eff; color: white; ">Forma de Pgto </label>
   					<!-- <input name="acrecimo" id="acrecimo" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="0.00"> -->
-				</div>
-				<div class="form-group col-md-3">
+  				</div>
+  				<div class="form-group col-md-3">
   					<div class="form-check">
   						<input name="pgto" class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
   						<label class="form-check-label" for="Dinheiro">Dinheiro</label>
