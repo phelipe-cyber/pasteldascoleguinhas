@@ -53,7 +53,8 @@ session_start();
 	<div class="form-group col-md-12">
 		<h6 class="mb-12 "><label for="recipient-name" class="col-form-label" style="color: black;">Qtd</label></h6>
 		<h3><input name="quantidade" type="text" class="form-control" id="quantidade" style=" width: 50%;" placeholder="Quantidade"></div></h3>
-		<h7 class="mb-12 text-center"><label for="recipient-name" class="col-form-label" style="color: #5a5a5a;">(* No campo "Quantidade" voçê pode inserir os valores "1/2", "1/3" e "1/4" no caso de multiplos sabores de Pizzas por Exemplo !)</label></h7>
+		<!-- <h7 class="mb-12 text-center"><label for="recipient-name" class="col-form-label" style="color: #5a5a5a;">(* No campo "Quantidade" voçê pode inserir os valores "1/2", "1/3" e "1/4" no caso de multiplos sabores de Pizzas por Exemplo !)</label></h7> -->
+		<!-- <h7 class="mb-12 text-center"><label for="recipient-name" class="col-form-label" style="color: #5a5a5a;"></label></h7> -->
 	</div>
 	
 	<div class="form-group col-md-12">
@@ -67,13 +68,7 @@ session_start();
 	<h3 class="mb-12 text-center"><button type="submit" class="btn btn-warning btn-lg">Adicionar</button></h3>
 	<h3 class="mb-12 "></h3>
 
-
-
 </form>
-
-
-
-
 
 <!-- Extra large modal -->
 <div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
