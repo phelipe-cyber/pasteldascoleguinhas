@@ -17,7 +17,7 @@ session_start();
 
 ?>
 
-<div class="row" style="background: #2d3339; height: 3%;">
+<div class="row" style="background: #2d3339; height: 10%;">
 	<h3 class="mb-12 " style="background: #2d3339; width: 5%; " ></h3>
 	<a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_pedido.php?categoria=<?php echo $categoria; ?>&cliente=<?php echo $cliente; ?>&mesa=<?php echo $mesa; ?>&id=<?php echo $id; ?>" class="btn btn-outline-light"><h4>voltar</h4></a>
 	<h3 class="mb-12 " style="background: #2d3339; width: 16%; " ></h3>
@@ -27,7 +27,7 @@ session_start();
 </div>
 
 <h1 class="mb-12 text-center" ></h1>
-<h2 class="mb-12 text-center" style=" height: 3%;">Adicionar a Mesa</h2>
+<h2 class="mb-12 text-center" style=" height: 10%;">Adicionar a Mesa</h2>
 
 <form style="height: 200%;" method="GET" action="../model/app_gravadb.php">
 	<div class="form-group col-md-12">
