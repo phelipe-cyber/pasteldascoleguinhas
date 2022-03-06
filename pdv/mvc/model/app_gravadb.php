@@ -8,9 +8,7 @@ include_once "conexao.php";
 date_default_timezone_set('America/recife');
 
    $hora_pedido = date('H:i');
-	echo $hora_pedido;
- 
-   die();
+
    $nome = $_GET['nome'];
    $preco = $_GET['preco'];
    $cliente = $_GET['cliente'];
