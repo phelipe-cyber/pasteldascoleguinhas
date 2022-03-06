@@ -42,8 +42,8 @@
 
 <?php if (mysqli_num_rows($pedidos) != 0 && $rows_mesas['status'] == 2){?>
 
-<!-- <h2 class="col-lg-12 text-center" style="color: black;">Horário do Último Pedido</h2> -->
-<!-- <h2 class="col-lg-12 text-center" style="color: #da7016;"><?php echo $hora; ?></h2> -->
+<h2 class="col-lg-12 text-center" style="color: black;">Horário do Último Pedido</h2>
+<h2 class="col-lg-12 text-center" style="color: #da7016;"><?php echo $hora; ?></h2>
 <div class="mb-12 " style=" height: 5%;" ></div>
 
 
@@ -117,8 +117,8 @@
 
 <?php }else if (mysqli_num_rows($pedidos) != 0 && $rows_mesas['status'] == 3){?>
 
-<!-- <h2 class="col-lg-12 text-center" style="color: black;">Horário do Último Pedido</h2> -->
-<!-- <h2 class="col-lg-12 text-center" style="color: #da7016;"><?php echo $hora; ?></h2> -->
+<h2 class="col-lg-12 text-center" style="color: black;">Horário do Último Pedido</h2>
+<h2 class="col-lg-12 text-center" style="color: #da7016;"><?php echo $hora; ?></h2>
 <div class="mb-12 " style=" height: 5%;" ></div>
 
 
