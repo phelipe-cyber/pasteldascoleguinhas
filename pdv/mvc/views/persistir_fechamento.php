@@ -1,4 +1,6 @@
 <?php
+// print_r($_POST);
+// exit();
 
 ini_set( 'display_errors', 0 );//oculta  erros
 
@@ -34,6 +36,7 @@ $venda = $total;
 
 $total = $total - $valor_pago;
 
+$pgto = $_POST['pgto'];
 
 
 if ($total == 0) {
@@ -66,7 +69,7 @@ if ($total == 0) {
 	$tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $id";
 	$mesas = mysqli_query($conn, $tab_mesas);
 
-	$insert_table = "INSERT INTO vendas (valor, cliente, data, rendimento) VALUES ('$venda', '$cliente', '$data', 'Mesa')";		
+	$insert_table = "INSERT INTO vendas (valor, cliente, data, rendimento, pgto) VALUES ('$venda', '$cliente', '$data', 'Mesa', '$pgto')";		
 	$produtos_editados = mysqli_query($conn, $insert_table);
 
 
@@ -109,7 +112,7 @@ if ($total == 0) {
 	$tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $id";
 	$mesas = mysqli_query($conn, $tab_mesas);
 
-	$insert_table = "INSERT INTO vendas (valor, cliente, data, rendimento) VALUES ('$venda', '$cliente', '$data', 'Mesa')";	
+	$insert_table = "INSERT INTO vendas (valor, cliente, data, rendimento, pgto) VALUES ('$venda', '$cliente', '$data', 'Mesa', '$pgto')";	
 	$produtos_editados = mysqli_query($conn, $insert_table);
 
 	$total = abs($total);?>
