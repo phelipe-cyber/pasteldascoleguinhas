@@ -52,7 +52,7 @@
 
 	  		<div class="form-group col-md-12">
 	  			<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago</label>
-	  			<input name="valor_pago" id="" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="0.00">
+	  			<input name="valor_pago" id="" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
 	  		</div>
   		</div>
 
