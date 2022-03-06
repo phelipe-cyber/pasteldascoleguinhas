@@ -40,10 +40,10 @@ session_start();
 		<h3 class="mb-12 text-center" style="color: red;"><input name="preco" type="hidden" class="form-control" id="preco" value="<?php echo "$preco";?>">R$ <?php echo "$preco";?></div></h3>
 	</div>
 
-	<div class="form-group col-md-12">
-		<h6 class="mb-12 "><label for="recipient-name" class="col-form-label" style="color: black;">Mesa e Cliente:</label></h6>
-		<h3 class="mb-12 text-center"><input name="clienteh" type="hidden" class="form-control" id="clienteh" ><?php echo "$mesa";?>/<?php echo "$cliente";?></div></h3>
-	</div>
+	<!-- <div class="form-group col-md-12"> -->
+		<!-- <h6 class="mb-12 "><label for="recipient-name" class="col-form-label" style="color: black;">Mesa e Cliente:</label></h6> -->
+		<!-- <h3 class="mb-12 text-center"><input name="clienteh" type="hidden" class="form-control" id="clienteh" ><?php echo "$mesa";?>/<?php echo "$cliente";?></div></h3> -->
+	<!-- </div> -->
 
 	<div class="form-group col-md-12">
 		<h6 class="mb-12 "><label for="recipient-name" class="col-form-label" style="color: black;">Inserir Cliente:</label></h6>
