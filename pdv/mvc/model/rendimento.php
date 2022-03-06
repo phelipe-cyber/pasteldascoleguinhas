@@ -2,6 +2,7 @@
 session_start();
 
 include_once ('./conexao.php');
+date_default_timezone_set('America/recife');
 
 $rendimento = $_POST['rendimento'];
 

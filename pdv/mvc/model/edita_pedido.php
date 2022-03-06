@@ -3,6 +3,7 @@
 	session_start();
 
 	include_once ('./conexao.php');
+	date_default_timezone_set('America/recife');
 
 	$id = mysqli_real_escape_string($conn, $_POST['id']);
 

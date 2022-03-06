@@ -1,6 +1,7 @@
 <?php
 
 	include_once ('./conexao.php');
+	date_default_timezone_set('America/recife');
 
 	$end = date('Y-m-d'.' 01:00:00');//variavel necessarioa para poder fazer acaptura com click
 

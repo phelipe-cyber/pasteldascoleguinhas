@@ -3,6 +3,7 @@
 	session_start();
 
 	include_once ('./conexao.php');
+	date_default_timezone_set('America/recife');
 
 	//recebe o valor que vem da tag [<input name="nome" type="text" class="form-control" id="recipient-name">]
 	//recebe o valor que vem da tag [<textarea name="detalhes" class="form-control" id="detalhes-text"></textarea>]

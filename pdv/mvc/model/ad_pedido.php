@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once "conexao.php";
+date_default_timezone_set('America/recife');
 
 $user =  $_SESSION['user'];
 $hora_pedido = date('H:i');
