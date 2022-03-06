@@ -29,7 +29,7 @@ session_start();
 <h1 class="mb-12 text-center" ></h1>
 <h2 class="mb-12 text-center" style=" height: 8%;">Adicionar a Mesa</h2>
 
-<form style="height: 200%;" method="GET" action="../model/app_gravadb.php">
+<form style="height: 100%;" method="GET" action="../model/app_gravadb.php">
 	<div class="form-group col-md-12">
 		<h6 class="mb-6 "><label for="recipient-name" class="col-form-label" style="color: black;">Pedido:</label></h6>
 		<h3 class="mb-6 text-center"><input name="nome" type="hidden" class="form-control" id="nome" value="<?php echo "$nome";?>"><?php echo "$nome";?></div></h3>
