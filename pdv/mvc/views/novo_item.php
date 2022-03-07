@@ -40,7 +40,7 @@ if ($pesquisa == ' ') {
 
 ?>
     <input type="hidden" name="pedido" value="<?php echo $pedido ?>">
-    <input type="text" name="nomecliente" value="<?php echo $nomecliente ?>">
+    <input type="hidden" name="nomecliente" value="<?php echo $nomecliente ?>">
 
     <?php
 
@@ -82,7 +82,7 @@ if ($pesquisa == ' ') {
                                 <div data-app="product.quantity" id="quantidade">
 
                                     <input class="btn btn-danger btn-icon-split btn-sm" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
-                                    <input class="text-center" style="width:50px;" name="quantidade[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
+                                    <input class="text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
                                     <input class="btn btn-success btn-icon-split btn-sm" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
 
                                     <!-- <button type="submit" class="btn btn-danger btn-icon-split btn-sm" >+</button> -->
@@ -206,7 +206,7 @@ if ($pesquisa == ' ') {
                                     <!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
                                     <td>
                                             <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
-                                            <input  class="bg-gradient-default text-center" style="width:50px;" name="quantidade[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
+                                            <input  class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
                                             <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
                                     </td>
 
