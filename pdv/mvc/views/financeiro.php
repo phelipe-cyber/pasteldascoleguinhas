@@ -246,6 +246,7 @@ if (isset($escolha)) {
 					<th class="text-center">Rendimento</th>
 					<th class="text-center">Clienete</th>
 					<th class="text-center">Valor</th>
+					<th class="text-center">Pagamento</th>
 					<th class="text-center">Categoria</th>
 				</tr>
 			</thead>
@@ -264,16 +265,17 @@ if (isset($escolha)) {
 			$rendimento = $rows_vendas['rendimento'];
 			$cliente = $rows_vendas['cliente'];
 			$valor = $rows_vendas['valor'];
+			$pgto = $rows_vendas['pgto'];
 			$total1+= $valor;
 			
 			?>
-
 
 				<tr>
 					<td class="text-center"><b><?php echo $data; ?></b></td>
 					<td class="text-center"><?php echo $rendimento; ?></td>
 					<td class="text-center"><?php echo $cliente; ?></td>
 					<td class="text-center" style="color: green;">R$ <?php echo number_format($valor,2); ?></td>
+					<td class="text-center" style="color: green;">R$ <?php echo $pgto; ?></td>
 					<td class="text-center"><div style="width: 100%; color: green;">Rendimento</div></td>
 					<td class="text-center"><div type="button" style=" color: red;" data-toggle="modal" data-target="#modal_exclui_proventos"
 						data-rendimento ="<?php echo $rendimento; ?>"
