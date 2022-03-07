@@ -1,65 +1,67 @@
 <?php
-  session_start();
-?><link href="../common/css/bootstrap.min.css" rel="stylesheet"/><?php
-  
-   $categoria = $_GET['categoria'];
-   $mesa = $_GET['mesa'];
-   $cliente = $_GET['cliente'];
-   $id = $_GET['id'];
+session_start();
+?>
+<link href="../common/css/bootstrap.min.css" rel="stylesheet" /><?php
+
+                                                                $categoria = $_GET['categoria'];
+                                                                $mesa = $_GET['mesa'];
+                                                                $cliente = $_GET['cliente'];
+                                                                $id = $_GET['id'];
 
 
-   include_once "../model/conexao.php";
+                                                                include_once "../model/conexao.php";
 
-   $tab_produtos = "SELECT * FROM produtos WHERE categoria = '$categoria'";
+                                                                $tab_produtos = "SELECT * FROM produtos ";
 
-   $produtos = mysqli_query($conn, $tab_produtos);
-
-
-    $i = $_SESSION['loginapp'];
-
-    if($i == 1){
+                                                                $produtos = mysqli_query($conn, $tab_produtos);
 
 
-   ?>
+                                                                $i = $_SESSION['loginapp'];
 
-<div class="row" style="background: #2d3339; height: 13%;">
-
-  <h3 class="mb-12 " style="background: #2d3339; width: 5%; " ></h3>
-  <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_categoria.php?id=<?php echo $id; ?>" class="btn btn-outline-light"><h4>voltar</h4></a>
-  <h3 class="mb-12 " style="background: #2d3339; width: 16%; " ></h3>
-
-  <h4  class="mb-12 text-center" style="color: white; width: 20%; ">Mesa <?php echo $id; ?></h4>
-
-<h3 class="mb-12 " style="background: #2d3339; width: 36%; " ></h3>
+                                                                if ($i == 1) {
 
 
-</div>
-<div class="mb-12 " style=" height: 5%;" ></div>
+                                                                ?>
+
+  <div class="row" style="background: #2d3339; height: 13%;">
+
+    <h3 class="mb-12 " style="background: #2d3339; width: 5%; "></h3>
+    <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_categoria.php?id=<?php echo $id; ?>" class="btn btn-outline-light">
+      <h4>voltar</h4>
+    </a>
+    <h3 class="mb-12 " style="background: #2d3339; width: 16%; "></h3>
+
+    <h4 class="mb-12 text-center" style="color: white; width: 20%; ">Mesa <?php echo $id; ?></h4>
+
+    <h3 class="mb-12 " style="background: #2d3339; width: 36%; "></h3>
 
 
- <h3 class="col-lg-6 text-center" style="color: black;"><?php echo $categoria; ?></h3>
-  
-    <table class="table">
-      <thead>
-        <tr>
-          
-          <th class="col-lg-1 "><b>Nome</b> </th>
-          <th class="col-lg-1 "><b>Estq</b> </th>
-          <th class="col-lg-1 "><b>Preço Unitário</b> </th>
-          <th class="col-lg-1 "><b>Add</b> </th>
-        </tr>
-      </thead>
+  </div>
+  <div class="mb-12 " style=" height: 5%;"></div>
 
 
-<?php
-    while($rows_produtos = mysqli_fetch_assoc($produtos)){?>
+  <h3 class="col-lg-6 text-center" style="color: black;"><?php echo $categoria; ?></h3>
+
+  <table class="table">
+    <thead>
+      <tr>
+
+        <th class="col-lg-1 "><b>Nome</b> </th>
+      
+        <th class="col-lg-1 "><b>Preço Unitário</b> </th>
+        <th class="col-lg-1 "><b>Add</b> </th>
+      </tr>
+    </thead>
+
+
+    <?php
+                                                                  while ($rows_produtos = mysqli_fetch_assoc($produtos)) { ?>
       <tbody>
         <tr>
-          
-          <td style="color: #ac4549;"><b><?php echo $rows_produtos['nome'];?></b></td>
-          
-          <td><?php echo $rows_produtos['estoque_atual'];?></td>
-          <td>R$ <?php echo $rows_produtos['preco_venda'];?></td>
+
+          <td style="color: #ac4549;"><b><?php echo utf8_encode($rows_produtos['nome']); ?></b></td>
+
+          <td>R$ <?php echo $rows_produtos['preco_venda']; ?></td>
           <td>
 
             <form method="GET" action="app_finalizar.php">
@@ -71,40 +73,44 @@
               <input type="hidden" name="preco" id="preco" value="<?php echo $rows_produtos['preco_venda']; ?>">
               <input type="hidden" name="cliente" id="cliente" value="<?php echo $cliente; ?>">
               <input type="hidden" name="categoria" id="categoria" value="<?php echo $categoria; ?>">
-              <button type="submit" class="btn btn-danger btn-icon-split btn-sm" >+</button>
+              <!-- <button type="submit" class="btn btn-danger btn-icon-split btn-sm">+</button> -->
+
+              <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
+              <input class="bg-gradient-default text-center" style="width:50px;" name="quantidade[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
+              <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
 
             </form>
 
           </td>
         </tr>
       </tbody>
-   <?php } ?>
+    <?php } ?>
 
 
-    </table>
+  </table>
 
 
-<!-- Extra large modal -->
-<div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      sair
+  <!-- Extra large modal -->
+  <div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        sair
+      </div>
     </div>
   </div>
-</div>
 
 
-<?php } else { 
-   ?>
-   <script>
-     window.location.href='app_login.php'
-   </script>
- <?php
-  // header('Location: app_login.php');
-}
-  ?>
+<?php } else {
+?>
+  <script>
+    window.location.href = 'app_login.php'
+  </script>
+<?php
+                                                                  // header('Location: app_login.php');
+                                                                }
+?>
 
 
-  <script src="../common/js/jquery-3.3.1.slim.min.js" ></script>
-  <script src="../common/js/popper.min.js" ></script>
-  <script src="../common/js/bootstrap.min.js" ></script>
+<script src="../common/js/jquery-3.3.1.slim.min.js"></script>
+<script src="../common/js/popper.min.js"></script>
+<script src="../common/js/bootstrap.min.js"></script>

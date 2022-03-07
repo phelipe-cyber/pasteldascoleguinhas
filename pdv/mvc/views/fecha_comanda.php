@@ -33,7 +33,7 @@
 
   			</div>
 
-  			<div class="row" style="padding: 0%;">
+  			<div class="row">
 
   				<div class="form-group col-md-6">
   					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #ffad00; color: white; ">Gorjeta R$ </label>
@@ -41,21 +41,125 @@
   				</div>
 
   				<div class="form-group col-md-6">
-  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #ff6a2e; color: white; ">Acrécimos R$ </label>
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #ff6a2e; color: white; ">Acrécimos ou Frete R$ </label>
   					<input name="acrecimo" id="acrecimo" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
   				</div>
 
+  				<script>
+  					$(document).ready(function() {
+
+  						$("#acrecimo").on('keydown', function(event) {
+
+  							if (event.keyCode === 9 || event.keyCode === 13) {
+
+  								var total = document.getElementById("total").value
+
+  								var acrecimo = document.getElementById("acrecimo").value
+
+  								var tarifa = (total.replace(",", "."));
+  								var taxa = (acrecimo.replace(",", "."));
+  								var total_acrecimo = (parseFloat(tarifa) + parseFloat(taxa));
+
+  								var arredonda = (Math.round(total_acrecimo * 100)) / 100;
+
+  								var acrecimo = document.getElementById("valor_frete").value = arredonda;
+
+
+  							};
+
+  						});
+  					});
+  				</script>
+
   			</div>
 
-  			<div class="row" style="padding: 0%;">
+  			<div class="row">
 
-  				<div class="form-group col-md-12">
-  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago</label>
-  					<input autofocus name="valor_pago" id="" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
+  				<div class="form-group col-md-6">
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago Cliente</label>
+  					<input autofocus name="valor_pago" id="valor_pago" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
   				</div>
+
+  				<script>
+  					$(document).ready(function() {
+
+  						$("#valor_pago").on('keydown', function(event) {
+
+  							if (event.keyCode === 9 || event.keyCode === 13) {
+
+  								var valor_pago = document.getElementById("valor_pago").value;
+
+  								var valor_frete = document.getElementById("valor_frete").value;
+
+  								var total = document.getElementById("total").value;
+
+  								if (valor_frete == "") {
+  									valor_frete = "0.00";
+
+  									var tarifa = (valor_pago.replace(",", "."));
+  									var taxa = (total.replace(",", "."));
+
+  									var total = (parseFloat(tarifa) - parseFloat(taxa));
+
+  									var arredonda = (Math.round(total * 100)) / 100;
+  									// console.log(arredonda);
+
+  									var valor_pago = document.getElementById("troco").innerHTML = "R$ " + arredonda;
+
+  									document.getElementById('troco_display').style = 'display:block';
+
+
+  								} else {
+  									var valor_frete = document.getElementById("valor_frete").value;
+
+  									var tarifa = (valor_pago.replace(",", "."));
+  									var taxa = (valor_frete.replace(",", "."));
+  									var total = (parseFloat(tarifa) - parseFloat(taxa));
+
+  									var arredonda = (Math.round(total * 100)) / 100;
+  									// console.log(arredonda);
+
+  									var valor_pago = document.getElementById("troco").innerHTML = "R$ " + arredonda;
+
+  									document.getElementById('troco_display').style = 'display:block';
+  								};
+
+
+
+  							};
+
+  						});
+  					});
+  				</script>
+
+  				<div class="form-group col-md-6">
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: blue; color: white; ">Valor Total Com frete</label>
+  					<input autofocus name="valor_pago" id="valor_frete" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
+  				</div>
+
   			</div>
 
-  			<div class="row" style="padding: 0%;">
+  			<div id="troco_display" class="row" style="display: none;">
+
+  				<div class="col-xl-12 col-md-6 mb-4">
+  					<div style="font-size: 25px; background: #fe422d; color: white;">
+  						<div class="card-body">
+  							<div class="row no-gutters align-items-center">
+  								<div class="col mr-2 text-center">
+  									<div class=" font-weight-bold text-uppercase mb-1">Troco</div>
+  									<div id="troco"> </div>
+  								</div>
+  								<div class="col-auto">
+  									<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+  								</div>
+  							</div>
+  						</div>
+  					</div>
+  				</div>
+
+  			</div>
+
+  			<div class="row">
 
   				<div class="form-group col-md-3">
   					<div class="form-check">
@@ -81,7 +185,7 @@
   						<label class="form-check-label" for="pix">Pix</label>
   					</div>
   				</div>
-  			
+
   			</div>
 
   			<button class="form-group col-md-12 btn btn-success" type="submit" style="font-size: 30px;">Efetuar Pagamento</button>

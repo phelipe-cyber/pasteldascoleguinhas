@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once "conexao.php";
+include_once ("conexao.php");
 date_default_timezone_set('America/recife');
 
 $user =  $_SESSION['user'];
@@ -31,7 +31,6 @@ if ($quantidade == '' || $preco_venda == '') {
 
 $insert_table = "INSERT INTO pedido (delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) VALUES ('','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '' )";
 $adiciona_pedido = mysqli_query($conn, $insert_table);
-print_r($insert_table);
 
 $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
 $adiciona_pedido = mysqli_query($conn, $insert_table);

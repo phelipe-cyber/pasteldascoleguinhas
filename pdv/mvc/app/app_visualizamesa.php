@@ -124,7 +124,7 @@
 
 	<div class="col-12 " style="">
 
-		<form method="GET" action="app_categoria.php">
+		<form method="GET" action="app_pedido.php">
 			<input name="id" type="hidden" id="id" value="<?php echo $id; ?>">
 			<input class="btn btn-success" type="submit" style="width:100%; height:10%; color: white; font-size: 20px;" value="Adicionar Pedido">
 		</form>
@@ -189,7 +189,7 @@
 
 	<div class="col-12 " style="">
 
-		<form method="GET" action="app_categoria.php">
+		<form method="GET" action="app_pedido.php">
 			<input name="id" type="hidden" id="id" value="<?php echo $id; ?>">
 			<input class="btn btn-success" type="submit" style="width:100%; height:10%; color: white; font-size: 20px;" value="Adicionar Pedido">
 		</form>

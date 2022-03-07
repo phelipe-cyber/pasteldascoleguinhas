@@ -25,6 +25,8 @@ $acrecimo = $_POST['acrecimo'];
 
 $acrecimo = str_replace(",",".", $acrecimo);
 
+$acrecimo = number_format($acrecimo, 2);
+
 $valor_pago = $_POST['valor_pago'];
 
 $valor_pago = str_replace(",",".", $valor_pago);
@@ -116,7 +118,10 @@ if ($total == 0) {
 
 	$total = abs($total);?>
 	<h2 class="mb-10 text-center" style="color: black; padding: 20px;">Fechamento de Comanda Efetuado!</h2>
- 	<h4 class="mb-10 text-center" style="color: red; padding: 20px; font-size: 30px;">TROCO: R$ <?php echo number_format($total, 2); ?></h4>
+ 	<div class="form-group col-md-6">
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago Cliente</label>
+  					<input autofocus name="valor_pago" id="valor_pago" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
+  				</div><h4 class="mb-10 text-center" style="color: red; padding: 20px; font-size: 30px;">TROCO: R$ <?php echo number_format($total, 2); ?></h4>
  	<h4 class="text-center" ><a class="form-group col-md-6 btn btn-success" href="?view=Dashboard1" type="button" style="font-size: 25px;">VOLTAR</a></h4> 
 
 <?php } else { ?>
