@@ -49,12 +49,12 @@
     while($rows_produtos = mysqli_fetch_assoc($produtos)){?>
 			<tbody>
 				<tr>
-					<td><?php echo $rows_produtos['codigo'];?></td>	
-					<td style="color: #4D4D4D;"><b><?php echo $rows_produtos['nome'];?></b></td>
-					<td><?php echo $rows_produtos['categoria'];?></td>
-					<td><?php echo $rows_produtos['estoque_atual'];?></td>
-					<td>R$ <?php echo $rows_produtos['preco_venda'];?></td>
-					<td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idcliente="<?php echo $cliente; ?>" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td>
+					<td><?php echo utf8_encode($rows_produtos['codigo']);?></td>	
+					<td style="color: #4D4D4D;"><b><?php echo utf8_encode($rows_produtos['nome']);?></b></td>
+					<td><?php echo utf8_encode($rows_produtos['categoria']);?></td>
+					<td><?php echo utf8_encode($rows_produtos['estoque_atual']);?></td>
+					<td>R$ <?php echo utf8_encode($rows_produtos['preco_venda']);?></td>
+					<!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idcliente="<?php echo $cliente; ?>" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
 				</tr>
 			</tbody>
    <?php } ?>

@@ -129,7 +129,7 @@ $produtos = mysqli_query($conn, $tab_produtos);
 
 	<label></label>
 	<h4>  Relação de Produtos :</h4>
-      <div class="table-responsive" style="overflow: auto; height: 650px">
+      <div class="table-responsive" style="overflow: auto; height: 400px">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
@@ -154,13 +154,13 @@ $produtos = mysqli_query($conn, $tab_produtos);
           		?>
             <tr>
             	<td><?php echo $num?></td>
-            	<td><?php echo $rows_produtos['codigo']?></td>
-            	<td><?php echo $rows_produtos['nome']?></td>
-            	<td><?php echo $rows_produtos['categoria']?></td>
-            	<td><?php echo $rows_produtos['estoque_atual']?></td>
-            	<td><?php echo $rows_produtos['detalhes']?></td>
-            	<td><?php echo $rows_produtos['preco_custo']?></td>
-            	<td><?php echo $rows_produtos['preco_venda']?></td>
+            	<td><?php echo utf8_encode($rows_produtos['codigo'])?></td>
+            	<td><?php echo utf8_encode($rows_produtos['nome'])?></td>
+            	<td><?php echo utf8_encode($rows_produtos['categoria'])?></td>
+            	<td><?php echo utf8_encode($rows_produtos['estoque_atual'])?></td>
+            	<td><?php echo utf8_encode($rows_produtos['detalhes'])?></td>
+            	<td><?php echo utf8_encode($rows_produtos['preco_custo'])?></td>
+            	<td><?php echo utf8_encode($rows_produtos['preco_venda'])?></td>
             	<td>
 	            	<button type="button" class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" data-target="#myModal<?php echo $rows_produtos['id']; ?>">Visualizar</button>
 
@@ -258,8 +258,7 @@ $produtos = mysqli_query($conn, $tab_produtos);
 
 						</div>
 					</div>
-					<!-- FIM DO CORPO DA MENSAGEM DO MODAL DE EXCLUZÃO -->
-					       <br>   
+					<!-- FIM DO CORPO DA MENSAGEM DO MODAL DE EXCLUZÃO -->   
 
 				</div>
 			</div>
@@ -269,6 +268,7 @@ $produtos = mysqli_query($conn, $tab_produtos);
 
           </tbody>
         </table>
+		<br><br>
       </div>
     </main>
   </div>

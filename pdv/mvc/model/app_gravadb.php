@@ -1,23 +1,56 @@
+<?php
+session_start();
+?>
+
 <link href="../common/css/bootstrap.min.css" rel="stylesheet"/>
 
 <?php
-
-session_start();
-
 include_once "conexao.php";
 date_default_timezone_set('America/recife');
 
+$detalhes = $_POST['detalhes'];
+
    $hora_pedido = date('H:i');
 
-   $nome = $_GET['nome'];
-   $preco = $_GET['preco'];
-   $cliente = $_GET['cliente'];
-   $quantidade = $_GET['quantidade'];
-   $observacoes = $_GET['observacoes'];
-   $categoria = $_GET['categoria'];
-   $mesa = $_GET['mesa'];
+//    $nome = $_GET['nome'];
+//    $preco = $_GET['preco'];
+//    $cliente = $_GET['cliente'];
+//    $quantidade = $_GET['quantidade'];
+//    $observacoes = $_GET['observacoes'];
+//    $categoria = $_GET['categoria'];
+//    $mesa = $_GET['mesa'];
    $usuarioid = $_SESSION['usuarioid'];
    
+foreach ($detalhes as $detalhesPedidos) {
+	$nome = $detalhesPedidos['nome'];
+	$preco = $detalhesPedidos['preco'];
+	$cliente = $detalhesPedidos['cliente'];
+	$quantidade = $detalhesPedidos['quantidade'];
+	$observacoes = $detalhesPedidos['observacoes'];
+	$categoria = $detalhesPedidos['categoria'];
+	$mesa = $detalhesPedidos['mesa'];
+
+	if ($quantidade == 0 )
+	  continue;
+
+	//   $insert_table = "INSERT INTO pedido (idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario) VALUES ('$mesa', '$nome', '$quantidade', '$hora_pedido', '$preco', '$observacoes', '$usuarioid')";
+	//   $adiciona_pedido = mysqli_query($conn, $insert_table);
+	
+	$insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) VALUES
+	('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '' )";
+
+	
+	  $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $mesa";
+	//   $adiciona_pedido = mysqli_query($conn, $insert_table);
+
+	header("Location: ../app/app_mesas.php");
+
+	$conn->close();
+
+}
+
+exit();
+
    if ($quantidade == '1/2') {
    	$quantidade = 0.5;
    }

@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+
 ?><link href="../common/css/bootstrap.min.css" rel="stylesheet"/><?php
 
    $nome = $_GET['nome'];

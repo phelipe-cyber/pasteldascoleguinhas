@@ -2,6 +2,9 @@
 session_start();
 // print_r($_SESSION);
 // exit();
+
+date_default_timezone_set('America/recife');
+
 $cor = $_SESSION['cor'];
 
 $usuario = $_SESSION['user'];
@@ -11,7 +14,7 @@ $usuario = $_SESSION['user'];
 
 <head>
 
-  <meta charset="utf-8">
+  <!-- <meta charset="utf-8"> -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -77,11 +80,23 @@ $usuario = $_SESSION['user'];
 
       <!-- Nav Item - Dashboard -->
 
-
+<!-- 
       <li class="nav-item active">
         <a class="nav-link"  href="/pdv/?view=Dashboard1">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Mesas</span></a>
+      </li> -->
+
+      <li class="nav-item active">
+        <a class="nav-link"  href="/pdv/?view=pedidoBalcao">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Novo Pedido - Balcão</span></a>
+      </li>
+
+      <li class="nav-item active">
+        <a class="nav-link"  href="/pdv/?view=todosPedidoBalcao">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Visializar Pedidos - Balcão</span></a>
       </li>
 
       <li class="nav-item active">
@@ -136,6 +151,8 @@ $usuario = $_SESSION['user'];
             <a class="collapse-item" href="/pdv/?view=estoque" style=" border-radius: 8px; font-size:18px;">Estoque</a>
             <a class="collapse-item" href="/pdv/?view=financeiro" style=" border-radius: 8px; font-size:18px;">Financeiro</a>
             <a class="collapse-item" href="/pdv/?view=cards" style=" border-radius: 8px; font-size:18px;">Pessoal</a>
+            <a class="collapse-item" href="/pdv/?view=open" style=" border-radius: 8px; font-size:18px;">Abertura Caixa</a>
+            <a class="collapse-item" href="/pdv/?view=exit" style=" border-radius: 8px; font-size:18px;">Fechamento Caixa</a>
 
           </div>
         </div>

@@ -2,7 +2,8 @@
 	
 	session_start();
 
-	include_once ('./conexao.php');
+	include_once ('conexao.php');
+	date_default_timezone_set('America/recife');
 
 	//recebe o valor que vem da tag [<input name="nome" type="text" class="form-control" id="recipient-name">]
 	//recebe o valor que vem da tag [<textarea name="detalhes" class="form-control" id="detalhes-text"></textarea>]
@@ -34,7 +35,7 @@
 	produtos (nome, categoria, detalhes, codigo, preco_custo, preco_venda, estoque_atual, estoque_minimo, data_compra, data_validade, unidade, marca, fornecedor, observacoes) VALUES 
 	('$nome','$categoria', '$detalhes', '$codigo', '$preco_custo', '$preco_venda', '$estoque_atual', '$estoque_minimo', '$data_compra', '$data_validade', '$unidade', '$marca', '$fornecedor', '$observacoes')";	
 	$produtos_editados = mysqli_query($conn, $insert_table);
-
+	
 ?>
 
 <!DOCTYPE html>
