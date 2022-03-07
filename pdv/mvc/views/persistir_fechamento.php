@@ -5,6 +5,7 @@ ini_set( 'display_errors', 0 );//oculta  erros
 session_start();
 
 include "./mvc/model/conexao.php";
+date_default_timezone_set('America/recife');
 
 $id = $_POST['id'];//id da mesa
 
