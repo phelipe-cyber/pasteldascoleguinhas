@@ -193,14 +193,14 @@ if ($pesquisa == ' ') {
 
                                     </td>
                                     <td><?php echo $rows_produtos['codigo']; ?></td>
-                                    <td style="color: #4D4D4D;"><b><?php echo utf8_encode($rows_produtos['nome']); ?></b>
-                                        <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo utf8_encode($rows_produtos['nome']); ?>">
+                                    <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b>
+                                        <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
                                     </td>
-                                    <td><?php echo utf8_encode($rows_produtos['categoria']); ?></td>
-                                    <!-- <td><?php echo utf8_encode($rows_produtos['estoque_atual']); ?></td> -->
+                                    <td><?php echo ($rows_produtos['categoria']); ?></td>
+                                    <!-- <td><?php echo ($rows_produtos['estoque_atual']); ?></td> -->
 
-                                    <td>R$ <?php echo utf8_encode($rows_produtos['preco_venda']); ?>
-                                        <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo utf8_encode($rows_produtos['preco_venda']); ?>">
+                                    <td>R$ <?php echo ($rows_produtos['preco_venda']); ?>
+                                        <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
 
                                     </td>
                                     <!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
