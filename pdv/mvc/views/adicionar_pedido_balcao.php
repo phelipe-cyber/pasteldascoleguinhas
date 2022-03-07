@@ -68,7 +68,7 @@ if ($status == 2 || $status == 3) { ?>
 					<tr>
 						<td><?php echo $num ?></td>
 						<td><?php echo $rows_produtos['idpedido']; ?></td>
-						<td><?php echo utf8_encode($rows_produtos['produto']) ?></td>
+						<td><?php echo ($rows_produtos['produto']) ?></td>
 						<td><?php echo $rows_produtos['observacao']; ?></td>
 						<td><?php echo $rows_produtos['quantidade']; ?></td>
 
