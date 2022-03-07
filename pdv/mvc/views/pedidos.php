@@ -24,7 +24,7 @@ $mesas = mysqli_query($conn, $tab_mesas);
 
     while ($rows_mesas = mysqli_fetch_assoc($mesas)) {
 
-        $nome = utf8_encode($rows_mesas['cliente']);
+        $nome = ($rows_mesas['cliente']);
         $id_mesa = $rows_mesas['numeropedido'];
 
 
