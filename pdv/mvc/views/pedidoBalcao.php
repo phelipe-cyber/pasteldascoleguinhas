@@ -55,7 +55,7 @@ if ($pesquisa == ' ') {
                     <tr>
                         <td><?php echo ($rows_produtos['id']); ?></td>
                         <td><?php echo ($rows_produtos['codigo']); ?></td>
-                        <td style="color: #4D4D4D;"><b><?php echo utf8_encode($rows_produtos['nome']); ?></b></td>
+                        <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b></td>
                         <td><?php echo ($rows_produtos['categoria']); ?></td>
                         <td><?php echo ($rows_produtos['estoque_atual']); ?></td>
                         <td>R$ <?php echo ($rows_produtos['preco_venda']); ?></td>
@@ -168,7 +168,7 @@ if ($pesquisa == ' ') {
 
                                 </td>
                                 <td><?php echo $rows_produtos['codigo']; ?></td>
-                                <td style="color: #4D4D4D;"><b><?php echo utf8_encode($rows_produtos['nome']); ?></b>
+                                <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b>
                                     <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo $rows_produtos['nome']; ?>">
                                 </td>
                                 <td><?php echo ($rows_produtos['categoria']); ?></td>
