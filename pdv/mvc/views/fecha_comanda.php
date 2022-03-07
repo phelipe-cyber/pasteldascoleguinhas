@@ -25,8 +25,8 @@
   			<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 35px; background: #00739b; color: white; padding: 0%; ">Pagamento Mesa <?php echo $id; ?></label>
   			<div class="row" style="padding: 1%;">
   				<div class="form-group col-md-12">
-  					<!-- <label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: gray; color: white; ">Total Fatura R$ </label> -->
-  					<!-- <input style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="reset" name="pagamento" value="<?php echo number_format($total, 2); ?>" disabled> -->
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: gray; color: white; ">Total Fatura R$ </label>
+  					<input style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="reset" name="pagamento" value="<?php echo number_format($total, 2); ?>" disabled>
   					<input type="hidden" name="total" id="total" value="<?php echo $total; ?>">
   					<input type="hidden" name="id" id="id" value="<?php echo $id; ?>">
   				</div>
@@ -35,57 +35,53 @@
 
   			<div class="row" style="padding: 0%;">
 
-  				<!-- <div class="form-group col-md-6">
+  				<div class="form-group col-md-6">
   					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #ffad00; color: white; ">Gorjeta R$ </label>
-  					<input name="gorjeta" id="gorjeta" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="0.00">
-  				</div> -->
-
-  				<div class="form-group col-md-12">
-  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor do Pedido</label>
-  					<input name="valor_pago" id="" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="<?php echo number_format($total, 2); ?>">
+  					<input name="gorjeta" id="gorjeta" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
   				</div>
 
-  			</div>
-
-  			<div class="row" style="padding: 0%;">
-
-  				<div class="form-group col-md-12">
-  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #ff6a2e; color: white; ">Acrécimos ou Frete R$ </label>
+  				<div class="form-group col-md-6">
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #ff6a2e; color: white; ">Acrécimos R$ </label>
   					<input name="acrecimo" id="acrecimo" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
   				</div>
 
-
   			</div>
+
   			<div class="row" style="padding: 0%;">
 
   				<div class="form-group col-md-12">
-  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #c42eff; color: white; ">Forma de Pgto </label>
-  					<!-- <input name="acrecimo" id="acrecimo" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="0.00"> -->
+  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago</label>
+  					<input autofocus name="valor_pago" id="" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
   				</div>
+  			</div>
+
+  			<div class="row" style="padding: 0%;">
+
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
+  						<input class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
   						<label class="form-check-label" for="Dinheiro">Dinheiro</label>
   					</div>
   				</div>
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Cartão Debito" id="Cartao_Debito">
+  						<input class="form-check-input" type="checkbox" value="Cartão Debito" id="Cartao_Debito">
   						<label class="form-check-label" for="Cartao_Debito">Cartão Debito</label>
   					</div>
   				</div>
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Cartão Credito" id="Cartao_credito">
+  						<input class="form-check-input" type="checkbox" value="Cartão Credito" id="Cartao_credito">
   						<label class="form-check-label" for="Cartao_credito">Cartão Credito</label>
   					</div>
   				</div>
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Pix" id="pix">
+  						<input class="form-check-input" type="checkbox" value="Pix" id="pix">
   						<label class="form-check-label" for="pix">Pix</label>
   					</div>
   				</div>
+  			
   			</div>
 
   			<button class="form-group col-md-12 btn btn-success" type="submit" style="font-size: 30px;">Efetuar Pagamento</button>
