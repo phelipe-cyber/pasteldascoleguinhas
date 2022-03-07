@@ -59,25 +59,25 @@
 
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
+  						<input name="pgto" class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
   						<label class="form-check-label" for="Dinheiro">Dinheiro</label>
   					</div>
   				</div>
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input class="form-check-input" type="checkbox" value="Cartão Debito" id="Cartao_Debito">
+  						<input name="pgto" class="form-check-input" type="checkbox" value="Cartão Debito" id="Cartao_Debito">
   						<label class="form-check-label" for="Cartao_Debito">Cartão Debito</label>
   					</div>
   				</div>
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input class="form-check-input" type="checkbox" value="Cartão Credito" id="Cartao_credito">
+  						<input name="pgto" class="form-check-input" type="checkbox" value="Cartão Credito" id="Cartao_credito">
   						<label class="form-check-label" for="Cartao_credito">Cartão Credito</label>
   					</div>
   				</div>
   				<div class="form-group col-md-3">
   					<div class="form-check">
-  						<input class="form-check-input" type="checkbox" value="Pix" id="pix">
+  						<input name="pgto" class="form-check-input" type="checkbox" value="Pix" id="pix">
   						<label class="form-check-label" for="pix">Pix</label>
   					</div>
   				</div>
