@@ -82,7 +82,7 @@ $mesas = mysqli_query($conn, $tab_mesas);
             <div class=" <?php echo $cor; ?> text-white shadow">
            
                 <div class="card-body" style="text-align: center;">
-                    <h4 class="mb-10 text-center">Cliente: <?php echo utf8_encode($nome); ?></h4>
+                    <h4 class="mb-10 text-center">Cliente: <?php echo ($nome); ?></h4>
 
                     <form method="POST" action="?view=adicionar_pedido_balcao">
 
