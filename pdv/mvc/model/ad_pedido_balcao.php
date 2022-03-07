@@ -29,13 +29,13 @@ $numeropedido = $pedido;
 $user =  $_SESSION['user'];
 $hora_pedido = date('H:i');
 $detalhes =  $_POST['detalhes'];
-$cliente = utf8_decode($_POST['cliente']);
-$cliente_2 = utf8_decode($_POST['cliente']);
+$cliente = ($_POST['cliente']);
+$cliente_2 = ($_POST['cliente']);
 
 foreach ($detalhes as $detalhesPedidos) {
 
   $quantidade = $detalhesPedidos['quantidade'];
-  $pedido =     utf8_encode($detalhesPedidos['pedido']);
+  $pedido =     ($detalhesPedidos['pedido']);
   $preco_venda = $detalhesPedidos['preco_venda'];
   $observacoes = $detalhesPedidos['observacoes'];
   
