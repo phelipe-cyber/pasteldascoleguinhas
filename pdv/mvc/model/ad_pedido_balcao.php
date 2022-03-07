@@ -31,7 +31,7 @@ foreach ($detalhes as $detalhesPedidos) {
 //   print_r($cliente);
 //   exit();
 
-  echo $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) VALUES
+   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) VALUES
   ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '' )";
   
   $adiciona_pedido = mysqli_query($conn, $insert_table);
