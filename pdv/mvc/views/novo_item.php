@@ -72,7 +72,7 @@ if ($pesquisa == ' ') {
                         <tr>
                             <td><?php echo utf8_encode($rows_produtos['id']); ?></td>
                             <td><?php echo utf8_encode($rows_produtos['codigo']); ?></td>
-                            <td style="color: #4D4D4D;"><b><?php echo utf8_encode($rows_produtos['nome']); ?></b></td>
+                            <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b></td>
                             <td><?php echo utf8_encode($rows_produtos['categoria']); ?></td>
                             <td><?php echo utf8_encode($rows_produtos['estoque_atual']); ?></td>
                             <td>R$ <?php echo utf8_encode($rows_produtos['preco_venda']); ?></td>
