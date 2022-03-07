@@ -275,7 +275,7 @@ if (isset($escolha)) {
 					<td class="text-center"><?php echo $rendimento; ?></td>
 					<td class="text-center"><?php echo $cliente; ?></td>
 					<td class="text-center" style="color: green;">R$ <?php echo number_format($valor,2); ?></td>
-					<td class="text-center" style="color: green;">R$ <?php echo $pgto; ?></td>
+					<td class="text-center" style="color: green;"><?php echo $pgto; ?></td>
 					<td class="text-center"><div style="width: 100%; color: green;">Rendimento</div></td>
 					<td class="text-center"><div type="button" style=" color: red;" data-toggle="modal" data-target="#modal_exclui_proventos"
 						data-rendimento ="<?php echo $rendimento; ?>"
