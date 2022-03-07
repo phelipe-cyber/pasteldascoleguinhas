@@ -57,10 +57,10 @@ foreach ($detalhes as $detalhesPedidos) {
 
 };
 
-// header("Location: /pdv/?view=todosPedidoBalcao");
+header("Location: /pdv/?view=todosPedidoBalcao");
 
-// $conn->close();
+$conn->close();
 
-// echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
+echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
 $_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Pedido para $cliente_2 cadastrado com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
