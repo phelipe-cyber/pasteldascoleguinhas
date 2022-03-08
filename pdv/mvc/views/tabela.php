@@ -154,13 +154,13 @@ $produtos = mysqli_query($conn, $tab_produtos);
           		?>
             <tr>
             	<td><?php echo $num?></td>
-            	<td><?php echo utf8_encode($rows_produtos['codigo'])?></td>
-            	<td><?php echo utf8_encode($rows_produtos['nome'])?></td>
-            	<td><?php echo utf8_encode($rows_produtos['categoria'])?></td>
-            	<td><?php echo utf8_encode($rows_produtos['estoque_atual'])?></td>
-            	<td><?php echo utf8_encode($rows_produtos['detalhes'])?></td>
-            	<td><?php echo utf8_encode($rows_produtos['preco_custo'])?></td>
-            	<td><?php echo utf8_encode($rows_produtos['preco_venda'])?></td>
+            	<td><?php echo ($rows_produtos['codigo'])?></td>
+            	<td><?php echo ($rows_produtos['nome'])?></td>
+            	<td><?php echo ($rows_produtos['categoria'])?></td>
+            	<td><?php echo ($rows_produtos['estoque_atual'])?></td>
+            	<td><?php echo ($rows_produtos['detalhes'])?></td>
+            	<td><?php echo ($rows_produtos['preco_custo'])?></td>
+            	<td><?php echo ($rows_produtos['preco_venda'])?></td>
             	<td>
 	            	<button type="button" class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" data-target="#myModal<?php echo $rows_produtos['id']; ?>">Visualizar</button>
 
