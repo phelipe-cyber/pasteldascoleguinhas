@@ -42,7 +42,7 @@ $pgto = $_POST['pgto'];
 
 if ($total == 0) {
 
-	$tab_pedidos = "SELECT * FROM pedido WHERE idmesa = $id";
+	$tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
 
 	$pedidos = mysqli_query($conn, $tab_pedidos);
 
@@ -74,10 +74,10 @@ if ($total == 0) {
 	$produtos_editados = mysqli_query($conn, $insert_table);
 
 
-	$exclude_table = "DELETE FROM pedido WHERE idmesa = '$id'";	
+	$exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
 	$produto_excluido = mysqli_query($conn, $exclude_table);
 
-	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=Dashboard1'>";
+	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
 	$_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Comanda da Mesa encerrada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
 }else if ($total < 0) {
