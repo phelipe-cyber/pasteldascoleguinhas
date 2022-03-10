@@ -150,3 +150,19 @@ if ($i == 1) {
   // header('Location: /pdv/mvc/app/app_login.php');
 }
   ?>
+
+<script>
+
+$(function() {
+var atualiza = function() {
+$("#div").load("appmesas.php");
+};
+
+setInterval(function() {
+atualiza();
+}, 1000); // A CADA 1 SEGUNDO RODA A FUNÇÃO atualiza
+
+});
+</script> 
+
+
