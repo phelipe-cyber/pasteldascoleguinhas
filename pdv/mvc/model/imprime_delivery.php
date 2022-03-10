@@ -1,5 +1,5 @@
 <header>
-	<script type="text/javascript">setTimeout("window.close();",1000)</script> <!--fecha a janela depois de imprimir-->
+	<!-- <script type="text/javascript">setTimeout("window.close();",1000)</script> fecha a janela depois de imprimir -->
 </header>
 
 <!DOCTYPE html>
@@ -122,10 +122,10 @@ $i = 0;
 </html>
 <!--scrip que faz abrir a tela do windows iniciando a impressao-->
 
-<script type="text/javascript">
-	window.print();
-</script>
+<!-- <script type="text/javascript"> -->
+	<!-- window.print(); -->
+<!-- </script> -->
 
-<script type="text/javascript">
-	window.onload = function() { window.print(); }
-</script>
+<!-- <script type="text/javascript"> -->
+	<!-- window.onload = function() { window.print(); } -->
+<!-- </script> -->

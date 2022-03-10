@@ -98,12 +98,18 @@ $usuario = $_SESSION['user'];
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Visializar Pedidos - Balcão</span></a>
       </li>
-
       <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=delivery">
           <i class="fa fa-motorcycle"></i>
-          <span>Delivery</span></a>
+          <span>Novo Pedido - Delivery</span></a>
       </li>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/pdv/?view=pedidos_delivery">
+          <i class="fa fa-motorcycle"></i>
+          <span>Pedidos - Delivery</span></a>
+      </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">
