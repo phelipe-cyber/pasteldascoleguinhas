@@ -47,6 +47,7 @@ $detalhes = $_POST['detalhes'];
    $numeropedido = $pedido;
    
 
+
 foreach ($detalhes as $detalhesPedidos) {
 	$nome = $detalhesPedidos['nome'];
 	$preco = $detalhesPedidos['preco'];
@@ -59,6 +60,8 @@ foreach ($detalhes as $detalhesPedidos) {
 	if ($quantidade == 0 )
 	  continue;
 
+	  print_r($detalhesPedidos);
+	  exit();
 	//   $insert_table = "INSERT INTO pedido (idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario) VALUES ('$mesa', '$nome', '$quantidade', '$hora_pedido', '$preco', '$observacoes', '$usuarioid')";
 	//   $adiciona_pedido = mysqli_query($conn, $insert_table);
 	
