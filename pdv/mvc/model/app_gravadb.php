@@ -61,8 +61,8 @@ foreach ($detalhes as $detalhesPedidos) {
 	if ($quantidade == 0 )
 	  continue;
 
-	echo $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) VALUES
-	 ('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '' )";
+	echo $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta, `status`) VALUES
+	 ('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '', 2 )";
   		$adiciona_pedido = mysqli_query($conn, $insert_table);
 	echo "<br>";
 	  $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $mesa";
