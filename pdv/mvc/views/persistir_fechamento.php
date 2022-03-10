@@ -74,8 +74,10 @@ if ($total == 0) {
 	$produtos_editados = mysqli_query($conn, $insert_table);
 
 
-	$exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
-	$produto_excluido = mysqli_query($conn, $exclude_table);
+	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
+	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
+	$alterar_table = "UPDATE `pedido` SET `status` = '1' WHERE `pedido`.`idpedido` = 74";
+	$produto_excluido = mysqli_query($conn, $$alterar_table);
 
 	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
 	$_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Comanda da Mesa encerrada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
@@ -107,9 +109,13 @@ if ($total == 0) {
 		}
 	}
 
-	$exclude_table = "DELETE FROM pedido WHERE idmesa = '$id'";	
-	$produto_excluido = mysqli_query($conn, $exclude_table);
+	// $exclude_table = "DELETE FROM pedido WHERE idmesa = '$id'";	
+	// $produto_excluido = mysqli_query($conn, $exclude_table);
 
+	$alterar_table = "UPDATE `pedido` SET `status` = '1' WHERE `pedido`.`idpedido` = 74";
+	$produto_excluido = mysqli_query($conn, $$alterar_table);
+
+	
 	$tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $id";
 	$mesas = mysqli_query($conn, $tab_mesas);
 
