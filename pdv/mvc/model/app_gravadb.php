@@ -1,7 +1,7 @@
 <?php
-print_r($_POST);
-exit();
 session_start();
+// print_r($_POST);
+// exit();
 ?>
 
 <link href="../common/css/bootstrap.min.css" rel="stylesheet"/>
