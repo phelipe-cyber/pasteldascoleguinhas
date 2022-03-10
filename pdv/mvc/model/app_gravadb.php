@@ -21,6 +21,30 @@ $detalhes = $_POST['detalhes'];
 //    $mesa = $_GET['mesa'];
    $usuarioid = $_SESSION['usuarioid'];
    
+   $result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido`");
+   $recebidos = mysqli_query($conn, $result_usuarios);
+   
+   while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
+   
+	   $pedido = $row_usuario['Pedido'];
+   }
+   if ($pedido == null) {
+	   $pedido = "1001";
+   } else {
+   
+   
+	   $result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ");
+	   $recebidos = mysqli_query($conn, $result_usuarios);
+   
+	   while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
+   
+		   $pedido = $row_usuario['Pedido'];
+	   }
+   };
+   
+   $numeropedido = $pedido;
+   
+
 foreach ($detalhes as $detalhesPedidos) {
 	$nome = $detalhesPedidos['nome'];
 	$preco = $detalhesPedidos['preco'];
