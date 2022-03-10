@@ -8,7 +8,8 @@ $id = $_GET['id'];
 
 	$mesas = mysqli_query($conn, $tab_mesas);
 
-	$update_pedido_mesa = "UPDATE pedido SET status = '3'  WHERE id_mesa = $id";
+
+	$update_pedido_mesa = "UPDATE pedido SET status = '3'  WHERE idmesa = $id";
 
 	$UpdatePedidoMesas = mysqli_query($conn, $update_pedido_mesa);
 
