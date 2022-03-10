@@ -7,7 +7,10 @@ include_once "../model/conexao.php";
 $id = $_GET['id'];
 
 
-	$tab_mesas = "SELECT * FROM mesas WHERE id_mesa = $id";
+// echo $tab_mesas = "SELECT * FROM mesas WHERE id_mesa = $id";
+ $tab_mesas = "SELECT * FROM mesas as M
+					LEFT JOIN pedido as P on P.idmesa = M.id_mesa
+					WHERE id_mesa = $id";
 
 	$mesas = mysqli_query($conn, $tab_mesas);
 
@@ -16,6 +19,8 @@ $id = $_GET['id'];
 	$cliente = $mesas['nome'];
 
 	$status = $mesas['status'];
+
+	$numeropedido = $mesas['numeropedido'];
 
 
 	$i = $_SESSION['loginapp'];
@@ -85,6 +90,9 @@ while ($cat = mysqli_fetch_assoc($produtos)) {
 				<input type="hidden" name="categoria" id="categoria" value="<?php echo $categoria?>">
 				<input type="hidden" name="mesa" id="mesa" value="<?php echo $id; ?>">
 				<input type="hidden" name="cliente" id="cliente" value="<?php echo $cliente; ?>">
+				<input type="hidden" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido; ?>">
+
+				
 				<!-- <input type="submit" class="btn btn-warning" name="categoria" value="<?php echo $categoria?>" style="width:100%; height:60%;"></input> -->
 								
 			</div>

@@ -22,6 +22,8 @@ session_start();
     $mesa = $_GET['mesa'];
     $cliente = $_GET['cliente'];
     $id = $_GET['id'];
+   $numeropedido = $_GET['numeropedido'];
+   
 
 
     include_once "../model/conexao.php";
@@ -53,12 +55,37 @@ session_start();
 
       </div>
 
-      <div class="row">
-        <h4 class="col-lg-7">
-          <label for="">Cliente:</label>
-          <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
-        </h4>
-      </div>
+      <?php
+
+      if ($cliente == "") {
+
+      ?>
+        <div class="row">
+          <h4 class="col-lg-7">
+            <label for="">Cliente:</label>
+            <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>" >
+          </h4>
+        </div>
+      <?php
+
+      } else {
+
+        ?>
+        <div class="row">
+          <h4 class="col-lg-7">
+            <label for="">Cliente:</label>
+            <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="<?php echo $cliente ?>">
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>" >
+
+          </h4>
+        </div>
+      <?php
+        
+      }
+
+      ?>
+
 
       <div class="mb-12 " style=" height: 5%;"></div>
 
@@ -101,7 +128,7 @@ session_start();
                 <input type="hidden" name="detalhes[<?= $index ?>][nome]" id="nome" value="<?php echo utf8_encode($rows_produtos['nome']); ?>">
                 <input type="hidden" name="detalhes[<?= $index ?>][mesa]" id="mesa" value="<?php echo "Mesa " . $mesa ?>">
                 <input type="hidden" name="detalhes[<?= $index ?>][preco]" id="preco" value="<?php echo $rows_produtos['preco_venda']; ?>">
-                <!-- <input type="hidden" name="detalhes[<?= $index ?>][cliente]" id="cliente" value="<?php echo $cliente; ?>"> -->
+                <input type="hidden" name="detalhes[<?= $index ?>][cliente]" id="cliente" value="<?php echo $cliente; ?>">
                 <input type="hidden" name="detalhes[<?= $index ?>][categoria]" id="categoria" value="<?php echo $categoria; ?>">
                 <!-- <button type="submit" class="btn btn-danger btn-icon-split btn-sm" >+</button> -->
 

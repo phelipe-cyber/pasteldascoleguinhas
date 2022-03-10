@@ -24,6 +24,7 @@
 
 	$hora = $_GET['hora'];
 
+	
 	$tab_pedido = "SELECT * FROM pedido WHERE idmesa = $id";
 
 	$pedidos = mysqli_query($conn, $tab_pedido);
@@ -59,6 +60,7 @@
 
 <h2 class="col-lg-12 text-center" style="color: black;">Horário do Último Pedido</h2>
 <h2 class="col-lg-12 text-center" style="color: #da7016;"><?php echo $hora; ?></h2>
+
 <div class="mb-12 " style=" height: 5%;" ></div>
 
 
@@ -89,6 +91,7 @@
           <th class="col-lg-1 "><b>Qtd</b> </th>
           <th class="col-lg-1 "><b>Preço Unitário</b> </th>
           <th class="col-lg-1 "><b>Obs</b> </th>
+          <th class="col-lg-1 "><b>Pedido</b> </th>
         </tr>
       </thead>
 
@@ -102,6 +105,8 @@
           <td><?php echo $rows_pedidos['quantidade'];?></td>
           <td>R$ <?php echo $rows_pedidos['valor'];?></td>
           <td><?php echo $rows_pedidos['observacao'];?></td>
+          <td><?php echo $rows_pedidos['numeropedido'];?></td>
+		  <input name="numeropedido" type="hidden" id="numeropedido" value="<?php echo $rows_pedidos['numeropedido']; ?>">
           
         </tr>
       
@@ -139,7 +144,7 @@
 
 	<div class="col-12 " style="">
 
-		<form method="GET" action="app_pedido.php">
+		<form method="GET" action="app_categoria.php">
 			<input name="id" type="hidden" id="id" value="<?php echo $id; ?>">
 			<input class="btn btn-success" type="submit" style="width:100%; height:10%; color: white; font-size: 20px;" value="Adicionar Pedido">
 		</form>
@@ -155,6 +160,7 @@
           <th class="col-lg-1 "><b>Qtd</b> </th>
           <th class="col-lg-1 "><b>Preço Unitário</b> </th>
           <th class="col-lg-1 "><b>Obs</b> </th>
+          <th class="col-lg-1 "><b>Pedido</b> </th>
         </tr>
       </thead>
 
@@ -168,6 +174,8 @@
           <td><?php echo $rows_pedidos['quantidade'];?></td>
           <td>R$ <?php echo $rows_pedidos['valor'];?></td>
           <td><?php echo $rows_pedidos['observacao'];?></td>
+          <td><?php echo $rows_pedidos['numeropedido'];?></td>
+		  <input name="numeropedido" type="hidden" id="numeropedido" value="<?php echo $rows_pedidos['numeropedido']; ?>">
           
         </tr>
       
