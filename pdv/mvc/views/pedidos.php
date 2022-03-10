@@ -10,7 +10,7 @@
 
 include_once "../model/conexao.php";
 
-$tab_mesas = "SELECT * FROM pedido group by numeropedido where `status` <> 4  " ;
+$tab_mesas = "SELECT * FROM pedido group by numeropedido where `status` = 1 " ;
 
 $mesas = mysqli_query($conn, $tab_mesas);
 
