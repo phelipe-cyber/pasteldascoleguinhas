@@ -69,7 +69,7 @@ foreach ($detalhes as $detalhesPedidos) {
 	  $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $mesa";
 	//   $adiciona_pedido = mysqli_query($conn, $insert_table);
 
-	header("Location: ../app/app_mesas.php");
+	// header("Location: ../app/app_mesas.php");
 
 	$conn->close();
 
