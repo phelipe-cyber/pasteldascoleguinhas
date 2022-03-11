@@ -36,59 +36,64 @@ $pedido = $_POST['pedido'];
 <?php
 include "./mvc/model/conexao.php";
 
-if ($pesquisa == ' ') {
-
 ?>
-    <input type="hidden" name="pedido" value="<?php echo $pedido ?>">
-    <input type="hidden" name="nomecliente" value="<?php echo $nomecliente ?>">
+<input type="hidden" name="pedido" value="<?php echo $pedido ?>">
+<input type="hidden" name="nomecliente" value="<?php echo $nomecliente ?>">
 
-    <?php
+<?php
 
+$tab_produtos = "SELECT * FROM produtos ";
 
-    $tab_produtos = "SELECT * FROM produtos ";
+$produtos = mysqli_query($conn, $tab_produtos);  ?>
 
-    $produtos = mysqli_query($conn, $tab_produtos);  ?>
+<div class="row" style="justify-content:center; align-items: center; width: 100%; ">
+            <!-- <div class="col-2"> -->
+            <!-- <div class="flex-center flex-column"> -->
+            <!-- <div class="card card-body"> -->
 
-    <div class="container-fluid">
-        <!-- <table class="table table-striped table-sm"> -->
-        <div class="table-responsive" style="overflow: auto; height: 400px">
-            <table class="table table-striped table-sm">
+            <!-- <div class="table-responsive"> -->
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive" cellspacing="0" width="100%">
+                <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Código</th>
-                        <th>Nome</th>
-                        <th>Categoria</th>
-                        <th>Estoque</th>
-                        <th>Preço Unitário</th>
-                        <th>Adicionar</th>
-                        <th class="text-center">Observação</th>
+
+                        <th class="th-sm">#</th>
+                        <!-- <th class="th-sm">Codigo</th> -->
+                        <th class="th-sm">Nome</th>
+                        <th class="th-sm">Categoria</th>
+                        <th class="th-sm">Preço Unitário</th>
+                        <th class="th-sm">Qtde.</th>
+                        <th class="th-sm">Observação</th>
 
                     </tr>
                 </thead>
-                <?php
-                while ($rows_produtos = mysqli_fetch_assoc($produtos)) { ?>
-                    <tbody>
+                <tbody>
+                    <?php
+                    $index = 0;
+                    while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
+                    ?>
+
                         <tr>
-                            <td><?php echo utf8_encode($rows_produtos['id']); ?></td>
-                            <td><?php echo utf8_encode($rows_produtos['codigo']); ?></td>
-                            <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b></td>
-                            <td><?php echo utf8_encode($rows_produtos['categoria']); ?></td>
-                            <td><?php echo utf8_encode($rows_produtos['estoque_atual']); ?></td>
-                            <td>R$ <?php echo utf8_encode($rows_produtos['preco_venda']); ?></td>
+                            <td><?php echo $rows_produtos['id']; ?>
 
+                            </td>
+                            <!-- <td><?php echo $rows_produtos['codigo']; ?></td> -->
+                            <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b>
+                                <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
+                            </td>
+                            <td><?php echo ($rows_produtos['categoria']); ?></td>
+                            <!-- <td><?php echo ($rows_produtos['estoque_atual']); ?></td> -->
+
+                            <td>R$ <?php echo ($rows_produtos['preco_venda']); ?>
+                                <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
+
+                            </td>
+                            <!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
                             <td>
-
-                                <div data-app="product.quantity" id="quantidade">
-
-                                    <input class="btn btn-danger btn-icon-split btn-sm" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
-                                    <input class="text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
-                                    <input class="btn btn-success btn-icon-split btn-sm" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
-
-                                    <!-- <button type="submit" class="btn btn-danger btn-icon-split btn-sm" >+</button> -->
-
-
-                                </div>
+                                <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
+                                <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
+                                <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
+                            </td>
 
                             <td>
 
@@ -96,149 +101,15 @@ if ($pesquisa == ' ') {
 
                             </td>
 
-                            </td>
-
-                            <!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idcliente="<?php echo $cliente; ?>" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
                         </tr>
-                    </tbody>
-                <?php } ?>
+
+                    <?php $index++;
+                    } ?>
 
 
+                </tbody>
             </table>
         </div>
-
-    <?php
-} else {
-
-    ?>
-        <input type="hidden" name="pedido" value="<?php echo $pedido ?>">
-        <input type="hidden" name="nomecliente" value="<?php echo $nomecliente ?>">
-
-        <?php
-
-
-        $tab_produtos = "SELECT * FROM produtos WHERE nome LIKE '%$pesquisa%' OR codigo LIKE '%$pesquisa%' OR categoria LIKE '%$pesquisa%'";
-
-        $produtos = mysqli_query($conn, $tab_produtos);
-
-        if (mysqli_num_rows($produtos) <= 0) { ?>
-
-            <div class="container-fluid">
-                <table class="table table-striped table-sm">
-                    <thead>
-                        <tr>
-                            <th>Código</th>
-                            <th>Nome</th>
-                            <th>Categoria</th>
-                            <th>Estoque</th>
-                            <th>Preço Unitário</th>
-                            <th>Ação</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <td>000</td>
-                        <td>"Nenhum encontrado..."</td>
-                        <td>Nenhuma</td>
-                        <td>000</td>
-                        <td>R$ 0.00</td>
-                        <td>
-                            <div class="row">
-
-                                <form method="POST" id="" action="" class="mb-10 text-center">
-                                    <input class="btn btn-outline-danger" type="submit" name="enviar" value="Voltar">
-                                    <input type="hidden" name="categoria" id="categoria" value="<?php echo utf8_encode($categoria); ?>">
-                                    <input type="hidden" name="mesa" id="mesa" value="<?php echo utf8_encode($mesa); ?>">
-                                    <input type="hidden" name="pesquisa" id="pesquisa" value=" ">
-                                    <input type="hidden" name="cliente" id="cliente" value="<?php echo utf8_encode($cliente); ?>">
-                                </form>
-                            </div>
-                        </td>
-                    </tbody>
-                </table>
-            </div>
-
-
-
-        <?php
-        } else {
-
-        ?>
-
-            <input type="hidden" name="pedido" value="<?php echo $pedido ?>">
-
-            <div class="container-fluid">
-                <div class="table-responsive" style="overflow: auto; height: 400px">
-                    <table class="table table-striped table-sm">
-                        <!-- <table class="table table-striped table-sm"> -->
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Categoria</th>
-                                <!-- <th>Estoque</th> -->
-                                <th>Preço Unitário</th>
-                                <th class="text-center">Qtde.</th>
-                                <th class="text-center">Observação</th>
-                            </tr>
-                        </thead>
-
-                        <?php
-                        $index = 0;
-                        while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
-                        ?>
-                            <tbody>
-                                <tr>
-                                    <td><?php echo $rows_produtos['id']; ?>
-
-                                    </td>
-                                    <td><?php echo $rows_produtos['codigo']; ?></td>
-                                    <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b>
-                                        <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
-                                    </td>
-                                    <td><?php echo ($rows_produtos['categoria']); ?></td>
-                                    <!-- <td><?php echo ($rows_produtos['estoque_atual']); ?></td> -->
-
-                                    <td>R$ <?php echo ($rows_produtos['preco_venda']); ?>
-                                        <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
-
-                                    </td>
-                                    <!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
-                                    <td>
-                                            <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
-                                            <input  class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
-                                            <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
-                                    </td>
-
-                                    <td>
-
-                                        <textarea name="detalhes[<?php echo $index ?>][observacoes]" class="form-control" id="observacoes"></textarea>
-
-                                    </td>
-
-                                </tr>
-                            </tbody>
-                        <?php $index++;
-                        } ?>
-                    </table>
-
-
-                </div>
-                <br>
-            </div>
-
-
-    <?php
-
-        }
-    }
-
-    ?>
-
-
-
-
-
 
     <!-- CRIA O SCRIPT JQUERY PARA TRATAR DOS DADOS QUE VEEM COM A CHAMADA DA REQUIZIÇÃO DO MODAL -->
     <script type="text/javascript">
