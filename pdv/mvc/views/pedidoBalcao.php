@@ -88,9 +88,9 @@ if ($mesa == 'delivery') {
     }
         ?>
         <div class="row" style="justify-content:center; align-items: center; width: 100%; ">
-            <div class="col-2">
-                <div class="flex-center flex-column">
-                    <div class="card card-body">
+            <!-- <div class="col-2"> -->
+                <!-- <div class="flex-center flex-column"> -->
+                    <!-- <div class="card card-body"> -->
 
                         <!-- <div class="table-responsive"> -->
                         <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive" cellspacing="0" width="100%">
