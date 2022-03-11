@@ -1,8 +1,6 @@
 <?php
-
-ini_set( 'display_errors', 0 );//oculta  erros
-
 session_start();
+ini_set( 'display_errors', 0 );//oculta  erros
 
 include "./mvc/model/conexao.php";
 date_default_timezone_set('America/recife');
