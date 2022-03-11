@@ -76,7 +76,7 @@ if ($total == 0) {
 
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
-	$alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`idpedido` = $id' ";
+	$alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`numeropedido` = $id' ";
 	$produto_excluido = mysqli_query($conn, $alterar_table);
 
 	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
@@ -112,7 +112,7 @@ if ($total == 0) {
 	// $exclude_table = "DELETE FROM pedido WHERE idmesa = '$id'";	
 	// $produto_excluido = mysqli_query($conn, $exclude_table);
 
-	$alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`idpedido` = '$id' ";
+	$alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`numeropedido` = '$id' ";
 	$produto_excluido = mysqli_query($conn, $alterar_table);
 
 
