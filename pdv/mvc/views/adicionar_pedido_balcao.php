@@ -4,7 +4,7 @@ include "./mvc/model/conexao.php";
 $id = $_POST['id'];
 
 //  $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
- $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
+$tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
 
 $pedidos = mysqli_query($conn, $tab_pedidos);
 
@@ -23,16 +23,22 @@ if ($status == 1 || $status == 2) { ?>
 	<h4 class="mb-10 text-center" style="font-size: 32px; color: green;">Cliente: <?php echo ($cliente); ?></h4>
 
 	<h4 class="mb-10 text-center">Pedido: <?php echo $id; ?></h4>
-	
-    <form method="POST" action="?view=novo_item">
-       
-        <h4 class="mb-10 text-center">
-            <button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target=""><b>Novo Item</b></button>
-        </h4>
 
-        <input type="hidden" name="pedido" value="<?php echo $id; ?>" >
-        <input type="hidden" name="nomecliente" value="<?php echo $cliente; ?>" >
-        
+	<form method="POST" action="?view=novo_item">
+
+		<h4 class="mb-10 text-center">
+			<button type="submit" class="btn btn-outline-success" data-toggle="modal" data-target=""><b>Novo Item</b></button>
+		</h4>
+
+		<input type="hidden" name="pedido" value="<?php echo $id; ?>">
+		<input type="hidden" name="nomecliente" value="<?php echo $cliente; ?>">
+
+	</form>
+
+	<form method="POST" action="/pdv/mvc/model/imprime_balcao.php" target="_blank">
+		<input name="id" type="hidden" value="<?php echo $id; ?>">
+		<input name="cliente" type="hidden" value="<?php echo $cliente; ?>">
+		<button type="submit" class="btn btn-outline-success">Imprimir</button>
 	</form>
 
 	<h4> Relação de Produtos :</h4>
@@ -106,7 +112,9 @@ if ($status == 1 || $status == 2) { ?>
 							<input name="total" type="hidden" value="<?php echo $total; ?>">
 							<button type="submit" class="btn btn-outline-danger">Fechar Mesa</button>
 						</form>
+
 					</th>
+
 				</tr>
 
 			</tbody>
@@ -119,8 +127,8 @@ if ($status == 1 || $status == 2) { ?>
 	<h3 class="display-12 text-center">Adicionar Pedido</h3>
 	<h4 class="mb-10 text-center">Pedido <?php echo $id; ?></h4>
 
-	
-   
+
+
 
 	<h4> Relação de Produtos :</h4>
 	<div class="table-responsive">
