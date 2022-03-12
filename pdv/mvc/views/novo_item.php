@@ -44,93 +44,9 @@ include "./mvc/model/conexao.php";
 
 $tab_produtos = "SELECT * FROM produtos ";
 
-$produtos = mysqli_query($conn, $tab_produtos);  ?>
+$produtos = mysqli_query($conn, $tab_produtos);  
 
-<div class="row" style="justify-content:center; align-items: center; width: 100%; ">
-            <!-- <div class="col-2"> -->
-            <!-- <div class="flex-center flex-column"> -->
-            <!-- <div class="card card-body"> -->
+include_once("table.php");
 
-            <!-- <div class="table-responsive"> -->
-            <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive" cellspacing="0" width="100%">
-                <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
-                <thead>
-                    <tr>
-
-                        <th class="th-sm">#</th>
-                        <!-- <th class="th-sm">Codigo</th> -->
-                        <th class="th-sm">Nome</th>
-                        <th class="th-sm">Categoria</th>
-                        <th class="th-sm">Preço Unitário</th>
-                        <th class="th-sm">Qtde.</th>
-                        <th class="th-sm">Observação</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $index = 0;
-                    while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
-                    ?>
-
-                        <tr>
-                            <td><?php echo $rows_produtos['id']; ?>
-
-                            </td>
-                            <!-- <td><?php echo $rows_produtos['codigo']; ?></td> -->
-                            <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b>
-                                <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
-                            </td>
-                            <td><?php echo ($rows_produtos['categoria']); ?></td>
-                            <!-- <td><?php echo ($rows_produtos['estoque_atual']); ?></td> -->
-
-                            <td>R$ <?php echo ($rows_produtos['preco_venda']); ?>
-                                <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
-
-                            </td>
-                            <!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
-                            <td>
-                                <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
-                                <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
-                                <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
-                            </td>
-
-                            <td>
-
-                                <textarea name="detalhes[<?php echo $index ?>][observacoes]" class="form-control" id="observacoes"></textarea>
-
-                            </td>
-
-                        </tr>
-
-                    <?php $index++;
-                    } ?>
-
-
-                </tbody>
-            </table>
-        </div>
-
-    <!-- CRIA O SCRIPT JQUERY PARA TRATAR DOS DADOS QUE VEEM COM A CHAMADA DA REQUIZIÇÃO DO MODAL -->
-    <script type="text/javascript">
-        $('#adiciona').on('show.bs.modal', function(event) {
-
-            var button = $(event.relatedTarget) // Button that triggered the modal
-
-            var recipientmesa = button.data('idmesa')
-            var recipientnome = button.data('idnome')
-            var recipientpreco = button.data('idpreco')
-            var recipientcliente = button.data('idcliente')
-
-
-
-            var modal = $(this)
-            modal.find('.modal-title').text('Mesa  ' + recipientmesa)
-            modal.find('#pedido').val(recipientnome)
-            modal.find('#preco_venda').val(recipientpreco)
-            modal.find('#id_mesa').val(recipientmesa)
-            modal.find('#cliente').val(recipientcliente)
-
-        })
-    </script>
+?>
     </form>
