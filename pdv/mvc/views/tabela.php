@@ -2,7 +2,7 @@
 
 include "./mvc/model/conexao.php";
 
-$tab_produtos = "SELECT * FROM produtos";
+$tab_produtos = "SELECT * FROM produtos ORDER BY `produtos`.`nome` ASC ";
 
 $produtos = mysqli_query($conn, $tab_produtos);
 // print_r($produtos);
