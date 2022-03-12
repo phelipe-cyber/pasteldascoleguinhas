@@ -3,7 +3,8 @@ include "./mvc/model/conexao.php";
 
 $id = $_POST['id'];
 
-$tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
+//  $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
+ $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
 
 $pedidos = mysqli_query($conn, $tab_pedidos);
 
