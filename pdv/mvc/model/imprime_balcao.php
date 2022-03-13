@@ -130,7 +130,7 @@
 </body>
 
 <script type="text/javascript">
-	//  window.print();
+	 window.print();
   </script>
 
 
@@ -138,7 +138,7 @@
      window.onload = function() { window.print(); } 
  </script> -->
 <?php
-    // echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';  
+    echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';  
 ?>
 
 </html>
