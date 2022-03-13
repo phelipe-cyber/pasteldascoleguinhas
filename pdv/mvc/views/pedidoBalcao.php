@@ -99,10 +99,7 @@ if ($mesa == 'delivery') {
                     <tr>
 
                         <th class="th-sm">#</th>
-                        <!-- <th class="th-sm">Codigo</th> -->
                         <th class="th-sm">Nome</th>
-                        <th class="th-sm">Categoria</th>
-                        <th class="th-sm">Preço Unitário</th>
                         <th class="th-sm">Qtde.</th>
                         <th class="th-sm">Observação</th>
 
@@ -118,18 +115,16 @@ if ($mesa == 'delivery') {
                             <td><?php echo $rows_produtos['id']; ?>
 
                             </td>
-                            <!-- <td><?php echo $rows_produtos['codigo']; ?></td> -->
-                            <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b>
+
+                            <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
                                 <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
-                            </td>
-                            <td><?php echo ($rows_produtos['categoria']); ?></td>
-                            <!-- <td><?php echo ($rows_produtos['estoque_atual']); ?></td> -->
-
-                            <td>R$ <?php echo ($rows_produtos['preco_venda']); ?>
+                                <p style="color: #4D4D4D;">
+                                    <b>
+                                        R$ <?php echo ($rows_produtos['preco_venda']); ?>
+                                    </b>
+                                </p>
                                 <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
-
                             </td>
-                            <!-- <td><button type="button" class="btn btn-info btn-icon-split btn-sm" data-idnome="<?php echo $rows_produtos['nome']; ?>" data-idmesa="<?php echo $mesa; ?>" data-idpreco="<?php echo $rows_produtos['preco_venda']; ?>" data-toggle="modal" data-target="#adiciona">Selecionar</button></td> -->
                             <td>
                                 <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
                                 <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
@@ -151,19 +146,19 @@ if ($mesa == 'delivery') {
                 </tbody>
             </table>
         </div>
-            <script>
-                $(document).ready(function() {
-                    $('#dtBasicExample').DataTable({
-                        // "pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
-                        // "ordering": false, // false to disable sorting (or any other option)
-                        "paging": false, // false to disable pagination (or any other option)
-                    });
-                })
-            </script>
-            <script type="text/javascript">
-                var var1 = document.getElementById("mensagem");
-                setTimeout(function() {
-                    var1.style.display = "none";
-                }, 5000)
-            </script>
+        <script>
+            $(document).ready(function() {
+                $('#dtBasicExample').DataTable({
+                    // "pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
+                    // "ordering": false, // false to disable sorting (or any other option)
+                    "paging": false, // false to disable pagination (or any other option)
+                });
+            })
+        </script>
+        <script type="text/javascript">
+            var var1 = document.getElementById("mensagem");
+            setTimeout(function() {
+                var1.style.display = "none";
+            }, 5000)
+        </script>
         </form>
