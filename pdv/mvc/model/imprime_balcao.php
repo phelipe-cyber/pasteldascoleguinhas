@@ -78,7 +78,7 @@
         ?>
         <hr>
             <?php
-               $valorTotal = "SELECT quantidade * SUM(valor) AS totalValor FROM pedido WHERE numeropedido = '$id'";
+              $valorTotal = "SELECT sum( quantidade * valor ) AS totalValor FROM pedido WHERE numeropedido = '$id'";
 
                 $pedido = mysqli_query($conn, $valorTotal);
 
@@ -130,14 +130,15 @@
 </body>
 
 <script type="text/javascript">
-	 window.print();
- </script> 
+	//  window.print();
+  </script>
+
 
 <!-- <script type="text/javascript"> 
      window.onload = function() { window.print(); } 
  </script> -->
 <?php
-    echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';  
+    // echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';  
 ?>
 
 </html>
