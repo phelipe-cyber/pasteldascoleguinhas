@@ -91,40 +91,8 @@
                 }
             ?>
         
-
-        <!-- <a class="text-center col-lg-2"><b>Nome:</b></a>
-        <a class="text-center"><?php echo $nome; ?></a><br><br>
-
-
-        <a class="text-center"><b>Bairro:</b></a>
-        <a class="text-center"><?php echo $bairro; ?></a><br><br>
-
-        <a class="text-center"><b>Complemento:</b></a>
-        <a class="text-center"><?php echo $complemento; ?></a><br><br>
-
-        <a class="text-center"><b>Ponto de Referência:</b></a>
-        <a class="text-center"><?php echo $pontoreferencia; ?></a><br><br>
-
-        <a class="text-center"><b>Telefone #1:</b></a>
-        <a class="text-center"><?php echo $tel1; ?></a><br><br>
-
-        <a class="text-center"><b>Telefone #2:</b></a>
-        <a class="text-center"><?php echo $tel2; ?></a><br><br>
-
-        <a class="text-center"><b>Condomínio:</b></a>
-        <a class="text-center"><?php echo $condominio; ?></a><br><br>
-
-        <a class="text-center"><b>Bloco/Edifício:</b></a>
-        <a class="text-center"><?php echo $blocoedificio; ?></a><br><br>
-
-        <a class="text-center"><b>Apartamento:</b></a>
-        <a class="text-center"><?php echo $apartamento; ?></a><br><br>
-
-        <a class="text-center"><b>Local da Entrega:</b></a>
-        <a class="text-center"><?php echo $local_entrega; ?></a><br><br>
-
-        <a class="text-center"><b>Observações:</b></a><br>
-        <a class="text-center"><?php echo $observacoes; ?></a><br><br> -->
+<br><br>
+      
     </div>
 
 </body>
