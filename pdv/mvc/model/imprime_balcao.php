@@ -56,8 +56,6 @@
             $subtotal = $valor * $quantidade;
             $total += $subtotal;
 
-            $totalGeral = $subtotal + $total;
-
             $i++;
 
             $total = number_format($total, 2); ?>
@@ -69,7 +67,6 @@
             <a class="text-center col-lg-2"><b>Quantidade:</b></a>
             <a class="text-center"><?php echo $quantidade; ?></a><br>
 
-            <a class="text-center col-lg-2"><b>Total :</b></a>
             <a class="text-center"><b>R$ <?php echo $total; ?></b></a><br>
 
             <a class="text-center col-lg-2"><b>Obs. :</b><?php echo $obs; ?></a>
@@ -81,17 +78,19 @@
         ?>
         <hr>
             <?php
-                $valorTotal = "SELECT SUM(valor) AS totalValor FROM pedido WHERE numeropedido LIKE '%$id%'";
+               $valorTotal = "SELECT SUM(valor) AS totalValor FROM pedido WHERE numeropedido = '$id'";
 
                 $pedido = mysqli_query($conn, $valorTotal);
 
                 while ($rows_clientes = mysqli_fetch_assoc($pedido)) {
                    $Total = $rows_clientes['totalValor'];
+                   ?>
+                   <a class="text-center"><b>Valor Total do pedido:</b></a>
+                   <a class="text-center">R$: <?php echo number_format($Total, 2); ?></a><br><br>
+                   <?php
                 }
             ?>
         
-        <a class="text-center"><b>Valor Total do pedido:</b></a>
-        <a class="text-center"><?php echo $Total; ?></a><br><br>
 
         <!-- <a class="text-center col-lg-2"><b>Nome:</b></a>
         <a class="text-center"><?php echo $nome; ?></a><br><br>
@@ -130,15 +129,15 @@
 
 </body>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	 window.print();
- </script> 
+ </script>  -->
 
-<script type="text/javascript"> 
+<!-- <script type="text/javascript"> 
      window.onload = function() { window.print(); } 
- </script>
+ </script> -->
 <?php
-    echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';  
+    // echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';  
 ?>
 
 </html>
