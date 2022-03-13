@@ -65,8 +65,6 @@
 
                     <th class="th-sm">#</th>
                     <th class="th-sm">Nome</th>
-                    <th class="th-sm">Categoria</th>
-                    <th class="th-sm">Preço Unitário</th>
                     <th class="th-sm">Qtde.</th>
                     <th class="th-sm">Observação</th>
 
@@ -83,16 +81,15 @@
 
                         </td>
 
-                        <td style="color: #4D4D4D;"><b><?php echo ($rows_produtos['nome']); ?></b>
-                            <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
-                        </td>
-                        <td><?php echo ($rows_produtos['categoria']); ?></td>
-
-
-                        <td>R$ <?php echo ($rows_produtos['preco_venda']); ?>
-                            <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
-
-                        </td>
+                        <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
+                                <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
+                                <p style="color: #4D4D4D;">
+                                    <b>
+                                        R$ <?php echo ($rows_produtos['preco_venda']); ?>
+                                    </b>
+                                </p>
+                                <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
+                            </td>
                         <td>
                             <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
                             <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
