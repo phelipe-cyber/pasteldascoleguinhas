@@ -177,6 +177,11 @@ $usuario = $_SESSION['user'];
           <i class="fas fa-fw fa-user"></i>
           <span>Clientes</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/pdv/?view=cnpjPix">
+          <i class="fas fa-fw fa-user"></i>
+          <span>CNPJ - PIX</span></a>
+      </li>
 
 
 
