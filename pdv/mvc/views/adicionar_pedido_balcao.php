@@ -18,7 +18,7 @@ $cliente = $mesas['cliente'];
 
 $status = $mesas['status'];
 
-if ($status == 1 || $status == 2) { ?>
+if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 
 	<h4 class="mb-10 text-center" style="font-size: 32px; color: green;">Cliente: <?php echo ($cliente); ?></h4>
 
