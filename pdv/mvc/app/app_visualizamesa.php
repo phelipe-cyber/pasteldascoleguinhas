@@ -25,7 +25,7 @@
 	$hora = $_GET['hora'];
 
 	
-	$tab_pedido = "SELECT * FROM pedido WHERE idmesa = $id";
+	$tab_pedido = "SELECT * FROM pedido WHERE idmesa = $id and `status` <>  4";
 
 	$pedidos = mysqli_query($conn, $tab_pedido);
 
