@@ -19,6 +19,7 @@
 		
 	?>
 		<form method="POST" action="?view=persistir_fechamento">
+			
 	 	<input type="hidden" name="idmesa" id="idmesa" value="<?php echo $idmesa; ?>"> <?php
 		// exit();
 	?>

@@ -96,7 +96,7 @@ $usuario = $_SESSION['user'];
       <li class="nav-item active">
         <a class="nav-link"  href="/pdv/?view=todosPedidoBalcao">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Visializar Pedidos - Balcão</span></a>
+          <span>Ver Pedidos - Balcão</span></a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=delivery">

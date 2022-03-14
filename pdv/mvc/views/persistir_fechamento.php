@@ -68,14 +68,13 @@ if ($total == 0) {
 	}
 
 	 $tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $idmesa";
-	$mesas = mysqli_query($conn, $tab_mesas);
+	 $mesas = mysqli_query($conn, $tab_mesas);
 
 	$insert_table = "INSERT INTO vendas (valor, cliente, data, rendimento, pgto) VALUES ('$venda', '$cliente', '$data', 'Mesa', '$pgto')";		
 	$produtos_editados = mysqli_query($conn, $insert_table);
-
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
-	$alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`numeropedido` = '$id' ";
+	 $alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`numeropedido` = '$id' ";
 	$produto_excluido = mysqli_query($conn, $alterar_table);
 
 	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
