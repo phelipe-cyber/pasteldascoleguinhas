@@ -7,21 +7,20 @@
 
 	$total = $_POST['total'];
 
-
- $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = '$id' ";
+	$tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = '$id' group by numeropedido ";
 
 	$pedidos = mysqli_query($conn, $tab_pedidos);
 
 	 while ($rows_pedidos = mysqli_fetch_assoc($pedidos)) { 
 	 
-		// print_r($rows_pedidos);
-
-		  $idmesa = $rows_pedidos['idmesa'];	 
-		 
+		 $idmesa = $rows_pedidos['idmesa'];
 		
 	}
-	?> <input type="hidden" name="idmesa" id="idmesa" value="<?php echo $idmesa; ?>"> <?php
-	// exit();
+		
+	?>
+		<form method="POST" action="?view=persistir_fechamento">
+	 	<input type="hidden" name="idmesa" id="idmesa" value="<?php echo $idmesa; ?>"> <?php
+		// exit();
 	?>
 
 
@@ -30,7 +29,6 @@
   	<!-- Earnings (Monthly) Card Example -->
   	<div class="col-xl-6 col-md-6 mb-4">
 
-  		<form method="POST" action="?view=persistir_fechamento">
   			<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 35px; background: #00739b; color: white; padding: 0%; ">Pagamento Mesa <?php echo $id; ?></label>
   			<div class="row" style="padding: 1%;">
   				<div class="form-group col-md-12">

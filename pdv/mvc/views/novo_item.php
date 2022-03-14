@@ -32,6 +32,8 @@
     <div class="row">
         <h4 class="col-lg-3">
             <label for="">Pedido: <?php echo $pedido ?></label>
+            <br>    
+            <label for="">Cliente: <?php echo $nomecliente ?></label>
         </h4>
     </div>
 
@@ -41,7 +43,7 @@
 
     ?>
     <input type="hidden" name="pedido" value="<?php echo $pedido ?>">
-    <input type="hidden" name="nomecliente" value="<?php echo $nomecliente ?>">
+    <input type="hidden" name="cliente" value="<?php echo $nomecliente ?>">
     
         <input class="btn btn-outline-success" type="submit" name="enviar" value="Incluir no Pedido">
       

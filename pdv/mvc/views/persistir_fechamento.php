@@ -5,8 +5,6 @@ ini_set( 'display_errors', 0 );//oculta  erros
 include "./mvc/model/conexao.php";
 date_default_timezone_set('America/recife');
 
-print_r($_POST);
-echo "<br>";
 $id = $_POST['id'];//id da mesa
 
 $data = date('d/m/Y');
@@ -38,6 +36,8 @@ $venda = $total;
 $total = $total - $valor_pago;
 
 $pgto = $_POST['pgto'];
+
+$idmesa = $_POST['idmesa'];
 
 
 if ($total == 0) {
