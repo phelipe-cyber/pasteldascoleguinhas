@@ -5,6 +5,8 @@ ini_set( 'display_errors', 0 );//oculta  erros
 include "./mvc/model/conexao.php";
 date_default_timezone_set('America/recife');
 
+print_r($_POST);
+echo "<br>";
 $id = $_POST['id'];//id da mesa
 
 $data = date('d/m/Y');
@@ -65,12 +67,12 @@ if ($total == 0) {
 		}
 	}
 
-	$tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $id";
-	$mesas = mysqli_query($conn, $tab_mesas);
+	echo $tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $idmesa";
+	// $mesas = mysqli_query($conn, $tab_mesas);
 
 	$insert_table = "INSERT INTO vendas (valor, cliente, data, rendimento, pgto) VALUES ('$venda', '$cliente', '$data', 'Mesa', '$pgto')";		
-	$produtos_editados = mysqli_query($conn, $insert_table);
-
+	// $produtos_editados = mysqli_query($conn, $insert_table);
+exit();
 
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
@@ -114,7 +116,7 @@ if ($total == 0) {
 	$produto_excluido = mysqli_query($conn, $alterar_table);
 
 
-	$tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $id";
+	$tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $idmesa";
 	$mesas = mysqli_query($conn, $tab_mesas);
 
 	$insert_table = "INSERT INTO vendas (valor, cliente, data, rendimento, pgto) VALUES ('$venda', '$cliente', '$data', 'Mesa', '$pgto')";	

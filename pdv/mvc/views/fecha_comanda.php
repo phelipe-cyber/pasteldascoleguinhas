@@ -8,11 +8,20 @@
 	$total = $_POST['total'];
 
 
-	$tab_pedidos = "SELECT * FROM pedido WHERE idmesa = $id";
+ $tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = '$id' ";
 
 	$pedidos = mysqli_query($conn, $tab_pedidos);
 
+	 while ($rows_pedidos = mysqli_fetch_assoc($pedidos)) { 
+	 
+		// print_r($rows_pedidos);
 
+		  $idmesa = $rows_pedidos['idmesa'];	 
+		 
+		
+	}
+	?> <input type="hidden" name="idmesa" id="idmesa" value="<?php echo $idmesa; ?>"> <?php
+	// exit();
 	?>
 
 
@@ -226,12 +235,13 @@
   							<div class="col mr-2">
   								<div class=" font-weight-bold text-uppercase mb-1"><?php echo $rows_produtos['produto']; ?></div>
   								<div class="h5 mb-0 font-weight-bold text-danger-800" style="color: red;">R$ <?php echo $rows_produtos['valor']; ?></div>
-  							</div>
-
-
-  						</div>
-  					</div>
-  				</div>
+								  <input type="text" name="idmesa" id="idmesa" value="<?php echo $rows_produtos['idmesa']; ?>">
+							</div>
+							
+							
+						</div>
+					</div>
+				</div>
 
   			<?php } ?>
 
