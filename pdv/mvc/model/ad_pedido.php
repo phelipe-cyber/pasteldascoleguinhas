@@ -17,8 +17,12 @@ $cliente = $_POST['cliente'];
 $detalhes =  $_POST['detalhes'];
 $mesa =  $_POST['mesa'];
 
-// print_r($_POST);
-// exit();
+
+if($mesa == 'delivery'){
+  $status = 5;
+}else{
+  $status = 1;
+}
 
 foreach ($detalhes as $detalhesPedidos) {
 
@@ -55,8 +59,8 @@ foreach ($detalhes as $detalhesPedidos) {
   $numeropedido = $novo_pedido;
 
 
- $insert_table = "INSERT INTO pedido ( numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) 
- VALUES ('$numeropedido','','$cliente', '$mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '' )";
+ $insert_table = "INSERT INTO pedido ( numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta, status) 
+ VALUES ('$numeropedido','','$cliente', '$mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '', $status )";
 
 //  echo $insert_table;
 //  echo "<br>";
@@ -65,10 +69,10 @@ foreach ($detalhes as $detalhesPedidos) {
   $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
   $update_pedido = mysqli_query($conn, $update_table);
  
-  header("Location: /pdv/?view=Dashboard1");
+  header("Location: /pdv/?view=pedidos_delivery");
 
   $conn->close();
 
-  echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=Dashboard1'>";
+  echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=pedidos_delivery'>";
   $_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Pedido para $id_mesa cadastrado com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 }

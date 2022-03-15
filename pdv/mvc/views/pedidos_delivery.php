@@ -8,8 +8,9 @@
 <div class="row" style="background: grey; color: white; padding: 5px;">
 	<h4 class="col-lg-2 text-center">Cliente</h4>
 	<h4 class="col-lg-1 text-center">Quantidade</h4>
-	<h4 class="col-lg-3 text-center">Pedido</h4>
-	<h4 class="col-lg-2 text-center">Valor</h4>
+	<h4 class="col-lg-2 text-center">Pedido</h4>
+	<h4 class="col-lg-1 text-center">Valor</h4>
+	<h4 class="col-lg-4 text-center">Status</h4>
 </div>
 
  
@@ -20,7 +21,22 @@ include "./mvc/model/conexao.php";
 $idpedido = '';
 $total = 0;
 
-	$tab_cliente = "SELECT * FROM pedido WHERE  idmesa LIKE 'delivery'";
+	$SelectNovoPedido = "SELECT * FROM pedido where `idmesa` = 'delivery' and `status` = 5 group by numeropedido";
+
+    $mysqli_query = mysqli_query($conn, $SelectNovoPedido);
+
+    $num_rows = mysqli_num_rows($mysqli_query);
+    print_r($num_rows);
+    if ($num_rows  = 1) {
+    ?>
+        <audio src="https://cdns-preview-8.dzcdn.net/stream/821246fb5d7e2ff6975f65ef7460a708-0.mp3" type="audio/wav" id="audio" autoplay="false" autostart="false"></audio>
+    <?php
+    }else{
+
+	}
+
+
+	$tab_cliente = "SELECT * FROM pedido WHERE  idmesa = 'delivery' ";
 
 	$pedido = mysqli_query($conn, $tab_cliente) or die(mysqli_error($conn));
 
@@ -89,8 +105,18 @@ $total = 0;
 }
 ?>
 			<h5 class="col-lg-1 text-center"><?php echo $rows_clientes['quantidade'];?></h5>
-			<h5 class="col-lg-3 text-center"><?php echo $rows_clientes['produto'];?></h5>
-			<h5 class="col-lg-2 text-center" style="color: red;">R$ <?php echo $total;?></h5>
+			<h5 class="col-lg-2 text-center"><?php echo $rows_clientes['produto'];?></h5>
+			<h5 class="col-lg-1 text-center" style="color: red;">R$ <?php echo $total;?></h5>
+
+					
+
+			<form method="POST" action="mvc/model/confirma_delivery.php">
+				<input type="hidden" name="idpedido" id="idpedido" value="<?php echo $rows_clientes['idpedido'];?>">
+				<input type="hidden" name="cliente" id="cliente" value="<?php echo $rows_clientes['cliente'];?>">
+				<button type="submit" class="btn btn-success col-lg-12 text-center" style="color: black;">Aceitar Pedido</button>
+			</form>
+
+			<h1 style="color: black;">0</h1>
 
 			<form method="POST" action="mvc/model/confirma_delivery.php">
 				<input type="hidden" name="idpedido" id="idpedido" value="<?php echo $rows_clientes['idpedido'];?>">

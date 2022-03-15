@@ -76,7 +76,7 @@ if ($i == 1) {
 
 
         //inicia a seleção da tabela pedido
-        $tab_pedido = "SELECT * FROM pedido WHERE idmesa = $id_mesa";
+        $tab_pedido = "SELECT * FROM pedido WHERE idmesa = $id_mesa and `status` <> 4";
         $pedido = mysqli_query($conn, $tab_pedido);
 
         $total = 0;
