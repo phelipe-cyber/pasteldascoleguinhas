@@ -15,16 +15,18 @@
     // exit();
     $id = $_POST['id'];
     $cliente = $_POST['cliente'];
+    $cliente = $_POST['cliente'];
+    $pgto = $_POST['pgto'];
+
     ?>
     <h3 class="text-center">Pedido - Balcão</h3>
 
     <div class="row">
-
+        <a class="text-center col-lg-2"><b>Forma de Pgto: </b><?php echo $pgto; ?></a><br>
+        <!-- <a class="text-center"><b><?php echo $pgto; ?></b><br> -->
+        <hr>
         <a class="text-center col-lg-2"><b>Pedido #<?php echo $id ?>:</b></a><br>
-
-        
         <a class="text-center col-lg-2"><b>Cliente: </b><?php echo $cliente ?></a><br>
-
 
         <?php
 
@@ -52,6 +54,7 @@
             $obs = $rows_clientes['observacao'];
             $numeropedido = $rows_clientes['numeropedido'];
             $totalValor = $rows_clientes['totalValor'];
+            $pgto = $rows_clientes['pgto'];
 
             $subtotal = $valor * $quantidade;
             $total += $subtotal;
@@ -77,36 +80,36 @@
 
         ?>
         <hr>
-            <?php
-              $valorTotal = "SELECT sum( quantidade * valor ) AS totalValor FROM pedido WHERE numeropedido = '$id'";
+        <?php
+        $valorTotal = "SELECT sum( quantidade * valor ) AS totalValor FROM pedido WHERE numeropedido = '$id'";
 
-                $pedido = mysqli_query($conn, $valorTotal);
+        $pedido = mysqli_query($conn, $valorTotal);
 
-                while ($rows_clientes = mysqli_fetch_assoc($pedido)) {
-                   $Total = $rows_clientes['totalValor'];
-                   ?>
-                   <a class="text-center"><b>Valor Total do pedido:</b></a>
-                   <a class="text-center">R$: <?php echo number_format($Total, 2); ?></a><br><br>
-                   <?php
-                }
-            ?>
-        
-<br><br>
-      
+        while ($rows_clientes = mysqli_fetch_assoc($pedido)) {
+            $Total = $rows_clientes['totalValor'];
+        ?>
+            <a class="text-center"><b>Valor Total do pedido:</b></a>
+            <a class="text-center">R$: <?php echo number_format($Total, 2); ?></a><br><br>
+        <?php
+        }
+        ?>
+
+        <br><br>
+
     </div>
 
 </body>
 
-<script type="text/javascript">
-	 window.print();
-  </script>
+<!-- <script type="text/javascript"> -->
+    <!-- window.print(); -->
+<!-- </script> -->
 
 
 <!-- <script type="text/javascript"> 
      window.onload = function() { window.print(); } 
  </script> -->
 <?php
-    echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';  
+// echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';
 ?>
 
 </html>

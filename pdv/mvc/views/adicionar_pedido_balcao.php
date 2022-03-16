@@ -18,6 +18,9 @@ $cliente = $mesas['cliente'];
 
 $status = $mesas['status'];
 
+$pgto = $mesas['pgto'];
+
+
 if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 
 	<h4 class="mb-10 text-center" style="font-size: 32px; color: green;">Cliente: <?php echo ($cliente); ?></h4>
@@ -32,12 +35,15 @@ if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 
 		<input type="hidden" name="pedido" value="<?php echo $id; ?>">
 		<input type="hidden" name="nomecliente" value="<?php echo $cliente; ?>">
+		<input type="hidden" name="pgto" value="<?php echo $pgto; ?>">
 
 	</form>
 
 	<form method="POST" action="/pdv/mvc/model/imprime_balcao.php" target="_blank">
 		<input name="id" type="hidden" value="<?php echo $id; ?>">
 		<input name="cliente" type="hidden" value="<?php echo $cliente; ?>">
+		<input name="pgto" type="hidden" value="<?php echo $pgto; ?>">
+
 		<button type="submit" class="btn btn-outline-success">Imprimir</button>
 	</form>
 

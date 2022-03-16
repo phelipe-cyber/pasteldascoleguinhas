@@ -13,7 +13,7 @@ $hora_pedido = date('H:i');
 $detalhes =  $_POST['detalhes'];
 $cliente = ($_POST['cliente']);
 $cliente_2 = ($_POST['cliente']);
-
+$pgto = $_POST['pgto'];
 
 foreach ($detalhes as $detalhesPedidos) {
 
@@ -31,8 +31,8 @@ foreach ($detalhes as $detalhesPedidos) {
 //   print_r($cliente);
 //   exit();
 
-   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) VALUES
-  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '' )";
+   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto ,usuario, gorjeta) VALUES
+  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes','$pgto','$user', '' )";
   
   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
@@ -81,6 +81,7 @@ $hora_pedido = date('H:i');
 $detalhes =  $_POST['detalhes'];
 $cliente = ($_POST['cliente']);
 $cliente_2 = ($_POST['cliente']);
+$pgto = ($_POST['pgto']);
 
 foreach ($detalhes as $detalhesPedidos) {
 
@@ -98,8 +99,8 @@ foreach ($detalhes as $detalhesPedidos) {
 //   print_r($cliente);
 //   exit();
 
-  $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta) VALUES
-  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '' )";
+  $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, gorjeta) VALUES
+  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$pgto','$user', '' )";
   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";

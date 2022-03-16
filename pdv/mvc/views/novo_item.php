@@ -24,6 +24,7 @@
     $cliente = $_POST['cliente'];
     $nomecliente = $_POST['nomecliente'];
     $pedido = $_POST['pedido'];
+    $pgto = $_POST['pgto'];
 
     ?>
 
@@ -44,6 +45,7 @@
     ?>
     <input type="hidden" name="pedido" value="<?php echo $pedido ?>">
     <input type="hidden" name="cliente" value="<?php echo $nomecliente ?>">
+    <input type="hidden" name="pgto" value="<?php echo $pgto ?>">
     
         <input class="btn btn-outline-success" type="submit" name="enviar" value="Incluir no Pedido">
       

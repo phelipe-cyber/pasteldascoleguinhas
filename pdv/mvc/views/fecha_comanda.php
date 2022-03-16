@@ -14,6 +14,7 @@
 	 while ($rows_pedidos = mysqli_fetch_assoc($pedidos)) { 
 	 
 		 $idmesa = $rows_pedidos['idmesa'];
+		 $pgto = $rows_pedidos['pgto'];
 		
 	}
 		
@@ -30,7 +31,7 @@
   	<!-- Earnings (Monthly) Card Example -->
   	<div class="col-xl-6 col-md-6 mb-4">
 
-  			<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 35px; background: #00739b; color: white; padding: 0%; ">Pagamento Mesa <?php echo $id; ?></label>
+  			<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 35px; background: #00739b; color: white; padding: 0%; ">Pedido: <?php echo $id; ?></label>
   			<div class="row" style="padding: 1%;">
   				<div class="form-group col-md-12">
   					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: gray; color: white; ">Total Fatura R$ </label>
@@ -167,35 +168,6 @@
 
   			</div>
 
-  			<div class="row">
-
-  				<div class="form-group col-md-3">
-  					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
-  						<label class="form-check-label" for="Dinheiro">Dinheiro</label>
-  					</div>
-  				</div>
-  				<div class="form-group col-md-3">
-  					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Cartão Debito" id="Cartao_Debito">
-  						<label class="form-check-label" for="Cartao_Debito">Cartão Debito</label>
-  					</div>
-  				</div>
-  				<div class="form-group col-md-3">
-  					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Cartão Credito" id="Cartao_credito">
-  						<label class="form-check-label" for="Cartao_credito">Cartão Credito</label>
-  					</div>
-  				</div>
-  				<div class="form-group col-md-3">
-  					<div class="form-check">
-  						<input name="pgto" class="form-check-input" type="checkbox" value="Pix" id="pix">
-  						<label class="form-check-label" for="pix">Pix</label>
-  					</div>
-  				</div>
-
-  			</div>
-
   			<button class="form-group col-md-12 btn btn-success" type="submit" style="font-size: 30px;">Efetuar Pagamento</button>
 
   		</form>
@@ -210,6 +182,9 @@
   					<div class="card-body">
   						<div class="row no-gutters align-items-center">
   							<div class="col mr-2">
+  								<div class=" font-weight-bold text-uppercase mb-1">Forma de Pagamento</div>
+  								<div>*** <?php echo $pgto; ?> ***</div>
+		  						 <input name="pgto" class="form-control" type="hidden" value="Dinheiro" id="Dinheiro">
   								<div class=" font-weight-bold text-uppercase mb-1">Total</div>
   								<div>R$ <?php echo number_format($total, 2); ?></div>
   							</div>

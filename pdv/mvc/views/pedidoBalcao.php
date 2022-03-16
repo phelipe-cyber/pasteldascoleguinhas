@@ -51,6 +51,9 @@ $tab_produtos = "SELECT * FROM produtos ";
 
 $produtos = mysqli_query($conn, $tab_produtos);
 
+
+
+
 if ($mesa == 'delivery') {
 ?>
     <form action="mvc/model/ad_pedido.php" method="POST">
@@ -81,6 +84,36 @@ if ($mesa == 'delivery') {
                     <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
                 </h4>
             </div>
+    <br>
+            <div class="row">
+
+                <div class="form-group col-md-1">
+                    <div class="form-check">
+                        <input name="pgto" class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
+                        <label class="form-check-label" for="Dinheiro">Dinheiro</label>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <div class="form-check">
+                        <input name="pgto" class="form-check-input" type="checkbox" value="Cartão Debito" id="Cartao_Debito">
+                        <label class="form-check-label" for="Cartao_Debito">Cartão Debito</label>
+                    </div>
+                </div>
+                <div class="form-group col-md-2">
+                    <div class="form-check">
+                        <input name="pgto" class="form-check-input" type="checkbox" value="Cartão Credito" id="Cartao_credito">
+                        <label class="form-check-label" for="Cartao_credito">Cartão Credito</label>
+                    </div>
+                </div>
+                <div class="form-group col-md-1">
+                    <div class="form-check">
+                        <input name="pgto" class="form-check-input" type="checkbox" value="Pix" id="pix">
+                        <label class="form-check-label" for="pix">Pix</label>
+                    </div>
+                </div>
+
+            </div>
+
 
             <input class="btn btn-outline-success" type="submit" name="enviar" value="Finalizar Pedido">
 
