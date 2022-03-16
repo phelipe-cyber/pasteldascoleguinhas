@@ -23,9 +23,9 @@ $hora_pedido = date('H:i');
 //    $mesa = $_GET['mesa'];
 $usuarioid = $_SESSION['usuarioid'];
 
-$numeropedido = $_POST['numeropedido'];
+echo $numeropedido = $_POST['numeropedido'];
 
-// exit();
+exit();
 
 $result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido`ORDER BY numeropedido DESC limit 1 ");
 $recebidos = mysqli_query($conn, $result_usuarios);
@@ -48,8 +48,7 @@ if ($pedido == null) {
     }
 };
 
-$numeropedido = $pedido;
-
+	$numeropedido = $pedido;
 
 	echo "Pedido: " . $numeropedido;
 
