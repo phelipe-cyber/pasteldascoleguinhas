@@ -26,42 +26,34 @@ $usuarioid = $_SESSION['usuarioid'];
 $numeropedido = $_POST['numeropedido'];
 
 // exit();
-if ($numeropedido == "") {
 
-	// echo "Vazio";
+$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido`ORDER BY numeropedido DESC limit 1 ");
+$recebidos = mysqli_query($conn, $result_usuarios);
 
-	$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido' FROM `pedido` ORDER BY numeropedido DESC limit 1");
-	$recebidos = mysqli_query($conn, $result_usuarios);
+while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
 
-	while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
-
-		$pedido = $row_usuario['Pedido'];
-	}
-
-	if ($pedido == null) {
-
-		$pedido = "1001";
-	} else {
-
-		$result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC limit 1 ");
-		$recebidos = mysqli_query($conn, $result_usuarios);
-
-		while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
-
-			$pedido = $row_usuario['Pedido'];
-		}
-	};
-
-	$numeropedido = $pedido;
+    $pedido = $row_usuario['Pedido'];
+}
+if ($pedido == null) {
+    $pedido = "1001";
 } else {
 
-	$numeropedido = $_POST['numeropedido'];
 
-}
+    $result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC limit 1 ");
+    $recebidos = mysqli_query($conn, $result_usuarios);
 
-	// echo "Pedido: " . $numeropedido;
+    while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
 
-	//    exit();
+        $pedido = $row_usuario['Pedido'];
+    }
+};
+
+$numeropedido = $pedido;
+
+
+	echo "Pedido: " . $numeropedido;
+
+	   exit();
 
 	$user =  $_SESSION['user'];
 	$cliente = $_POST['cliente'];
