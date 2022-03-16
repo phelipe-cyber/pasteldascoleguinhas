@@ -80,11 +80,14 @@ if ($mesa == 'delivery') {
             <!-- <input type="hidden" name="cliente" id="cliente" value="<?php echo $cliente; ?>"> -->
             <div class="row">
                 <h4 class="col-lg-7">
-                    <label for="">Cliente:</label>
+                    <label for="">* Cliente:</label>
                     <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
                 </h4>
             </div>
-    <br>
+    
+         <b>
+            <label for="">* Forma de Pagamento:</label>
+        </b>
             <div class="row">
 
                 <div class="form-group col-md-1">
