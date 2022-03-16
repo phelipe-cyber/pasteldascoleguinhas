@@ -56,9 +56,9 @@ $detalhes = $_POST['detalhes'];
 
    }
    
-//    echo "Pedido: ". $numeropedido;
+   echo "Pedido: ". $numeropedido;
 
-//    exit();
+   exit();
   
    $user =  $_SESSION['user'];
 	$cliente = $_POST['cliente'];
