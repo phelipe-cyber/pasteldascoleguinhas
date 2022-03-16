@@ -136,7 +136,7 @@ if($_SESSION['login'] == 0){?>
 	}
 	else{
 
-		$view = 'Dashboard1';
+		$view = 'pedidoBalcao';
 		//carrega uma pagina de erro ou em branco
 	}
 
