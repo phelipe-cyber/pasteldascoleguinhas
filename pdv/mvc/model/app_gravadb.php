@@ -98,11 +98,9 @@ if($numeropedido == "" ){
 	
 	$conn->close();
 	
+};
 	?>
 
-}
-
-			
 
 
 
