@@ -28,7 +28,7 @@ $detalhes = $_POST['detalhes'];
 // exit();
    if($numeropedido == ""){
 
-	$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido`");
+	$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC ");
 	$recebidos = mysqli_query($conn, $result_usuarios);
 	
 	while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
@@ -39,7 +39,7 @@ $detalhes = $_POST['detalhes'];
 		$pedido = "1001";
 	} else {
 	
-		$result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ");
+		$result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC ");
 		$recebidos = mysqli_query($conn, $result_usuarios);
 	
 		while ($row_usuario = mysqli_fetch_assoc($recebidos)) {

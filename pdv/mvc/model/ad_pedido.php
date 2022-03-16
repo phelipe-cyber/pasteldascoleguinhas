@@ -36,7 +36,7 @@ foreach ($detalhes as $detalhesPedidos) {
     continue;
 
 
-  $result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido`");
+  $result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC ");
   $recebidos = mysqli_query($conn, $result_usuarios);
 
   while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
@@ -47,7 +47,7 @@ foreach ($detalhes as $detalhesPedidos) {
     $novo_pedido = "1001";
   } else {
 
-    $result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ");
+    $result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC ");
     $recebidos = mysqli_query($conn, $result_usuarios);
 
     while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
