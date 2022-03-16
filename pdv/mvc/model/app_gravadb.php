@@ -28,7 +28,7 @@ $numeropedido = $_POST['numeropedido'];
 // exit();
 if ($numeropedido == "") {
 
-	echo "Vazio";
+	// echo "Vazio";
 
 	$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido' FROM `pedido` ORDER BY numeropedido DESC limit 1");
 	$recebidos = mysqli_query($conn, $result_usuarios);
@@ -59,9 +59,9 @@ if ($numeropedido == "") {
 
 }
 
-	echo "Pedido: " . $numeropedido;
+	// echo "Pedido: " . $numeropedido;
 
-	   exit();
+	//    exit();
 
 	$user =  $_SESSION['user'];
 	$cliente = $_POST['cliente'];
