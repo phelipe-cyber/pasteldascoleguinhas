@@ -18,23 +18,23 @@ if ($login != null && $senha != null) {
 
 			$_SESSION['login'] = 1;
 			$_SESSION['user'] = $login;
-			header("Location: /pdv/?view=Dashboard1");
+			header("Location: /pdv/?view=pedidoBalcao");
 		}else{
 
 			$_SESSION['login'] = 0;
 			$_SESSION['msg'] = "<div class='alert alert-info' role='alert'>Sua senha e login estão corretos! <br> Porém voçê não tem acesso ao sistema pdv, somente ao aplicativo!</div>";
-			header("Location: /pdv/?view=Dashboard1");
+			header("Location: /pdv/?view=pedidoBalcao");
 		}
 
 
 	}else{
 		$_SESSION['login'] = 0;
 		$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Erro ao fazer login <br> Verifique a sua senha e o seu login ! </div>";
-		header("Location: /pdv/?view=Dashboard1");
+		header("Location: /pdv/?view=pedidoBalcao");
 	}
 }else{
 	$_SESSION['msg'] = "<div class='alert alert-danger' role='alert'>Não foi possivel fazer login pois a senha ou o login estão em branco ! </div>";
-	header("Location: /pdv/?view=Dashboard1");
+	header("Location: /pdv/?view=pedidoBalcao");
 }
 
 
