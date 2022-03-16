@@ -53,7 +53,7 @@ $_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Pedido para $
 }else{
 
 
-$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido`ORDER BY numeropedido DESC ");
+$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido`ORDER BY numeropedido DESC limit 1 ");
 $recebidos = mysqli_query($conn, $result_usuarios);
 
 while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
@@ -65,7 +65,7 @@ if ($pedido == null) {
 } else {
 
 
-    $result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC ");
+    $result_usuarios = ("SELECT MAX(numeropedido)+1 as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC limit 1 ");
     $recebidos = mysqli_query($conn, $result_usuarios);
 
     while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
