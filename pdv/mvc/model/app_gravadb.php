@@ -85,10 +85,6 @@ if ($numeropedido == "") {
 } else {
 
 
-	echo "Pedido: " . $numeropedido;
-
-	exit();
-
 	$user =  $_SESSION['user'];
 	$cliente = $_POST['cliente'];
 
