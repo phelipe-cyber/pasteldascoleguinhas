@@ -57,11 +57,11 @@ if ($numeropedido == "") {
 
 	$numeropedido = $_POST['numeropedido'];
 
-
+}
 
 	echo "Pedido: " . $numeropedido;
 
-	//    exit();
+	   exit();
 
 	$user =  $_SESSION['user'];
 	$cliente = $_POST['cliente'];
@@ -91,7 +91,7 @@ if ($numeropedido == "") {
 	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
 
 	$conn->close();
-}
+
 ?>
 
 
