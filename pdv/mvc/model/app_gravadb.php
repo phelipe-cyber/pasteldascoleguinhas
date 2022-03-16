@@ -27,7 +27,7 @@ $usuarioid = $_SESSION['usuarioid'];
 
 if($numeropedido == "" ){
 
-	echo "Pedido: " . $numeropedido;
+	echo "Pedido Vazio: " . $numeropedido;
 
 	   exit();
 
