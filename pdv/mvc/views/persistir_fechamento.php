@@ -71,8 +71,7 @@ if ($total == 0) {
 	 $mesas = mysqli_query($conn, $tab_mesas);
 
 	$insert_table = "INSERT INTO vendas ( id_pedido, valor, cliente, data, rendimento, pgto) VALUES ( '$id', '$venda', '$cliente', '$data', 'Mesa', '$pgto')";
-	echo $insert_table;
-	exit();
+
 	$produtos_editados = mysqli_query($conn, $insert_table);
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
