@@ -7,7 +7,7 @@ date_default_timezone_set('America/recife');
 
 $id = $_POST['id'];//id da mesa
 
-$data = date('Y-m-d H:m:s');
+$data = date('d/m/Y');
 
 $total = $_POST['total'];
 
