@@ -14,7 +14,7 @@ date_default_timezone_set('America/recife');
 $detalhes = $_POST['detalhes'];
 
 $hora_pedido = date('H:i');
-$data = date('Y-m-d h:m:s');
+$data = date('Y-m-d H:m:s');
 
 //    $nome = $_GET['nome'];
 //    $preco = $_GET['preco'];

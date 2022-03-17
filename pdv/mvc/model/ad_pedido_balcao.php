@@ -10,7 +10,7 @@ if( $_POST['pedido'] <> ""){
 
 $user =  $_SESSION['user'];
 $hora_pedido = date('H:i');
-$data = date('Y-m-d h:m:s');
+$data = date('Y-m-d H:m:s');
 $detalhes =  $_POST['detalhes'];
 $cliente = ($_POST['cliente']);
 $cliente_2 = ($_POST['cliente']);
@@ -35,6 +35,9 @@ foreach ($detalhes as $detalhesPedidos) {
    $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto ,usuario, `data` gorjeta) VALUES
   ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes','$pgto','$user', '$data','' )";
   
+  echo $insert_table;
+  exit();
+
   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
@@ -76,9 +79,11 @@ if ($pedido == null) {
 };
 
 $numeropedido = $pedido;
+date_default_timezone_set('America/recife');
 
 $user =  $_SESSION['user'];
 $hora_pedido = date('H:i');
+$data = date('Y-m-d H:m:s');
 $detalhes =  $_POST['detalhes'];
 $cliente = ($_POST['cliente']);
 $cliente_2 = ($_POST['cliente']);
@@ -102,6 +107,8 @@ foreach ($detalhes as $detalhesPedidos) {
 
   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, `data` ,gorjeta) VALUES
   ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$pgto','$user','$data' ,'' )";
+ echo $insert_table;
+  exit();
   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
