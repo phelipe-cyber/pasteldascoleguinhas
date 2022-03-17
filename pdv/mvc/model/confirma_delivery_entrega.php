@@ -6,8 +6,7 @@ $cliente = $_POST['cliente'];
 $idpedido = $_POST['idpedido'];
 date_default_timezone_set('America/recife');
 
-$data = date('Y/m/d h:m:s');
-
+$data = date('Y-m-d h:m:s');
 
 $total = 0;
  
