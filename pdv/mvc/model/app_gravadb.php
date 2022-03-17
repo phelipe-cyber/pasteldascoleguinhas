@@ -14,6 +14,7 @@ date_default_timezone_set('America/recife');
 $detalhes = $_POST['detalhes'];
 
 $hora_pedido = date('H:i');
+$data = date('Y-m-d h:m:s');
 
 //    $nome = $_GET['nome'];
 //    $preco = $_GET['preco'];
@@ -25,6 +26,7 @@ $hora_pedido = date('H:i');
 $usuarioid = $_SESSION['usuarioid'];
 
 $numeropedido = $_POST['numeropedido'];
+
 
 if ($numeropedido == "") {
 
@@ -70,7 +72,7 @@ if ($numeropedido == "") {
 			continue;
 
 		$insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta, `status`) VALUES
-	 ('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '', 2 )";
+	 	('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '', 2 )";
 		$adiciona_pedido = mysqli_query($conn, $insert_table);
 	}
 
