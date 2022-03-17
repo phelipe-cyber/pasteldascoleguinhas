@@ -40,7 +40,8 @@ if (isset($escolha)) {
 		</form>
 
 <?php }if ($escolha == 2) {
-		$data = date('d/m/Y');
+		$data = date('Y/m/d h:m:s');
+		
 		?>
 
 		<h1 class="text-center" >Controle Financeiro</h1>
@@ -122,7 +123,8 @@ if (isset($escolha)) {
 
 		<?php
 	}if ($escolha == 3) {
-		$data = date('d/m/Y');
+		$data = date('Y/m/d h:m:s');
+
 		?>
 
 

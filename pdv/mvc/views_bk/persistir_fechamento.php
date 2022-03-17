@@ -8,7 +8,7 @@ include_once "mvc/model/conexao.php";
 
 $id = $_POST['id'];//id da mesa
 
-$data = date('d/m/Y');
+$data = date('Y/m/d h:m:s');
 
 $total = $_POST['total'];
 
