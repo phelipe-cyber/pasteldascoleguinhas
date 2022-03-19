@@ -42,7 +42,7 @@ foreach ($detalhes as $detalhesPedidos) {
 
 };
 
-// header("Location: /pdv/?view=todosPedidoBalcao");
+header("Location: /pdv/?view=todosPedidoBalcao");
 $conn->close();
 
 
@@ -112,7 +112,7 @@ foreach ($detalhes as $detalhesPedidos) {
 
 };
 
-// header("Location: /pdv/?view=todosPedidoBalcao");
+header("Location: /pdv/?view=todosPedidoBalcao");
 $conn->close();
 
 
