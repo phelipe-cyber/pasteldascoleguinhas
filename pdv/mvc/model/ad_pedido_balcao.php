@@ -38,7 +38,7 @@ foreach ($detalhes as $detalhesPedidos) {
   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
-  $adiciona_pedido = mysqli_query($conn, $insert_table);
+  $adiciona_pedido_2 = mysqli_query($conn, $insert_table);
 
 };
 
@@ -108,7 +108,7 @@ foreach ($detalhes as $detalhesPedidos) {
  $adiciona_pedido = mysqli_query($conn, $insert_table);
   
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
-  $adiciona_pedido = mysqli_query($conn, $insert_table);
+  $adiciona_pedido_2 = mysqli_query($conn, $insert_table);
 
 };
 
