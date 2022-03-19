@@ -32,9 +32,9 @@ foreach ($detalhes as $detalhesPedidos) {
 //   print_r($cliente);
 //   exit();
 
-   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto ,usuario, `data` gorjeta) VALUES
+   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto ,usuario, `data`, gorjeta) VALUES
   ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes','$pgto','$user', '$data','' )";
-  
+ 
   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
@@ -102,10 +102,10 @@ foreach ($detalhes as $detalhesPedidos) {
 //   print_r($cliente);
 //   exit();
 
-  $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, `data` ,gorjeta) VALUES
+ echo $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, `data` , gorjeta) VALUES
   ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$pgto','$user','$data' ,'' )";
- 
- $adiciona_pedido = mysqli_query($conn, $insert_table);
+ exit();
+   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
   $insert_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
   $adiciona_pedido_2 = mysqli_query($conn, $insert_table);
@@ -116,7 +116,7 @@ foreach ($detalhes as $detalhesPedidos) {
 $conn->close();
 
 
-echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=pedidoBalcao'>";
+// echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=pedidoBalcao'>";
 $_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Pedido para $cliente_2 cadastrado com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
 }
