@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 	?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -24,8 +25,12 @@
 
 	$hora = $_GET['hora'];
 
+	$id_pedido = $_GET['id_pedido'];
 	
- $tab_pedido = "SELECT * FROM pedido WHERE idmesa = $id and `status` <> 4 ";
+	$user = $_SESSION['user'];
+
+	
+ $tab_pedido = "SELECT * FROM pedido WHERE numeropedido = $id_pedido and `status` <> 4 ";
 
 	$pedidos = mysqli_query($conn, $tab_pedido);
 

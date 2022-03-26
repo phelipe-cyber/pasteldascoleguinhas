@@ -66,7 +66,7 @@ foreach ($detalhes as $detalhesPedidos) {
 //  echo "<br>";
   $adiciona_pedido = mysqli_query($conn, $insert_table);
 
-  $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = $id_mesa";
+  $update_table = "UPDATE mesas SET status = '2', nome = '$cliente', id_pedido = '$numeropedido' WHERE id_mesa = $id_mesa";
   $update_pedido = mysqli_query($conn, $update_table);
  
   header("Location: /pdv/?view=pedidos_delivery");

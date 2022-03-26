@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-// print_r($_POST);
-// exit();
 ?>
 
 <link href="../common/css/bootstrap.min.css" rel="stylesheet" />
@@ -24,10 +22,12 @@ $data = date('Y-m-d H:m:s');
 //    $categoria = $_GET['categoria'];
 //    $mesa = $_GET['mesa'];
 $usuarioid = $_SESSION['usuarioid'];
-
 $numeropedido = $_POST['numeropedido'];
+$id_pedido = $_POST['id_pedido'];
 
+$user =  $_SESSION['user'];
 
+// exit();
 if ($numeropedido == "") {
 
 
@@ -71,17 +71,17 @@ if ($numeropedido == "") {
 		if ($quantidade == 0)
 			continue;
 
-		$insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta, `status`) VALUES
-	 	('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '', 2 )";
+	   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, data, gorjeta, `status`) VALUES
+	 	('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data' ,'', 2 )";
 		$adiciona_pedido = mysqli_query($conn, $insert_table);
+		
+		$update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
+		$update_table = mysqli_query($conn, $update_table);
+		
+		echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
+		
+		// $conn->close();
 	}
-
-	$update_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = '$id_mesa' ";
-	$update_table = mysqli_query($conn, $update_table);
-
-	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
-
-	$conn->close();
 
 
 	exit();
@@ -105,17 +105,17 @@ if ($numeropedido == "") {
 		if ($quantidade == 0)
 			continue;
 
-		$insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, usuario, gorjeta, `status`) VALUES
-	 ('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$user', '', 2 )";
-		$adiciona_pedido = mysqli_query($conn, $insert_table);
+		$insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, data, gorjeta, `status`) VALUES
+			('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data' ,'', 2 )";
+		   $adiciona_pedido = mysqli_query($conn, $insert_table);
+		   
+		   $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
+		   $update_table = mysqli_query($conn, $update_table);
+		
+		echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
+		
+		$conn->close();
 	}
-
-	$update_table = "UPDATE mesas SET status = '2', nome = '$cliente' WHERE id_mesa = '$id_mesa' ";
-	$update_table = mysqli_query($conn, $update_table);
-
-	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
-
-	$conn->close();
 };
 ?>
 

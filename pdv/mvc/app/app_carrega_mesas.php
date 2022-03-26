@@ -17,19 +17,19 @@ $i = $_SESSION['loginapp'];
 if ($i == 1) {
 ?>
 
-  <div class="row" style="background: #2d3339; height: 13%;">
+  <div class="row" style="background: #2d3339; height: 4%;">
 
-    <h3 class="mb-12 " style="background: #2d3339; width: 5%; "></h3>
+    <h6 class="mb-12" style="background: #2d3339; width: 1%; "></h6>
     <a style="background: #2d3339; height: 100%; width: 23%; color: white;" type="button" href="/pdv/?views=Dashboard1" class="btn btn-outline-light">
-      <h4>Menu</h4>
+      <h6>Menu</h6>
     </a>
 
-    <h3 class="mb-12 " style="background: #2d3339; width: 16%; "></h3>
+    <h6 class="mb-12 " style="background: #2d3339; width: 16%; "></h6>
 
-    <h4 class="mb-12 text-center" style="color: white; width: 20%; ">Mesas</h4>
+    <h6 class="mb-12 text-center" style="color: white; width: 20%; ">Mesas</h6>
 
     <a style="background: #2d3339; height: 100%; width: 23%; color: white;" type="button" href="/pdv/mvc/app/app_logout.php" data-toggle="modal" data-target="#logoutModal" class="btn btn-outline-light">
-      <h4>Logout</h4>
+      <h6>Logout</h6>
     </a>
 
     <h3 class="mb-12 " style="background: #2d3339; width: 36%; "></h3>
@@ -57,6 +57,10 @@ if ($i == 1) {
         $nome = utf8_encode($rows_mesas['nome']);
         $id_mesa = $rows_mesas['id_mesa'];
 
+        $id_pedido = $rows_mesas['id_pedido'];
+        $cliente = $rows_mesas['nome'];
+
+
 
         if ($rows_mesas['status'] == 1) {
           $cor = 'card bg-success';
@@ -76,12 +80,10 @@ if ($i == 1) {
 
 
         //inicia a seleção da tabela pedido
-        $tab_pedido = "SELECT * FROM pedido WHERE idmesa = $id_mesa and `status` <> 4";
+        $tab_pedido = "SELECT * FROM pedido WHERE numeropedido = $id_pedido and `status` <> 4";
         $pedido = mysqli_query($conn, $tab_pedido);
 
         $total = 0;
-
-
 
         while ($row = mysqli_fetch_assoc($pedido)) {
 
@@ -99,6 +101,10 @@ if ($i == 1) {
 
             //recebe a hora do ultimo pedido
             $hora = $row['hora_pedido'];
+            
+            $id_pedido = $row['numeropedido'];
+
+            $cliente = $row['cliente'];
             
             
         } else {
@@ -120,12 +126,15 @@ if ($i == 1) {
 
             <div class=" <?php echo $cor; ?> text-white shadow">
               <div class="card-body" style="text-align: center;">
-                <h4 class="mb-10 text-center">Mesa <?php echo $id_mesa; ?></h4>
+                <h4 class="mb-10 text-center">Mesa <?php echo $id_mesa ?></h4>
+
                 <button type="submit" class="btn  btn-outline-light" style="text-align: center;" data-toggle="modal"> Abrir <?php echo $rows_mesas['id_mesa']; ?></button>
               </div>
             </div>
 
 
+            <input name="id_pedido" type="hidden" id="id_pedido" value="<?php echo $id_pedido; ?>">
+            <input name="cliente" type="hidden" id="cliente" value="<?php echo $nome; ?>">
             <input name="id" type="hidden" id="id" value="<?php echo $rows_mesas['id_mesa']; ?>">
             <input name="total" type="hidden" id="total" value="<?php echo $total; ?>">
             <input name="hora" type="hidden" id="hora" value="<?php echo $hora; ?>">

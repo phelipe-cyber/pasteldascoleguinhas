@@ -67,16 +67,17 @@ if ($total == 0) {
 		}
 	}
 
-	 $tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $idmesa";
-	 $mesas = mysqli_query($conn, $tab_mesas);
+	$tab_mesas = "UPDATE mesas SET status = '1', nome = '', id_pedido = 0 WHERE id_mesa = $idmesa";
+	
+	$mesas = mysqli_query($conn, $tab_mesas);
 
 	$insert_table = "INSERT INTO vendas ( id_pedido, valor, cliente, data, rendimento, pgto) VALUES ( '$id', '$venda', '$cliente', '$data', 'Mesa', '$pgto')";
 
 	$produtos_editados = mysqli_query($conn, $insert_table);
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
-	 $alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`numeropedido` = '$id' ";
-	$produto_excluido = mysqli_query($conn, $alterar_table);
+	 $alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `numeropedido` = '$id' ";
+	 $produto_excluido = mysqli_query($conn, $alterar_table);
 
 	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
 	$_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Comanda da Mesa encerrada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
@@ -115,7 +116,7 @@ if ($total == 0) {
 	$produto_excluido = mysqli_query($conn, $alterar_table);
 
 
-	$tab_mesas = "UPDATE mesas SET nome = '', status = '1'  WHERE id_mesa = $idmesa";
+	$tab_mesas = "UPDATE mesas SET nome = '$cliente', status = '1'  WHERE id_mesa = $idmesa";
 	$mesas = mysqli_query($conn, $tab_mesas);
 
 	$insert_table = "INSERT INTO vendas (id_pedido, valor, cliente, data, rendimento, pgto) VALUES ('$id','$venda', '$cliente', '$data', 'Mesa', '$pgto')";	
