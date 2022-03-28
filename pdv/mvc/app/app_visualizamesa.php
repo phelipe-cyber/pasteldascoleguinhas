@@ -46,9 +46,9 @@
 ?>
 
 
-<div class="row" style="background: #2d3339; height: 13%;">
+<div class="row" style="background: #2d3339; height: 1%;">
 
-	<h3 class="mb-12 " style="background: #2d3339; width: 5%; " ></h3>
+	<h3 class="mb-12 " style="background: #2d3339; width: 1%; " ></h3>
 	<a style="background: #2d3339; height: 100%; width: 23%; color: white;" type="button" href="app_mesas.php" class="btn btn-outline-light"><h4>Voltar</h4></a>
 	<h3 class="mb-12 " style="background: #2d3339; width: 16%; " ></h3>
 

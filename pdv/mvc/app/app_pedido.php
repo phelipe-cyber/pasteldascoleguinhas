@@ -57,10 +57,11 @@ session_start();
     ?>
 
 
-      <div class="row" style="background: #2d3339; height: 13%;">
+      <div class="row" style="background: #2d3339; height: 4%;">
 
-        <h3 class="mb-12 " style="background: #2d3339; width: 5%; "></h3>
-        <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_categoria.php?id=<?php echo $id; ?>" class="btn btn-outline-light">
+        <h3 class="mb-12 " style="background: #2d3339; width: 1%; "></h3>
+        <!-- <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_categoria.php?id=<?php echo $id; ?>" class="btn btn-outline-light"> -->
+        <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_mesas.php" class="btn btn-outline-light">
           <h6>voltar</h6>
         </a>
         <h3 class="mb-12 " style="background: #2d3339; width: 16%; "></h3>
@@ -128,7 +129,7 @@ session_start();
                 <thead>
                     <tr>
 
-                        <th class="th-sm">#</th>
+                        <!-- <th class="th-sm">#</th> -->
                         <th class="th-sm">Nome</th>
                         <th class="th-sm">Qtde.</th>
                         <th class="th-sm">Observação</th>
@@ -142,7 +143,7 @@ session_start();
                     ?>
 
                         <tr>
-                            <td style="width:10px" ><?php echo $rows_produtos['id']; ?></td>
+                            <!-- <td style="width:10px" ><?php echo $rows_produtos['id']; ?></td> -->
 
                             <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
                                 <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
