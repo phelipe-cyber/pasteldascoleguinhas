@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+// print_r($_POST);
+// exit();
 ?>
 
 <link href="../common/css/bootstrap.min.css" rel="stylesheet" />
@@ -25,9 +26,13 @@ $usuarioid = $_SESSION['usuarioid'];
 $numeropedido = $_POST['numeropedido'];
 $id_pedido = $_POST['id_pedido'];
 
+$id_mesa = $_POST['id'];
+
 $user =  $_SESSION['user'];
 
+// echo($numeropedido);
 // exit();
+
 if ($numeropedido == "") {
 
 
@@ -60,7 +65,7 @@ if ($numeropedido == "") {
 	foreach ($detalhes as $detalhesPedidos) {
 
 		$nome = $detalhesPedidos['nome'];
-		$id_mesa = $detalhesPedidos['id'];
+		// $id_mesa = $_GET['id'];
 		$preco_venda = $detalhesPedidos['preco'];
 		// $cliente = $detalhesPedidos['cliente'];
 		$quantidade = $detalhesPedidos['quantidade'];
@@ -75,12 +80,12 @@ if ($numeropedido == "") {
 	 	('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data' ,'', 2 )";
 		$adiciona_pedido = mysqli_query($conn, $insert_table);
 		
-		$update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
+	 $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
 		$update_table = mysqli_query($conn, $update_table);
-		
-		echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
-		
+
+		// echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
 		// $conn->close();
+
 	}
 
 
@@ -94,7 +99,7 @@ if ($numeropedido == "") {
 	foreach ($detalhes as $detalhesPedidos) {
 
 		$nome = $detalhesPedidos['nome'];
-		$id_mesa = $detalhesPedidos['id'];
+		// $id_mesa = $_GET['id'];
 		$preco_venda = $detalhesPedidos['preco'];
 		// $cliente = $detalhesPedidos['cliente'];
 		$quantidade = $detalhesPedidos['quantidade'];
@@ -108,13 +113,12 @@ if ($numeropedido == "") {
 		$insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, data, gorjeta, `status`) VALUES
 			('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data' ,'', 2 )";
 		   $adiciona_pedido = mysqli_query($conn, $insert_table);
-		   
-		   $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
+
+		    $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
 		   $update_table = mysqli_query($conn, $update_table);
 		
-		echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
-		
-		$conn->close();
+		// echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
+		// $conn->close();
 	}
 };
 ?>
