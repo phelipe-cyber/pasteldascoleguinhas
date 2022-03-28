@@ -11,6 +11,22 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App - Pedido</title>
 </head>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
 <body>
 
@@ -22,13 +38,13 @@ session_start();
     $mesa = $_GET['mesa'];
     $cliente = $_GET['cliente'];
     $id = $_GET['id'];
-   $numeropedido = $_GET['numeropedido'];
-   
+    $numeropedido = $_GET['numeropedido'];
+
 
 
     include_once "../model/conexao.php";
 
-    $tab_produtos = "SELECT * FROM produtos WHERE categoria = '$categoria'";
+    $tab_produtos = "SELECT * FROM produtos ";
 
     $produtos = mysqli_query($conn, $tab_produtos);
 
@@ -40,11 +56,12 @@ session_start();
 
     ?>
 
+
       <div class="row" style="background: #2d3339; height: 13%;">
 
         <h3 class="mb-12 " style="background: #2d3339; width: 5%; "></h3>
         <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_categoria.php?id=<?php echo $id; ?>" class="btn btn-outline-light">
-          <h4>voltar</h4>
+          <h6>voltar</h6>
         </a>
         <h3 class="mb-12 " style="background: #2d3339; width: 16%; "></h3>
 
@@ -54,6 +71,7 @@ session_start();
 
 
       </div>
+      <div class="row"  style="padding: 39px;" >
 
       <?php
 
@@ -64,24 +82,27 @@ session_start();
           <h4 class="col-lg-7">
             <label for="">Cliente:</label>
             <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>" >
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>">
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
+         
           </h4>
         </div>
       <?php
 
       } else {
 
-        ?>
+      ?>
         <div class="row">
           <h4 class="col-lg-7">
             <label for="">Cliente:</label>
             <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="<?php echo $cliente ?>">
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>" >
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>">
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
 
           </h4>
         </div>
       <?php
-        
+
       }
 
       ?>
@@ -93,88 +114,100 @@ session_start();
 
       <h3 class="col-lg-6 text-center" style="color: black;"><?php echo $categoria; ?></h3>
 
+      <div>
+
+      
+      <div class="row" style="">
+            <!-- <div class="col-2"> -->
+            <!-- <div class="flex-center flex-column"> -->
+            <!-- <div class="card card-body"> -->
+
+            <!-- <div class="table-responsive"> -->
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive" cellspacing="0" width="100%">
+                <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
+                <thead>
+                    <tr>
+
+                        <th class="th-sm">#</th>
+                        <th class="th-sm">Nome</th>
+                        <th class="th-sm">Qtde.</th>
+                        <th class="th-sm">Observação</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $index = 0;
+                    while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
+                    ?>
+
+                        <tr>
+                            <td style="width:10px" ><?php echo $rows_produtos['id']; ?></td>
+
+                            <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
+                                <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
+                                <p style="color: #4D4D4D;">
+                                    <b>
+                                        R$ <?php echo ($rows_produtos['preco_venda']); ?>
+                                    </b>
+                                </p>
+                                <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
+                            </td>
+                            <td>
+                              <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
+                              <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
+                              <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
+                            </td>
+
+                            <td>
+
+                                <textarea name="detalhes[<?php echo $index ?>][observacoes]" class="form-control" id="observacoes"></textarea>
+
+                            </td>
+
+                        </tr>
+
+                    <?php $index++;
+                    } ?>
 
 
-      <table class="table">
-        <thead>
-          <tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('#dtBasicExample').DataTable({
+                    // "pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
+                    // "ordering": false, // false to disable sorting (or any other option)
+                    "paging": false, // false to disable pagination (or any other option)
+                });
+            })
+        </script>
 
-            <th class="col-lg-1 "><b>Nome</b> </th>
-            <th class="col-lg-1 "><b>Estq</b> </th>
-            <th class="col-lg-1 "><b>Preço Unitário</b> </th>
-            <th class="col-lg-1 "><b>Qtde.</b> </th>
-            <th class="col-lg-1 "><b>Obs.</b> </th>
-          </tr>
-        </thead>
-
-
-        <?php
-        $index = 0;
-        while ($rows_produtos = mysqli_fetch_assoc($produtos)) { ?>
-          <tbody>
-            <tr>
-
-              <td style="color: #ac4549;"><b><?php echo $rows_produtos['nome']; ?></b></td>
-
-              <td><?php echo $rows_produtos['estoque_atual']; ?></td>
-              <td>R$ <?php echo $rows_produtos['preco_venda']; ?></td>
-              <td>
-
-                <!-- <form method="GET" action="app_finalizar.php"> -->
-                <!-- <form method="GET" action="app_gravadb.php"> -->
-
-                <input type="hidden" name="detalhes[<?= $index ?>][id_produto]" id="id_produto" value="<?php echo $rows_produtos['id']; ?>">
-                <input type="hidden" name="detalhes[<?= $index ?>][id]" id="id" value="<?php echo $id; ?>">
-                <input type="hidden" name="detalhes[<?= $index ?>][nome]" id="nome" value="<?php echo utf8_encode($rows_produtos['nome']); ?>">
-                <input type="hidden" name="detalhes[<?= $index ?>][mesa]" id="mesa" value="<?php echo "Mesa " . $mesa ?>">
-                <input type="hidden" name="detalhes[<?= $index ?>][preco]" id="preco" value="<?php echo $rows_produtos['preco_venda']; ?>">
-                <input type="hidden" name="detalhes[<?= $index ?>][cliente]" id="cliente" value="<?php echo $cliente; ?>">
-                <input type="hidden" name="detalhes[<?= $index ?>][categoria]" id="categoria" value="<?php echo $categoria; ?>">
-                <!-- <button type="submit" class="btn btn-danger btn-icon-split btn-sm" >+</button> -->
-
-                <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
-                <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
-                <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
-
-              </td>
-              <td>
-                <textarea name="detalhes[<?php echo $index ?>][observacoes]" class="form-control" id="observacoes"></textarea>
-
-              </td>
-  </form>
-  </tr>
-  </tbody>
-<?php $index++;
-        } ?>
+      <!-- Extra large modal -->
+      <div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            sair
+          </div>
+        </div>
+      </div>
 
 
-</table>
-
-
-<!-- Extra large modal -->
-<div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      sair
-    </div>
-  </div>
-</div>
-
-
-<?php } else {
-?>
-  <script>
-    window.location.href = 'app_login.php'
-  </script>
-<?php
+    <?php } else {
+    ?>
+      <script>
+        window.location.href = 'app_login.php'
+      </script>
+    <?php
       // header('Location: app_login.php');
     }
-?>
+    ?>
 
 
-<script src="../common/js/jquery-3.3.1.slim.min.js"></script>
-<script src="../common/js/popper.min.js"></script>
-<script src="../common/js/bootstrap.min.js"></script>
+    <script src="../common/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../common/js/popper.min.js"></script>
+    <script src="../common/js/bootstrap.min.js"></script>
 
 </body>
 
