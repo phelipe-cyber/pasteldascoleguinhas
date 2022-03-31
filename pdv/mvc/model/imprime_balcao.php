@@ -100,16 +100,24 @@
 
 </body>
 
-<script type="text/javascript">
-     window.print();
- </script>
+<!-- <script type="text/javascript"> -->
+     <!-- window.print(); -->
+ <!-- </script> -->
+
+<!-- <script> -->
+     <!-- window.close(); -->
+<!-- </script> -->
 
 <script>
-     window.close();
+    window.print();
+    window.addEventListener("afterprint", function(event) { window.close(); });
+    window.onafterprint();
 </script>
-<!-- <script type="text/javascript"> 
-     window.onload = function() { window.print(); } 
- </script> -->
+
+<!-- <script type="text/javascript">  -->
+     <!-- window.onload = function() { window.print(); }  -->
+ <!-- </script> -->
+
 <?php
 // echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';
 ?>
