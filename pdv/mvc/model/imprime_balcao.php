@@ -104,11 +104,14 @@
      window.print();
  </script>
 
+<script>
+     window.close();
+</script>
 <!-- <script type="text/javascript"> 
      window.onload = function() { window.print(); } 
  </script> -->
 <?php
-echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';
+// echo '<meta http-equiv="refresh" content="0;URL=/pdv/?view=todosPedidoBalcao" />';
 ?>
 
 </html>
