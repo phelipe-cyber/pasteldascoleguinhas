@@ -101,14 +101,11 @@
 </body>
 
 
-<!-- <script>
+<script>
     window.print();
     window.addEventListener("afterprint", function(event) { window.close(); });
     window.onafterprint();
-</script> -->
-
-<script>
-    window.matchMedia("print").addListener(function() {alert("Print Dialog open.")})
 </script>
+
 
 </html>
