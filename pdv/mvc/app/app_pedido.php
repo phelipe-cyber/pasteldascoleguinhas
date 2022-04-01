@@ -11,6 +11,12 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App - Pedido</title>
 </head>
+
+<body>
+
+  <!-- <link href="../common/css/bootstrap.min.css" rel="stylesheet" /> -->
+
+  <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 <!-- Bootstrap core CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
@@ -28,9 +34,6 @@ session_start();
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
-<body>
-
-  <link href="../common/css/bootstrap.min.css" rel="stylesheet" />
   <form method="POST" action="../model/app_gravadb.php">
     <?php
 
@@ -38,7 +41,7 @@ session_start();
     $mesa = $_GET['mesa'];
     $cliente = $_GET['cliente'];
     $id_pedido = $_GET['id_pedido'];
-   
+
     $id = $_GET['id'];
     $numeropedido = $_GET['numeropedido'];
 
@@ -61,7 +64,7 @@ session_start();
 
         <h3 class="mb-12 " style="background: #2d3339; width: 1%; "></h3>
         <!-- <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_categoria.php?id=<?php echo $id; ?>" class="btn btn-outline-light"> -->
-        <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_mesas.php" class="btn btn-outline-light">
+        <a style="background: #2d3339; height: 100%; width: 45%; color: white; " type="button" href="app_mesas.php" class="btn btn-outline-light">
           <h6>voltar</h6>
         </a>
         <h3 class="mb-12 " style="background: #2d3339; width: 16%; "></h3>
@@ -72,53 +75,52 @@ session_start();
 
 
       </div>
-      <div class="row"  style="padding: 39px;" >
+      <div class="row" style="padding: 39px;">
 
-      <?php
+        <?php
 
-      if ($id_pedido == "") {
+        if ($id_pedido == "") {
 
-      ?>
-        <div class="row">
-          <h4 class="col-lg-7">
-            <label for="">Cliente:</label>
-            <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $id_pedido ?>">
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
-         
-          </h4>
-        </div>
-      <?php
+        ?>
+          <div class="row">
+            <h4 class="col-lg-7">
+              <label for="">Cliente:</label>
+              <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
+              <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $id_pedido ?>">
+              <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
 
-      } else {
+            </h4>
+          </div>
+        <?php
 
-      ?>
-        <div class="row">
-          <h4 class="col-lg-7">
-            <label for="">Cliente:</label>
-            <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="<?php echo $cliente ?>">
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $id_pedido ?>">
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
+        } else {
 
-          </h4>
-        </div>
-      <?php
+        ?>
+          <div class="row">
+            <h4 class="col-lg-7">
+              <label for="">Cliente:</label>
+              <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="<?php echo $cliente ?>">
+              <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $id_pedido ?>">
+              <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
 
-      }
+            </h4>
+          </div>
+        <?php
 
-      ?>
+        }
+
+        ?>
 
 
-      <div class="mb-12 " style=" height: 5%;"></div>
+        <div class="mb-12 " style=" height: 5%;"></div>
 
-      <input class="btn btn-outline-success" type="submit" name="enviar" value="Finalizar Pedido">
+        <input class="btn btn-outline-success" type="submit" name="enviar" value="Finalizar Pedido">
 
-      <h3 class="col-lg-6 text-center" style="color: black;"><?php echo $categoria; ?></h3>
+        <h3 class="col-lg-6 text-center" style="color: black;"><?php echo $categoria; ?></h3>
 
-      <div>
-
-      
-      <div class="row" style="">
+      </div>
+        
+        <div class="table-responsive">
             <!-- <div class="col-2"> -->
             <!-- <div class="flex-center flex-column"> -->
             <!-- <div class="card card-body"> -->
@@ -128,9 +130,7 @@ session_start();
                 <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
                 <thead>
                     <tr>
-
-                        <!-- <th class="th-sm">#</th> -->
-                        <th class="th-sm">Produto</th>
+                        <th class="th-sm">Nome</th>
                         <th class="th-sm">Qtde.</th>
                         <th class="th-sm">Observação</th>
 
@@ -143,8 +143,6 @@ session_start();
                     ?>
 
                         <tr>
-                            <!-- <td style="width:10px" ><?php echo $rows_produtos['id']; ?></td> -->
-
                             <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
                                 <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
                                 <p style="color: #4D4D4D;">
@@ -155,9 +153,9 @@ session_start();
                                 <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
                             </td>
                             <td>
-                              <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
-                              <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
-                              <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
+                                <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
+                                <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
+                                <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
                             </td>
 
                             <td>
@@ -184,31 +182,32 @@ session_start();
                 });
             })
         </script>
+        
 
-      <!-- Extra large modal -->
-      <div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            sair
+          <!-- Extra large modal -->
+          <div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                sair
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
 
-    <?php } else {
-    ?>
-      <script>
-        window.location.href = 'app_login.php'
-      </script>
-    <?php
-      // header('Location: app_login.php');
-    }
-    ?>
+        <?php } else {
+        ?>
+          <script>
+            window.location.href = 'app_login.php'
+          </script>
+        <?php
+        // header('Location: app_login.php');
+      }
+        ?>
 
 
-    <script src="../common/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="../common/js/popper.min.js"></script>
-    <script src="../common/js/bootstrap.min.js"></script>
+        <!-- <script src="../common/js/jquery-3.3.1.slim.min.js"></script> -->
+        <!-- <script src="../common/js/popper.min.js"></script> -->
+        <!-- <script src="../common/js/bootstrap.min.js"></script> -->
 
 </body>
 
