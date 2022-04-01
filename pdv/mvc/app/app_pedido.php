@@ -14,25 +14,25 @@ session_start();
 
 <body>
 
-  <!-- <link href="../common/css/bootstrap.min.css" rel="stylesheet" /> -->
+  <link href="../common/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Font Awesome -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-<!-- Bootstrap core CSS -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-<!-- Material Design Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- Material Design Bootstrap -->
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet"> -->
+  <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <!-- JQuery -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
   <form method="POST" action="../model/app_gravadb.php">
     <?php
@@ -60,21 +60,26 @@ session_start();
     ?>
 
 
-      <div class="row" style="background: #2d3339; height: 4%;">
+      <div class="row" style="background: #2d3339; height: 1%;">
 
         <h3 class="mb-12 " style="background: #2d3339; width: 1%; "></h3>
-        <!-- <a style="background: #2d3339; height: 100%; width: 23%; color: white; " type="button" href="app_categoria.php?id=<?php echo $id; ?>" class="btn btn-outline-light"> -->
-        <a style="background: #2d3339; height: 100%; width: 45%; color: white; " type="button" href="app_mesas.php" class="btn btn-outline-light">
-          <h6>voltar</h6>
+        <a style="background: #2d3339; height: 100%; width: 23%; color: white;" type="button" href="app_mesas.php" class="btn btn-outline-light">
+          <h4>Voltar</h4>
         </a>
         <h3 class="mb-12 " style="background: #2d3339; width: 16%; "></h3>
 
-        <h4 class="mb-12 text-center" style="color: white; width: 20%; ">Mesa <?php echo $id; ?></h4>
+        <h4 class="mb-12 text-center" style="color: white; width: 20%; ">Mesa <?php echo $id . " " . $rows_mesas['nome']; ?></h4>
+        <!-- <h4 class="mb-12 col-lg-12 text-center" style="color: white; width: 20%; "><?php echo  $rows_mesas['nome']; ?></h4> -->
 
         <h3 class="mb-12 " style="background: #2d3339; width: 36%; "></h3>
 
 
       </div>
+
+      <div class="mb-12 " style=" height: 5%;" ></div>
+
+      <div class="mb-12 " style=" height: 5%;"></div>
+
       <div class="row" style="padding: 39px;">
 
         <?php
@@ -119,95 +124,95 @@ session_start();
         <h3 class="col-lg-6 text-center" style="color: black;"><?php echo $categoria; ?></h3>
 
       </div>
-        
-        <div class="table-responsive">
-            <!-- <div class="col-2"> -->
-            <!-- <div class="flex-center flex-column"> -->
-            <!-- <div class="card card-body"> -->
 
-            <!-- <div class="table-responsive"> -->
-            <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive" cellspacing="0" width="100%">
-                <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
-                <thead>
-                    <tr>
-                        <th class="th-sm">Nome</th>
-                        <th class="th-sm">Qtde.</th>
-                        <th class="th-sm">Observação</th>
+      <div class="table-responsive">
+        <!-- <div class="col-2"> -->
+        <!-- <div class="flex-center flex-column"> -->
+        <!-- <div class="card card-body"> -->
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $index = 0;
-                    while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
-                    ?>
+        <!-- <div class="table-responsive"> -->
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive" cellspacing="0" width="100%">
+          <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
+          <thead>
+            <tr>
+              <th class="th-sm">Nome</th>
+              <th class="th-sm">Qtde.</th>
+              <th class="th-sm">Observação</th>
 
-                        <tr>
-                            <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
-                                <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
-                                <p style="color: #4D4D4D;">
-                                    <b>
-                                        R$ <?php echo ($rows_produtos['preco_venda']); ?>
-                                    </b>
-                                </p>
-                                <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
-                            </td>
-                            <td>
-                                <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
-                                <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
-                                <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
-                            </td>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $index = 0;
+            while ($rows_produtos = mysqli_fetch_assoc($produtos)) {
+            ?>
 
-                            <td>
+              <tr>
+                <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
+                  <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
+                  <p style="color: #4D4D4D;">
+                    <b>
+                      R$ <?php echo ($rows_produtos['preco_venda']); ?>
+                    </b>
+                  </p>
+                  <input name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden" class="form-control" id="preco_venda" value="<?php echo ($rows_produtos['preco_venda']); ?>">
+                </td>
+                <td>
+                  <input class="bg-gradient-danger" value="-" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></input>
+                  <input class="bg-gradient-default text-center" style="width:50px;" name="detalhes[<?= $index ?>][quantidade]" min="0" maxlength="5" name="quantity" value="0" type="number">
+                  <input class="bg-gradient-success" value="+" type="button" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></input>
+                </td>
 
-                                <textarea name="detalhes[<?php echo $index ?>][observacoes]" class="form-control" id="observacoes"></textarea>
+                <td>
 
-                            </td>
+                  <textarea name="detalhes[<?php echo $index ?>][observacoes]" class="form-control" id="observacoes"></textarea>
 
-                        </tr>
+                </td>
 
-                    <?php $index++;
-                    } ?>
+              </tr>
+
+            <?php $index++;
+            } ?>
 
 
-                </tbody>
-            </table>
-        </div>
-        <script>
-            $(document).ready(function() {
-                $('#dtBasicExample').DataTable({
-                    // "pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
-                    // "ordering": false, // false to disable sorting (or any other option)
-                    "paging": false, // false to disable pagination (or any other option)
-                });
-            })
-        </script>
-        
+          </tbody>
+        </table>
+      </div>
+      <script>
+        $(document).ready(function() {
+          $('#dtBasicExample').DataTable({
+            // "pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
+            // "ordering": false, // false to disable sorting (or any other option)
+            "paging": false, // false to disable pagination (or any other option)
+          });
+        })
+      </script>
 
-          <!-- Extra large modal -->
-          <div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-              <div class="modal-content">
-                sair
-              </div>
-            </div>
+
+      <!-- Extra large modal -->
+      <div class="modal fade bd-example-modal-xl" id="sair" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            sair
           </div>
+        </div>
+      </div>
 
 
-        <?php } else {
-        ?>
-          <script>
-            window.location.href = 'app_login.php'
-          </script>
-        <?php
-        // header('Location: app_login.php');
-      }
-        ?>
+    <?php } else {
+    ?>
+      <script>
+        window.location.href = 'app_login.php'
+      </script>
+    <?php
+      // header('Location: app_login.php');
+    }
+    ?>
 
 
-        <!-- <script src="../common/js/jquery-3.3.1.slim.min.js"></script> -->
-        <!-- <script src="../common/js/popper.min.js"></script> -->
-        <!-- <script src="../common/js/bootstrap.min.js"></script> -->
+    <!-- <script src="../common/js/jquery-3.3.1.slim.min.js"></script> -->
+    <!-- <script src="../common/js/popper.min.js"></script> -->
+    <!-- <script src="../common/js/bootstrap.min.js"></script> -->
 
 </body>
 
