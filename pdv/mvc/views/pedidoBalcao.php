@@ -2,7 +2,6 @@
 session_start();
 // include_once("conexao.php");
 include "./mvc/model/conexao.php";
-date_default_timezone_set('America/recife');
 
 // print_r($_POST);
 // exit();
@@ -84,10 +83,10 @@ if ($mesa == 'delivery') {
                     <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
                 </h4>
             </div>
-    
-         <b>
-            <label for="">* Forma de Pagamento:</label>
-        </b>
+
+            <b>
+                <label for="">* Forma de Pagamento:</label>
+            </b>
             <div class="row">
 
                 <div class="form-group col-md-1">
@@ -123,7 +122,7 @@ if ($mesa == 'delivery') {
         <?php
     }
         ?>
-        <div class="row" style="justify-content:center; align-items: center; width: 100%; ">
+        <div class="table-responsive">
             <!-- <div class="col-2"> -->
             <!-- <div class="flex-center flex-column"> -->
             <!-- <div class="card card-body"> -->
@@ -133,8 +132,6 @@ if ($mesa == 'delivery') {
                 <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
                 <thead>
                     <tr>
-
-                        <th class="th-sm">#</th>
                         <th class="th-sm">Nome</th>
                         <th class="th-sm">Qtde.</th>
                         <th class="th-sm">Observação</th>
@@ -148,10 +145,6 @@ if ($mesa == 'delivery') {
                     ?>
 
                         <tr>
-                            <td><?php echo $rows_produtos['id']; ?>
-
-                            </td>
-
                             <td style="color: #4D4D4D;"><?php echo ($rows_produtos['nome']); ?>
                                 <input name="detalhes[<?php echo $index ?>][pedido]" type="hidden" class="form-control" id="pedido" value="<?php echo ($rows_produtos['nome']); ?>">
                                 <p style="color: #4D4D4D;">

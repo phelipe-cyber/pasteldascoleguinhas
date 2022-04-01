@@ -4,7 +4,6 @@ session_start();
 
 $cliente = $_POST['cliente'];
 $idpedido = $_POST['idpedido'];
-date_default_timezone_set('America/recife');
 
 $data = date('Y-m-d H:m:s');
 

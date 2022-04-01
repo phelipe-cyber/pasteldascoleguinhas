@@ -1,16 +1,16 @@
 <?php
 session_start();
-include_once ("conexao.php");
-date_default_timezone_set('America/recife');
+date_default_timezone_set('America/Sao_Paulo');
+$data_hora = date('Y-m-d H:i');
+$hora_pedido = date('H:i');
 
+include_once ("conexao.php");
 
 if( $_POST['pedido'] <> ""){
 
  $numeropedido = $_POST['pedido'];
 
 $user =  $_SESSION['user'];
-$hora_pedido = date('H:i');
-$data = date('Y-m-d H:m:s');
 $detalhes =  $_POST['detalhes'];
 $cliente = ($_POST['cliente']);
 $cliente_2 = ($_POST['cliente']);
@@ -33,7 +33,7 @@ foreach ($detalhes as $detalhesPedidos) {
 //   exit();
 
    $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto ,usuario, `data`, gorjeta, status) VALUES
-  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes','$pgto','$user', '$data','', 2 )";
+  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes','$pgto','$user', '$data_hora','', 2 )";
  
   $adiciona_pedido = mysqli_query($conn, $insert_table);
   
@@ -76,11 +76,8 @@ if ($pedido == null) {
 };
 
 $numeropedido = $pedido;
-date_default_timezone_set('America/recife');
 
 $user =  $_SESSION['user'];
-$hora_pedido = date('H:i');
-$data = date('Y-m-d H:m:s');
 $detalhes =  $_POST['detalhes'];
 $cliente = ($_POST['cliente']);
 $cliente_2 = ($_POST['cliente']);
@@ -103,7 +100,7 @@ foreach ($detalhes as $detalhesPedidos) {
 //   exit();
 
  $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, `data` , gorjeta, status ) VALUES
-  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$pgto','$user','$data' ,'' , 2 )";
+  ('$numeropedido','','$cliente', '$id_mesa', '$pedido', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '$pgto','$user','$data_hora' ,'' , 2 )";
 
    $adiciona_pedido = mysqli_query($conn, $insert_table);
   

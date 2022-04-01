@@ -37,10 +37,10 @@ session_start();
     $categoria = $_GET['categoria'];
     $mesa = $_GET['mesa'];
     $cliente = $_GET['cliente'];
+    $id_pedido = $_GET['id_pedido'];
+   
     $id = $_GET['id'];
     $numeropedido = $_GET['numeropedido'];
-
-
 
     include_once "../model/conexao.php";
 
@@ -76,14 +76,14 @@ session_start();
 
       <?php
 
-      if ($cliente == "") {
+      if ($id_pedido == "") {
 
       ?>
         <div class="row">
           <h4 class="col-lg-7">
             <label for="">Cliente:</label>
             <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="" required>
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>">
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $id_pedido ?>">
             <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
          
           </h4>
@@ -97,7 +97,7 @@ session_start();
           <h4 class="col-lg-7">
             <label for="">Cliente:</label>
             <input autofocus type="text" class="form-control" width="100%" height="100%" name="cliente" id="cliente" value="<?php echo $cliente ?>">
-            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $numeropedido ?>">
+            <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="numeropedido" id="numeropedido" value="<?php echo $id_pedido ?>">
             <input autofocus type="hidden" class="form-control" width="100%" height="100%" name="id" id="id" value="<?php echo $_GET['id'] ?>">
 
           </h4>
@@ -130,7 +130,7 @@ session_start();
                     <tr>
 
                         <!-- <th class="th-sm">#</th> -->
-                        <th class="th-sm">Nome</th>
+                        <th class="th-sm">Produto</th>
                         <th class="th-sm">Qtde.</th>
                         <th class="th-sm">Observação</th>
 

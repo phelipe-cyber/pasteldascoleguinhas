@@ -1,6 +1,5 @@
 <?php
 include "./mvc/model/conexao.php";
-date_default_timezone_set('America/recife');
 
 $id = $_POST['id'];
 

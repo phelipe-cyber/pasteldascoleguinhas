@@ -23,6 +23,7 @@ session_start();
     if(isset($usuario)){
       $_SESSION['loginapp'] = 1;
       $_SESSION['usuarioid'] = $usuario['id'];
+      $_SESSION['user'] = $login
       // header('Location: app_mesas.php');
       ?>
       <script>

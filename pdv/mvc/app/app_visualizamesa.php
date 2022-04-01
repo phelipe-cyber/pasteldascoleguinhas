@@ -27,6 +27,9 @@
 
 	$id_pedido = $_GET['id_pedido'];
 	
+	$cliente = $_GET['cliente'];
+
+	
 	$user = $_SESSION['user'];
 
 	
@@ -74,6 +77,9 @@
 		<!-- <form method="GET" action="app_categoria.php"> -->
 		<form method="GET" action="app_pedido.php">
 			<input name="id" type="hidden" id="id" value="<?php echo $id; ?>">
+			<input name="id_pedido" type="hidden" id="id_pedido" value="<?php echo $id_pedido; ?>">
+			<input name="cliente" type="hidden" id="cliente" value="<?php echo $cliente; ?>">
+
 			<input class="btn btn-success" type="submit" style="width:100%; height:10%; color: white; font-size: 20px;" value="Adicionar Pedido">
 		</form>
 
@@ -153,6 +159,8 @@
 		<!-- <form method="GET" action="app_categoria.php"> -->
 		<form method="GET" action="app_pedido.php">
 			<input name="id" type="hidden" id="id" value="<?php echo $id; ?>">
+			<input name="id_pedido" type="hidden" id="id_pedido" value="<?php echo $id_pedido; ?>">
+			<input name="cliente" type="hidden" id="cliente" value="<?php echo $cliente; ?>">
 			<input class="btn btn-success" type="submit" style="width:100%; height:10%; color: white; font-size: 20px;" value="Adicionar Pedido">
 		</form>
 
@@ -222,6 +230,8 @@
 		<!-- <form method="GET" action="app_categoria.php"> -->
 		<form method="GET" action="app_pedido.php">
 			<input name="id" type="hidden" id="id" value="<?php echo $id; ?>">
+			<input name="id_pedido" type="hidden" id="id_pedido" value="<?php echo $id_pedido; ?>">
+			<input name="cliente" type="hidden" id="cliente" value="<?php echo $cliente; ?>">
 			<input class="btn btn-success" type="submit" style="width:100%; height:10%; color: white; font-size: 20px;" value="Adicionar Pedido">
 		</form>
 

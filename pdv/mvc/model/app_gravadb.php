@@ -1,5 +1,9 @@
 <?php
 session_start();
+date_default_timezone_set('America/Sao_Paulo');
+$data_hora = date('Y-m-d H:i');
+$hora_pedido = date('H:i');
+
 // print_r($_POST);
 // exit();
 ?>
@@ -8,12 +12,8 @@ session_start();
 
 <?php
 include_once "conexao.php";
-date_default_timezone_set('America/recife');
 
 $detalhes = $_POST['detalhes'];
-
-$hora_pedido = date('H:i');
-$data = date('Y-m-d H:m:s');
 
 //    $nome = $_GET['nome'];
 //    $preco = $_GET['preco'];
@@ -23,6 +23,7 @@ $data = date('Y-m-d H:m:s');
 //    $categoria = $_GET['categoria'];
 //    $mesa = $_GET['mesa'];
 $usuarioid = $_SESSION['usuarioid'];
+
 $numeropedido = $_POST['numeropedido'];
 $id_pedido = $_POST['id_pedido'];
 
@@ -30,15 +31,13 @@ $id_mesa = $_POST['id'];
 
 $user =  $_SESSION['user'];
 
+$cliente = $_POST['cliente'];
+
 // echo($numeropedido);
 // exit();
 
-if ($numeropedido == "") {
-
-
-	$user =  $_SESSION['user'];
-	$cliente = $_POST['cliente'];
-
+if ($numeropedido == "" || $numeropedido ==  0 ) {
+	
 	$result_usuarios = ("SELECT MAX(numeropedido) as 'Pedido'FROM `pedido` ORDER BY numeropedido DESC limit 1 ");
 	$recebidos = mysqli_query($conn, $result_usuarios);
 
@@ -64,44 +63,10 @@ if ($numeropedido == "") {
 
 	foreach ($detalhes as $detalhesPedidos) {
 
-		$nome = $detalhesPedidos['nome'];
+		$nome = $detalhesPedidos['pedido'];
+
 		// $id_mesa = $_GET['id'];
-		$preco_venda = $detalhesPedidos['preco'];
-		// $cliente = $detalhesPedidos['cliente'];
-		$quantidade = $detalhesPedidos['quantidade'];
-		$observacoes = $detalhesPedidos['observacoes'];
-		$categoria = $detalhesPedidos['categoria'];
-		$mesa = $detalhesPedidos['mesa'];
-
-		if ($quantidade == 0)
-			continue;
-
-	   $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, data, gorjeta, `status`) VALUES
-	 	('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data' ,'', 2 )";
-		$adiciona_pedido = mysqli_query($conn, $insert_table);
-		
-	 $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
-		$update_table = mysqli_query($conn, $update_table);
-
-		// echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
-		// $conn->close();
-
-	}
-
-
-	exit();
-} else {
-
-
-	$user =  $_SESSION['user'];
-	$cliente = $_POST['cliente'];
-
-	foreach ($detalhes as $detalhesPedidos) {
-
-		$nome = $detalhesPedidos['nome'];
-		// $id_mesa = $_GET['id'];
-		$preco_venda = $detalhesPedidos['preco'];
-		// $cliente = $detalhesPedidos['cliente'];
+		$preco_venda = $detalhesPedidos['preco_venda'];
 		$quantidade = $detalhesPedidos['quantidade'];
 		$observacoes = $detalhesPedidos['observacoes'];
 		$categoria = $detalhesPedidos['categoria'];
@@ -111,15 +76,54 @@ if ($numeropedido == "") {
 			continue;
 
 		$insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, data, gorjeta, `status`) VALUES
-			('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data' ,'', 2 )";
-		   $adiciona_pedido = mysqli_query($conn, $insert_table);
-
-		    $update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
-		   $update_table = mysqli_query($conn, $update_table);
+	 	('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data_hora' ,'', 2 )";
+		$adiciona_pedido = mysqli_query($conn, $insert_table);
 		
-		// echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
-		// $conn->close();
+		$update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
+		$update_table = mysqli_query($conn, $update_table);
+
+		
 	}
+	
+		echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
+		$conn->close();
+
+	exit();
+} else {
+
+
+	$usuarioid = $_SESSION['usuarioid'];
+	$numeropedido = $_POST['numeropedido'];
+	$id_pedido = $_POST['id_pedido'];
+
+	$id_mesa = $_POST['id'];
+
+
+	// print_r($detalhes);
+
+	foreach ($detalhes as $detalhesPedidos) {
+
+		$nome = $detalhesPedidos['pedido'];
+		// $id_mesa = $_GET['id'];
+		$preco_venda = $detalhesPedidos['preco_venda'];
+		$quantidade = $detalhesPedidos['quantidade'];
+		$observacoes = $detalhesPedidos['observacoes'];
+		$categoria = $detalhesPedidos['categoria'];
+		$mesa = $detalhesPedidos['mesa'];
+
+		if ($quantidade == 0)
+			continue;
+
+		 $insert_table = "INSERT INTO pedido (numeropedido, delivery,cliente, idmesa, produto, quantidade, hora_pedido, valor, observacao, pgto, usuario, data, gorjeta, `status`) VALUES
+			('$numeropedido','','$cliente', '$id_mesa', '$nome', '$quantidade', '$hora_pedido', '$preco_venda', '$observacoes', '', '$user', '$data_hora' ,'', 2 )";
+		$adiciona_pedido = mysqli_query($conn, $insert_table);
+		// echo "<br>";
+		$update_table = "UPDATE mesas SET status = '2', nome = '$cliente' , id_pedido = '$numeropedido' WHERE id_mesa = '$id_mesa' ";
+		$update_table = mysqli_query($conn, $update_table);
+
+	}
+	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../app/app_mesas.php'>";
+	$conn->close();
 };
 ?>
 

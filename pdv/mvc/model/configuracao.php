@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once ('./conexao.php');
-date_default_timezone_set('America/recife');
 
 //verifica se o usuario clickou no botao
 $SendCadCont = filter_input(INPUT_POST, 'cad_mesas', FILTER_SANTIZE_STRING);

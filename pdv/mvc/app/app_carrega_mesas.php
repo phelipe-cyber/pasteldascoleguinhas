@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <link href="../common/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -17,29 +18,16 @@ $i = $_SESSION['loginapp'];
 if ($i == 1) {
 ?>
 
-  <div class="row" style="background: #2d3339; height: 4%;">
-
-    <h6 class="mb-12" style="background: #2d3339; width: 1%; "></h6>
-    <a style="background: #2d3339; height: 100%; width: 23%; color: white;" type="button" href="/pdv/?views=Dashboard1" class="btn btn-outline-light">
-      <h6>Menu</h6>
-    </a>
-
-    <h6 class="mb-12 " style="background: #2d3339; width: 16%; "></h6>
-
-    <h6 class="mb-12 text-center" style="color: white; width: 20%; ">Mesas</h6>
-
-    <a style="background: #2d3339; height: 100%; width: 23%; color: white;" type="button" href="/pdv/mvc/app/app_logout.php" data-toggle="modal" data-target="#logoutModal" class="btn btn-outline-light">
-      <h6>Logout</h6>
-    </a>
-
-    <h3 class="mb-12 " style="background: #2d3339; width: 36%; "></h3>
+  <!-- <div class="row" style="background: #2d3339; height: 6%;">     -->
+    
+    <!-- <h6 class="" style="color: black; width: 20%; ">Mesas</h6> -->
 
     <!-- <a style=" font-size: 20px; color: #888888;" class="dropdown-item" href="app_logout" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a> -->
 
-  </div>
+  <!-- </div> -->
 
 
   <div class="mb-12 " style=" height: 5%;"></div>

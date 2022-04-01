@@ -1,7 +1,6 @@
 <?php
 session_start();
 include_once("conexao.php");
-date_default_timezone_set('America/recife');
 
 // print_r($_POST);
 // exit();
