@@ -98,7 +98,8 @@
     <table class="table">
       <thead>
         <tr>
-          
+
+		  <th class="col-lg-1 "><b>#</b> </th>
           <th class="col-lg-1 "><b>Pedido</b> </th>
           <th class="col-lg-1 "><b>Qtd</b> </th>
           <th class="col-lg-1 "><b>Preço Unitário</b> </th>
@@ -109,10 +110,12 @@
 
 
 <?php
+	$row = 1;
     while($rows_pedidos = mysqli_fetch_assoc($pedidos)){?>
       <tbody>
         <tr>
-          
+
+		  <td><b><?php echo $row;?></b></td>
           <td style="color: #ac4549;"><b><?php echo $rows_pedidos['produto'];?></b></td>
           <td><?php echo $rows_pedidos['quantidade'];?></td>
           <td>R$ <?php echo $rows_pedidos['valor'];?></td>
@@ -121,18 +124,10 @@
 		  <input name="numeropedido" type="hidden" id="numeropedido" value="<?php echo $rows_pedidos['numeropedido']; ?>">
           
         </tr>
-      
 
 
-   <?php } ?>
+		<?php $row ++; } ?>
 
-	            <tr>
-	              <th></th>
-	              <th></th>
-	              <th></th>   
-	              <th></th>
-	            </tr>
-	            
 
 	            <tr>
 	              <th><b>TOTAL:</b></th>
@@ -171,6 +166,7 @@
       <thead>
         <tr>
           
+          <th class="col-lg-1 "><b>#</b> </th>
           <th class="col-lg-1 "><b>Pedido</b> </th>
           <th class="col-lg-1 "><b>Qtd</b> </th>
           <th class="col-lg-1 "><b>Preço Unitário</b> </th>
@@ -181,10 +177,12 @@
 
 
 <?php
+	$row = 1;
     while($rows_pedidos = mysqli_fetch_assoc($pedidos)){?>
       <tbody>
         <tr>
           
+          <td><b><?php echo $row;?></b></td>
           <td style="color: #ac4549;"><b><?php echo $rows_pedidos['produto'];?></b></td>
           <td><?php echo $rows_pedidos['quantidade'];?></td>
           <td>R$ <?php echo $rows_pedidos['valor'];?></td>
@@ -196,15 +194,7 @@
       
 
 
-   <?php } ?>
-
-	            <tr>
-	              <th></th>
-	              <th></th>
-	              <th></th>   
-	              <th></th>
-	            </tr>
-	            
+   <?php $row ++; } ?>
 
 	            <tr>
 	              <th><b>TOTAL:</b></th>

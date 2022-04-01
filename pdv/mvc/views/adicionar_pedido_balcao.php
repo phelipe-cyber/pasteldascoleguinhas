@@ -53,7 +53,7 @@ if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>ID</th>
+					
 					<th>Pedido</th>
 					<th>Observações</th>
 					<th>Quantidade</th>
@@ -80,7 +80,6 @@ if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 				?>
 					<tr>
 						<td><?php echo $num ?></td>
-						<td><?php echo $rows_produtos['idpedido']; ?></td>
 						<td><?php echo ($rows_produtos['produto']) ?></td>
 						<td><?php echo $rows_produtos['observacao']; ?></td>
 						<td><?php echo $rows_produtos['quantidade']; ?></td>
@@ -90,18 +89,9 @@ if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 							<button type="button" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-idmesa="<?php echo  $id; ?>" data-idpedido="<?php echo  $rows_produtos['idpedido']; ?>" data-idproduto="<?php echo  $rows_produtos['produto']; ?>" data-target="#excluir">Excluir Iten</button>
 							<button type="button" class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" data-target="#editar" data-idpedido="<?php echo  $rows_produtos['idpedido']; ?>" data-id="<?php echo $id; ?>" data-produto="<?php echo  $rows_produtos['produto']; ?>" data-obs="<?php echo  $rows_produtos['observacao']; ?>" data-quantidade="<?php echo  $rows_produtos['quantidade']; ?>">Editar Iten</button>
 						</td>
+						<td></td>
 					</tr>
 				<?php } ?>
-
-				<tr>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-					<th></th>
-				</tr>
 
 
 				<tr>
