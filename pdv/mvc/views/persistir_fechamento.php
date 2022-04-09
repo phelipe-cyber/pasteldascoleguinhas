@@ -36,6 +36,16 @@ $total = $total - $valor_pago;
 
 $pgto = $_POST['pgto'];
 
+if($pgto == ""){
+
+	$pgto = $_POST['pgto_2'];
+
+}else{
+
+	$pgto = $_POST['pgto'];
+
+}
+
 $idmesa = $_POST['idmesa'];
 
 

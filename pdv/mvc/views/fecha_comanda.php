@@ -11,25 +11,24 @@
 
 	$pedidos = mysqli_query($conn, $tab_pedidos);
 
-	 while ($rows_pedidos = mysqli_fetch_assoc($pedidos)) { 
-	 
-		 $idmesa = $rows_pedidos['idmesa'];
-		 $pgto = $rows_pedidos['pgto'];
-		
+	while ($rows_pedidos = mysqli_fetch_assoc($pedidos)) {
+
+		$idmesa = $rows_pedidos['idmesa'];
+		$pgto = $rows_pedidos['pgto'];
 	}
-		
+
 	?>
-		<form method="POST" action="?view=persistir_fechamento">
-			
-	 	<input type="hidden" name="idmesa" id="idmesa" value="<?php echo $idmesa; ?>"> <?php
-		// exit();
-	?>
+  <form method="POST" action="?view=persistir_fechamento">
+
+  	<input type="hidden" name="idmesa" id="idmesa" value="<?php echo $idmesa; ?>"> <?php
+																						// exit();
+																						?>
 
 
-  <div class="row">
+  	<div class="row">
 
-  	<!-- Earnings (Monthly) Card Example -->
-  	<div class="col-xl-6 col-md-6 mb-4">
+  		<!-- Earnings (Monthly) Card Example -->
+  		<div class="col-xl-6 col-md-6 mb-4">
 
   			<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 35px; background: #00739b; color: white; padding: 0%; ">Pedido: <?php echo $id; ?></label>
   			<div class="row" style="padding: 1%;">
@@ -168,7 +167,7 @@
 
   			</div>
 
-			  <div class="row" style="padding: 0%;">
+  			<div class="row" style="padding: 0%;">
 
   				<div class="form-group col-md-12">
   					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #c42eff; color: white; ">Forma de Pgto </label>
@@ -202,59 +201,60 @@
 
   			<button class="form-group col-md-12 btn btn-success" type="submit" style="font-size: 30px;">Efetuar Pagamento</button>
 
-  		</form>
 
-  	</div>
 
-  	<div class="col-xl-6 col-md-6 mb-4">
-  		<div class="row">
+  		</div>
 
-  			<div class="col-xl-12 col-md-6 mb-4">
-  				<div style="font-size: 25px; background: #fe422d; color: white;">
-  					<div class="card-body">
-  						<div class="row no-gutters align-items-center">
-  							<div class="col mr-2">
-  								<div class=" font-weight-bold text-uppercase mb-1">Forma de Pagamento</div>
-  								<div>*** <?php echo $pgto; ?> ***</div>
-		  						 <input name="pgto" class="form-control" type="hidden" value="Dinheiro" id="Dinheiro">
-  								<div class=" font-weight-bold text-uppercase mb-1">Total</div>
-  								<div>R$ <?php echo number_format($total, 2); ?></div>
-  							</div>
-  							<div class="col-auto">
-  								<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+  		<div class="col-xl-6 col-md-6 mb-4">
+  			<div class="row">
+
+  				<div class="col-xl-12 col-md-6 mb-4">
+  					<div style="font-size: 25px; background: #fe422d; color: white;">
+  						<div class="card-body">
+  							<div class="row no-gutters align-items-center">
+  								<div class="col mr-2">
+  									<div class=" font-weight-bold text-uppercase mb-1">Forma de Pagamento</div>
+  									<div>*** <?php echo $pgto; ?> ***</div>
+  									<input name="pgto_2" class="form-control" type="hidden" value="<?php echo $pgto; ?>" id="">
+  									<div class=" font-weight-bold text-uppercase mb-1">Total</div>
+  									<div>R$ <?php echo number_format($total, 2); ?></div>
+  								</div>
+  								<div class="col-auto">
+  									<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+  								</div>
   							</div>
   						</div>
   					</div>
   				</div>
+
   			</div>
 
+  			<div class="row">
+  				<?php while ($rows_produtos = mysqli_fetch_assoc($pedidos)) { ?>
+  					<div class="col-xl-6 col-md-6 mb-4">
+  						<h7 style="color: red;"><?php echo $rows_produtos['quantidade']; ?>X</h7>
+  						<div class="card border-left-danger ">
+  							<div class="card-body">
+
+
+  								<div class="col mr-2">
+  									<div class=" font-weight-bold text-uppercase mb-1"><?php echo $rows_produtos['produto']; ?></div>
+  									<div class="h5 mb-0 font-weight-bold text-danger-800" style="color: red;">R$ <?php echo $rows_produtos['valor']; ?></div>
+  									<input type="text" name="idmesa" id="idmesa" value="<?php echo $rows_produtos['idmesa']; ?>">
+  								</div>
+
+
+  							</div>
+  						</div>
+  					</div>
+
+  				<?php } ?>
+
+
+
+  			</div>
   		</div>
 
-  		<div class="row">
-  			<?php while ($rows_produtos = mysqli_fetch_assoc($pedidos)) { ?>
-  				<div class="col-xl-6 col-md-6 mb-4">
-  					<h7 style="color: red;"><?php echo $rows_produtos['quantidade']; ?>X</h7>
-  					<div class="card border-left-danger ">
-  						<div class="card-body">
 
-
-  							<div class="col mr-2">
-  								<div class=" font-weight-bold text-uppercase mb-1"><?php echo $rows_produtos['produto']; ?></div>
-  								<div class="h5 mb-0 font-weight-bold text-danger-800" style="color: red;">R$ <?php echo $rows_produtos['valor']; ?></div>
-								  <input type="text" name="idmesa" id="idmesa" value="<?php echo $rows_produtos['idmesa']; ?>">
-							</div>
-							
-							
-						</div>
-					</div>
-				</div>
-
-  			<?php } ?>
-
-
-
-  		</div>
   	</div>
-
-
-  </div>
+  </form>
