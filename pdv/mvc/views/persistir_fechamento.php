@@ -121,7 +121,7 @@ if ($total == 0) {
 	// $exclude_table = "DELETE FROM pedido WHERE idmesa = '$id'";	
 	// $produto_excluido = mysqli_query($conn, $exclude_table);
 
-	$alterar_table = "UPDATE `pedido` SET `status` = '4' WHERE `pedido`.`numeropedido` = '$id' ";
+	$alterar_table = "UPDATE `pedido` SET `status` = '4', `pgto` = '$pgto' WHERE `pedido`.`numeropedido` = '$id' ";
 	$produto_excluido = mysqli_query($conn, $alterar_table);
 
 
