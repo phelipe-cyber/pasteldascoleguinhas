@@ -1,5 +1,9 @@
 <?php
 session_start();
+date_default_timezone_set('America/Sao_Paulo');
+// $data_hora = date('Y-m-d H:i');
+$hora_pedido = date('H:i');
+
 ini_set( 'display_errors', 0 );//oculta  erros
 
 include "./mvc/model/conexao.php";
