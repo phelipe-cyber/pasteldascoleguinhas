@@ -49,9 +49,10 @@ echo "<hr>";?>
 <table class="table table-striped table-sm">
 	<thead>
 		<tr>
-			<th class="text-center">Data</th>
+			<th class="text-center">Data</th>|
+			<th class="text-center">Pedido</th>|
 			<th class="text-center">Rendimento</th>
-			<th class="text-center">Clienete</th>
+			<th class="text-center">Cliente</th>
 			<th class="text-center">Valor</th>
 			<th class="text-center">Categoria</th>
 		</tr>
@@ -70,6 +71,7 @@ while($rows_vendas = mysqli_fetch_assoc($vendas)) {
 	$rendimento = $rows_vendas['rendimento'];
 	$cliente = $rows_vendas['cliente'];
 	$valor = $rows_vendas['valor'];
+	$pedido = $rows_vendas['numeropedido'];
 	$total1+= $valor;
 	
 	?>
@@ -77,6 +79,7 @@ while($rows_vendas = mysqli_fetch_assoc($vendas)) {
 
 		<tr>
 			<td class="text-center"><b><?php echo $data; ?></b></td>
+			<td class="text-center"><b><?php echo $pedido; ?></b></td>
 			<td class="text-center"><?php echo $rendimento; ?></td>
 			<td class="text-center"><?php echo $cliente; ?></td>
 			<td class="text-center" style="color: green;">R$ <?php echo number_format($valor,2); ?></td>

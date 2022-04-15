@@ -87,7 +87,7 @@ if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 						<td>R$ <?php echo number_format($rows_produtos['valor'], 2); ?></td>
 						<td>
 							<button type="button" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-idmesa="<?php echo  $id; ?>" data-idpedido="<?php echo  $rows_produtos['idpedido']; ?>" data-idproduto="<?php echo  $rows_produtos['produto']; ?>" data-target="#excluir">Excluir Iten</button>
-							<button type="button" class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" data-target="#editar" data-idpedido="<?php echo  $rows_produtos['idpedido']; ?>" data-id="<?php echo $id; ?>" data-produto="<?php echo  $rows_produtos['produto']; ?>" data-obs="<?php echo  $rows_produtos['observacao']; ?>" data-quantidade="<?php echo  $rows_produtos['quantidade']; ?>">Editar Iten</button>
+							<button type="button" class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" data-target="#editar" data-idpedido="<?php echo  $rows_produtos['idpedido']; ?>" data-id="<?php echo $id; ?>" data-produto="<?php echo  $rows_produtos['produto']; ?>" data-obs="<?php echo  $rows_produtos['observacao']; ?>" data-quantidade="<?php echo  $rows_produtos['quantidade']; ?>">Editar Item</button>
 						</td>
 						<td></td>
 					</tr>
