@@ -247,6 +247,7 @@ if (isset($escolha)) {
 			<thead>
 				<tr>
 					<th class="text-center">Data</th>
+					<th class="text-center">Pedido</th>
 					<th class="text-center">Rendimento</th>
 					<th class="text-center">Cliente</th>
 					<th class="text-center">Valor</th>
