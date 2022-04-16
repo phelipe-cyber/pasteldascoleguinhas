@@ -71,7 +71,7 @@ while($rows_vendas = mysqli_fetch_assoc($vendas)) {
 	$rendimento = $rows_vendas['rendimento'];
 	$cliente = $rows_vendas['cliente'];
 	$valor = $rows_vendas['valor'];
-	$pedido = $rows_vendas['numeropedido'];
+	$pedido = $rows_vendas['id_pedido'];
 	$total1+= $valor;
 	
 	?>

@@ -270,7 +270,7 @@ if (isset($escolha)) {
 			$cliente = $rows_vendas['cliente'];
 			$valor = $rows_vendas['valor'];
 			$pgto = $rows_vendas['pgto'];
-			$pedido = $rows_vendas['numeropedido'];
+			$pedido = $rows_vendas['id_pedido'];
 			$total1+= $valor;
 			
 			?>
