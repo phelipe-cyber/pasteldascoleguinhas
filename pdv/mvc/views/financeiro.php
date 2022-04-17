@@ -280,12 +280,14 @@ if (isset($escolha)) {
 					<tr>
 						<td class="text-center"><b><?php echo $data; ?></b></td>
 						<td class="text-center"><b><?php echo $pedido; ?></b></td>
-						<form method="POST" action="/pdv/mvc/model/imprime_balcao.php" target="_blank">
-							<input name="id" type="hidden" value="<?php echo $pedido; ?>">
-							<input name="cliente" type="hidden" value="<?php echo $cliente; ?>">
-							<input name="pgto" type="hidden" value="<?php echo $pgto; ?>">
-							<button type="submit" class="btn btn-outline-success">Imprimir</button>
-						</form>
+						<td>
+							<form method="POST" action="/pdv/mvc/model/imprime_balcao.php" target="_blank">
+								<input name="id" type="hidden" value="<?php echo $pedido; ?>">
+								<input name="cliente" type="hidden" value="<?php echo $cliente; ?>">
+								<input name="pgto" type="hidden" value="<?php echo $pgto; ?>">
+								<button type="submit" class="btn btn-outline-success">Imprimir</button>
+							</form>
+						</td>
 						<td class="text-center"><?php echo $rendimento; ?></td>
 						<td class="text-center"><?php echo $cliente; ?></td>
 						<td class="text-center" style="color: green;">R$ <?php echo number_format($valor, 2); ?></td>
