@@ -64,7 +64,7 @@
             $total = number_format($total, 2); ?>
 
             <hr>
-            <a class="text-center col-lg-2"><b>Pedido #<?php echo $i; ?>:</b></a><br>
+            <a class="text-center col-lg-2"><b>Item Qtd. #<?php echo $i; ?>:</b></a><br>
             <a class="text-center"><?php echo $produto; ?></a><br>
 
             <a class="text-center col-lg-2"><b>Quantidade:</b></a>
