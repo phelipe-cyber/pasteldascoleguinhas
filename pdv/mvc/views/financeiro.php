@@ -280,7 +280,7 @@ if (isset($escolha)) {
 					<tr>
 						<td class="text-center"><b><?php echo $data; ?></b></td>
 						<td class="text-center"><b><?php echo $pedido; ?></b></td>
-						<td>
+						<td class="text-center">
 							<form method="POST" action="/pdv/mvc/model/imprime_balcao.php" target="_blank">
 								<input name="id" type="hidden" value="<?php echo $pedido; ?>">
 								<input name="cliente" type="hidden" value="<?php echo $cliente; ?>">
