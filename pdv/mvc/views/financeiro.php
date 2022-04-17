@@ -248,6 +248,7 @@ if (isset($escolha)) {
 				<tr>
 					<th class="text-center">Data</th>
 					<th class="text-center">Pedido</th>
+					<th class="text-center">Imprimir</th>
 					<th class="text-center">Rendimento</th>
 					<th class="text-center">Cliente</th>
 					<th class="text-center">Valor</th>
@@ -267,15 +268,23 @@ if (isset($escolha)) {
 
 			$id = $rows_vendas['id'];
 			$data = $rows_vendas['data'];
+
 			$rendimento = $rows_vendas['rendimento'];
 			$cliente = $rows_vendas['cliente'];
 			$valor = $rows_vendas['valor'];
 			$pgto = $rows_vendas['pgto'];
 			$pedido = $rows_vendas['id_pedido'];
 			$total1+= $valor;
-			
+
 			?>
 
+			<form method="POST" action="/pdv/mvc/model/imprime_balcao.php" target="_blank">
+				<input name="id" type="hidden" value="<?php echo $pedido; ?>">
+				<input name="cliente" type="hidden" value="<?php echo $cliente; ?>">
+				<input name="pgto" type="hidden" value="<?php echo $pgto; ?>">
+				<button type="submit" class="btn btn-outline-success">Imprimir</button>
+			</form>
+			
 				<tr>
 					<td class="text-center"><b><?php echo $data; ?></b></td>
 					<td class="text-center"><b><?php echo $pedido; ?></b></td>
