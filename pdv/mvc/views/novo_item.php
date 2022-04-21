@@ -56,7 +56,7 @@
     $produtos = mysqli_query($conn, $tab_produtos);
 
     ?>
-    <div class="row" style="justify-content:center; align-items: center; width: 100%; ">
+    <div style="justify-content:center; align-items: center; width: 100%; ">
         <!-- <div class="col-2"> -->
         <!-- <div class="flex-center flex-column"> -->
         <!-- <div class="card card-body"> -->
@@ -67,7 +67,7 @@
             <thead>
                 <tr>
 
-                    <th class="th-sm">#</th>
+                    <!-- <th class="th-sm">#</th> -->
                     <th class="th-sm">Nome</th>
                     <th class="th-sm">Qtde.</th>
                     <th class="th-sm">Observação</th>
@@ -81,7 +81,7 @@
                 ?>
 
                     <tr>
-                        <td><?php echo $rows_produtos['id']; ?>
+                        <!-- <td><?php echo $rows_produtos['id']; ?> -->
 
                         </td>
 
