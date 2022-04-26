@@ -27,7 +27,7 @@ $total = 0;
 
     $num_rows = mysqli_num_rows($mysqli_query);
     print_r($num_rows);
-    if ($num_rows  = 1) {
+    if ($num_rows  == 1) {
     ?>
         <audio src="https://cdns-preview-8.dzcdn.net/stream/821246fb5d7e2ff6975f65ef7460a708-0.mp3" type="audio/wav" id="audio" autoplay="false" autostart="false"></audio>
     <?php

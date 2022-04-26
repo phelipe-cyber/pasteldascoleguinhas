@@ -28,6 +28,14 @@
 
 
         while ($rows_mesas = mysqli_fetch_assoc($mesas)) {
+                // print_r($rows_mesas);
+            if ($rows_mesas['status']  == 2 ) {
+                ?>
+                    <audio src="https://cdns-preview-8.dzcdn.net/stream/821246fb5d7e2ff6975f65ef7460a708-0.mp3" type="audio/wav" id="audio" autoplay="false" autostart="false"></audio>
+                <?php
+                }else{
+            
+                }
 
             $nome = ($rows_mesas['cliente']);
             $id_mesa = $rows_mesas['numeropedido'];
@@ -90,11 +98,21 @@
                         <h4 class="mb-10 text-center">Cliente: <?php echo ($nome); ?></h4>
 
                         <form method="POST" action="?view=adicionar_pedido_balcao">
-
                             <input name="id" type="hidden" id="id" value="<?php echo $rows_mesas['numeropedido']; ?>">
-
                             <button type="submit" class="btn  btn-outline-light" style="text-align: center;" data-toggle="modal"> Abrir - Pedido <?php echo $rows_mesas['numeropedido']; ?></button>
                         </form>
+                        <?php
+                        if ($rows_mesas['status']  == 2 ) {
+                        ?>
+                            <form method="POST" action="?view=aceitar">
+                                <input name="id" type="hidden" id="id" value="<?php echo $rows_mesas['numeropedido']; ?>">
+                                <button type="submit" class="btn  btn-outline-light" style="text-align: center;" data-toggle="modal"> Aceitar </button>
+                            </form>
+                            <?php
+                        }else{
+                            
+                        }
+                        ?>
 
                     </div>
                 </div>

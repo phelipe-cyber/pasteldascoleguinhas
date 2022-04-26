@@ -1,16 +1,10 @@
-<!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido - Balcão</title>
-</head>
-
-<body>
-
+<title>Pedido - Balcão</title>
     <?php
+    date_default_timezone_set('America/Sao_Paulo');
+$data_hora = date('d/m/Y - H:i:s');
+$hora_pedido = date('H:i');
+
     // print_r($_POST);
     // exit();
     $id = $_POST['id'];
@@ -19,14 +13,16 @@
     $pgto = $_POST['pgto'];
 
     ?>
+    <h1 <a class="text-center col-lg-2"><b>Pedido #<?php echo $id ?></b></a><br> </h1>
+    
     <h3 class="text-center">Pedido - Balcão</h3>
-
     <div class="row">
         <a class="text-center col-lg-2"><b>Forma de Pgto: </b><?php echo $pgto; ?></a><br>
         <!-- <a class="text-center"><b><?php echo $pgto; ?></b><br> -->
         <hr>
-        <a class="text-center col-lg-2"><b>Pedido #<?php echo $id ?>:</b></a><br>
-        <a class="text-center col-lg-2"><b>Cliente: </b><?php echo $cliente ?></a><br>
+        
+        <a class="text-center col-lg-2"><b>Cliente: </b><?php echo $cliente ?></a></br>
+        <a class="text-center col-lg-2"><b>Data Hora: </b><?php echo $data_hora ?></a>
 
         <?php
 
@@ -64,15 +60,20 @@
             $total = number_format($total, 2); ?>
 
             <hr>
-            <a class="text-center col-lg-2"><b>Item Qtd. #<?php echo $i; ?>:</b></a><br>
-            <a class="text-center"><?php echo $produto; ?></a><br>
-
-            <a class="text-center col-lg-2"><b>Quantidade:</b></a>
-            <a class="text-center"><?php echo $quantidade; ?></a><br>
-
-            <a class="text-center"><b>R$ <?php echo $total; ?></b></a><br>
-
-            <a class="text-center col-lg-2"><b>Obs. :</b><?php echo $obs; ?></a>
+            <a class="text-center col-lg-2">Item Qtd. #<?php echo $i; ?></a>
+            </br>
+                <b>
+                    <a class="text-center"><?php echo $produto; ?></a>    
+                </b>
+                
+            </br>
+            <a class="text-center col-lg-2">Quantidade</a>
+            <a class="text-center"><?php echo $quantidade ?></a>
+            </br>
+                <a class="text-center col-lg-2">Obs : <?php echo $obs; ?></a>
+            </br></br>
+            <a class="text-center"><b>R$ <?php echo $total ?></b></a>
+            
 
 
         <?php
@@ -89,12 +90,10 @@
             $Total = $rows_clientes['totalValor'];
         ?>
             <a class="text-center"><b>Valor Total do pedido:</b></a>
-            <a class="text-center">R$: <?php echo number_format($Total, 2); ?></a><br><br>
+            <a class="text-center">R$: <b><?php echo number_format($Total, 2); ?></b></a><br><br>
         <?php
         }
         ?>
-
-        <br><br>
 
     </div>
 
