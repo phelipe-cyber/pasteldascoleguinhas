@@ -9,7 +9,7 @@ $hora_pedido = date('H:i');
     // exit();
     $id = $_POST['id'];
     $cliente = $_POST['cliente'];
-    $cliente = $_POST['cliente'];
+   
     $pgto = $_POST['pgto'];
 
     ?>
@@ -22,9 +22,10 @@ $hora_pedido = date('H:i');
         
 
 <?php
+
   $tab_cliente_2 = "SELECT * FROM pedido WHERE numeropedido LIKE '$id'";
 
-  $pedido_2 = mysqli_query($conn, $tab_cliente_w) or die(mysqli_error($conn));
+  $pedido_2 = mysqli_query($conn, $tab_cliente_2) or die(mysqli_error($conn));
 
   while ($rows_clientes_2 = mysqli_fetch_assoc($pedido_2)) {
 
