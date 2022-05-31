@@ -89,7 +89,7 @@ $hora_pedido = date('H:i');
         while ($rows_clientes = mysqli_fetch_assoc($pedido)) {
             $Total = $rows_clientes['totalValor'];
         ?>
-            <a class="text-center"><b>Valor Total do pedido:</b></a>
+            <a class="text-center"><b>Valor Total:</b></a>
             <a class="text-center">R$: <b><?php echo number_format($Total, 2); ?></b></a><br><br>
         <?php
         }
