@@ -183,7 +183,7 @@ if ($mesa == 'delivery') {
         <script>
     $(document).ready(function() {
         $('#dtBasicExample').DataTable({
-            // "paging": false, // false to disable pagination (or any other option)
+            "paging": false, // false to disable pagination (or any other option)
             "ordering": true, // false to disable sorting (or any other option)
             "searching": true,
             "language": {
