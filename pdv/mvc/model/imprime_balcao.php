@@ -60,7 +60,7 @@ $hora_pedido = date('H:i');
             $total = number_format($total, 2); ?>
 
             <hr>
-            <a class="text-center col-lg-2">Item Qtd. #<?php echo $i; ?></a>
+            <a class="text-center col-lg-2">Item #<?php echo $i; ?></a>
             </br>
                 <b>
                     <a class="text-center"><?php echo $produto; ?></a>    
@@ -68,7 +68,7 @@ $hora_pedido = date('H:i');
                 
             </br>
             <a class="text-center col-lg-2">Quantidade</a>
-            <a class="text-center"><?php echo $quantidade ?></a>
+            <a class="text-center"> <b> <?php echo $quantidade ?></a> </b>
             </br>
                 <a class="text-center col-lg-2">Obs : <?php echo $obs; ?></a>
             </br></br>
