@@ -29,13 +29,13 @@
 
         while ($rows_mesas = mysqli_fetch_assoc($mesas)) {
                 // print_r($rows_mesas);
-            if ($rows_mesas['status']  == 2 ) {
+            // if ($rows_mesas['status']  == 2 ) {
                 ?>
-                    <audio src="https://cdns-preview-8.dzcdn.net/stream/821246fb5d7e2ff6975f65ef7460a708-0.mp3" type="audio/wav" id="audio" autoplay="false" autostart="false"></audio>
+                    <!-- <audio src="https://cdns-preview-8.dzcdn.net/stream/821246fb5d7e2ff6975f65ef7460a708-0.mp3" type="audio/wav" id="audio" autoplay="false" autostart="false"></audio> -->
                 <?php
-                }else{
+                // }else{
             
-                }
+                // }
 
             $nome = ($rows_mesas['cliente']);
             $id_mesa = $rows_mesas['numeropedido'];
