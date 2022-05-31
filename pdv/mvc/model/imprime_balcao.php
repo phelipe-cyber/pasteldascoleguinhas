@@ -15,7 +15,6 @@ $hora_pedido = date('H:i');
     ?>
     <h1 <a class="text-center col-lg-2"><b>Pedido #<?php echo $id ?></b></a><br> </h1>
     
-    <h3 class="text-center">Pedido - Balcão</h3>
     <div class="row">
         <a class="text-center col-lg-2"><b>Forma de Pgto: </b><?php echo $pgto; ?></a><br>
         <!-- <a class="text-center"><b><?php echo $pgto; ?></b><br> -->
