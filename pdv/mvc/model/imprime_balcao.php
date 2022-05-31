@@ -11,6 +11,7 @@ $hora_pedido = date('H:i');
     $cliente = $_POST['cliente'];
    
     $pgto = $_POST['pgto'];
+    $data_pedido = $_POST['data_pedido'];
 
     ?>
     <h1 <a class="text-center col-lg-2"><b>Pedido #<?php echo $id ?></b></a><br> </h1>
@@ -20,22 +21,9 @@ $hora_pedido = date('H:i');
         <!-- <a class="text-center"><b><?php echo $pgto; ?></b><br> -->
         <hr>
         
-
-<?php
-
-  $tab_cliente_2 = "SELECT * FROM pedido WHERE numeropedido LIKE '$id'";
-
-  $pedido_2 = mysqli_query($conn, $tab_cliente_2) or die(mysqli_error($conn));
-
-  while ($rows_clientes_2 = mysqli_fetch_assoc($pedido_2)) {
-
-    $data_hora = $rows_clientes_2['data'];
-
-  }
-?>
-        
+ 
         <a class="text-center col-lg-2"><b>Cliente: </b><?php echo $cliente ?></a></br>
-        <a class="text-center col-lg-2"><b>Data Hora: </b><?php echo $data_hora ?></a>
+        <a class="text-center col-lg-2"><b>Data Hora: </b><?php echo $data_pedido ?></a>
 
         <?php
 

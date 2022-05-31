@@ -20,6 +20,8 @@ $status = $mesas['status'];
 
 $pgto = $mesas['pgto'];
 
+$data_pedido = $mesas['data'];
+
 
 if ($status == 1 || $status == 2 || $status == 3  ) { ?>
 
@@ -46,6 +48,7 @@ if ($status == 1 || $status == 2 || $status == 3  ) { ?>
             <input name="id" type="hidden" value="<?php echo $id; ?>">
             <input name="cliente" type="hidden" value="<?php echo $cliente; ?>">
             <input name="pgto" type="hidden" value="<?php echo $pgto; ?>">
+            <input name="data_pedido" type="hidden" value="<?php echo $data_pedido; ?>">
 
             <button type="submit" class="btn btn-outline-success">Imprimir</button>
         </form>
