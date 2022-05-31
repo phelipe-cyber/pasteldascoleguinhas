@@ -116,13 +116,17 @@
         </table>
     </div>
     <script>
-        $(document).ready(function() {
-            $('#dtBasicExample').DataTable({
-                // "pagingType": "simple", // "simple" option for 'Previous' and 'Next' buttons only
-                // "ordering": false, // false to disable sorting (or any other option)
-                "paging": false, // false to disable pagination (or any other option)
-            });
-        })
+    $(document).ready(function() {
+        $('#dtBasicExample').DataTable({
+            // "paging": false, // false to disable pagination (or any other option)
+            "ordering": true, // false to disable sorting (or any other option)
+            "searching": true,
+            "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json"
+        }
+        });
+        $('.dataTables_length').addClass('bs-select');
+    });
     </script>
 
     </form>
