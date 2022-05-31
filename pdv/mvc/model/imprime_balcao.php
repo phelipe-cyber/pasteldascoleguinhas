@@ -2,7 +2,7 @@
 <title>Pedido - Balcão</title>
     <?php
     date_default_timezone_set('America/Sao_Paulo');
-$data_hora = date('d/m/Y - H:i:s');
+// $data_hora = date('d/m/Y - H:i:s');
 $hora_pedido = date('H:i');
 
     // print_r($_POST);
@@ -19,6 +19,19 @@ $hora_pedido = date('H:i');
         <a class="text-center col-lg-2"><b>Forma de Pgto: </b><?php echo $pgto; ?></a><br>
         <!-- <a class="text-center"><b><?php echo $pgto; ?></b><br> -->
         <hr>
+        
+
+<?php
+  $tab_cliente_2 = "SELECT * FROM pedido WHERE numeropedido LIKE '$id'";
+
+  $pedido_2 = mysqli_query($conn, $tab_cliente_w) or die(mysqli_error($conn));
+
+  while ($rows_clientes_2 = mysqli_fetch_assoc($pedido_2)) {
+
+    $data_hora = $rows_clientes_2['data'];
+
+  }
+?>
         
         <a class="text-center col-lg-2"><b>Cliente: </b><?php echo $cliente ?></a></br>
         <a class="text-center col-lg-2"><b>Data Hora: </b><?php echo $data_hora ?></a>
@@ -50,6 +63,8 @@ $hora_pedido = date('H:i');
             $numeropedido = $rows_clientes['numeropedido'];
             $totalValor = $rows_clientes['totalValor'];
             $pgto = $rows_clientes['pgto'];
+            $data_hora = $rows_clientes['data'];
+
 
             $subtotal = $valor * $quantidade;
             $total += $subtotal;
