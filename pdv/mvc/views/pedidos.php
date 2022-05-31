@@ -102,16 +102,16 @@
                             <button type="submit" class="btn  btn-outline-light" style="text-align: center;" data-toggle="modal"> Abrir - Pedido <?php echo $rows_mesas['numeropedido']; ?></button>
                         </form>
                         <?php
-                        if ($rows_mesas['status']  == 2 ) {
+                        // if ($rows_mesas['status']  == 2 ) {
                         ?>
-                            <form method="POST" action="?view=aceitar">
-                                <input name="id" type="hidden" id="id" value="<?php echo $rows_mesas['numeropedido']; ?>">
-                                <button type="submit" class="btn  btn-outline-light" style="text-align: center;" data-toggle="modal"> Aceitar </button>
-                            </form>
+                            <!-- <form method="POST" action="?view=aceitar"> -->
+                                <!-- <input name="id" type="hidden" id="id" value="<?php echo $rows_mesas['numeropedido']; ?>"> -->
+                                <!-- <button type="submit" class="btn  btn-outline-light" style="text-align: center;" data-toggle="modal"> Aceitar </button> -->
+                            <!-- </form> -->
                             <?php
-                        }else{
+                        // }else{
                             
-                        }
+                        // }
                         ?>
 
                     </div>
