@@ -60,7 +60,7 @@ $hora_pedido = date('H:i');
             $total = number_format($total, 2); ?>
 
             <hr>
-            <a class="text-center col-lg-2">Item #<?php echo $i; ?></a>
+            <a class="text-center col-lg-2">#<?php echo $i; ?></a>
             </br>
                 <b>
                     <a class="text-center"><?php echo $produto; ?></a>    
