@@ -1,6 +1,4 @@
 <?php
-
-
 include "./mvc/model/conexao.php";
 
 
@@ -9,15 +7,30 @@ $tab_clientes = "SELECT * FROM clientes";
 $clientes = mysqli_query($conn, $tab_clientes);
 
 ?>
-
-<style type="text/css">
-	html {
-		overflow-y: hidden;
-	}
-</style>
-<!--restira o scrow da pagina-->
-
 <h1 class="display-12">Clientes</h1>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
+<!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script> -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+<h4> Relação de Clientes :</h4>
 
 
 <div class="row">
@@ -43,6 +56,7 @@ $clientes = mysqli_query($conn, $tab_clientes);
 	</div>
 
 </div>
+
 
 <!-- CONSTRUÇÃO DO MODAL DE CADASTRO -->
 <div class="modal fade bd-example-modal-xl" id="myModalcad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -185,11 +199,11 @@ $clientes = mysqli_query($conn, $tab_clientes);
 						</div>
 						<div class="form-group col-md-2">
 							<label for="recipient-name" class="col-form-label">Telefone #1:</label>
-							<input name="tel1" type="text" class="form-control" id="validade">
+							<input onkeyup="mascaraFone(event)" name="tel1" type="text" class="form-control" id="telefone">
 						</div>
 						<div class="form-group col-md-2">
 							<label for="recipient-name" class="col-form-label">Telefone #2:</label>
-							<input name="tel2" type="text" class="form-control">
+							<input onkeyup="mascaraFone_2(event)" name="tel2" type="text" class="form-control" id="telefone_2">
 						</div>
 						<div class="form-group col-md-4">
 							<label for="recipient-name" class="col-form-label">E-Mail</label>
@@ -239,41 +253,94 @@ $clientes = mysqli_query($conn, $tab_clientes);
 	</div>
 </div>
 
-<label></label>
-<h4> Relação de Clientes :</h4>
-<div class="table-responsive" style="overflow: auto; height: 650px">
-	<table class="table table-striped table-sm">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Nome</th>
-				<th>Endereço</th>
-				<th>Bairro</th>
-				<th>Cidade</th>
-				<th>CEP</th>
-				<th>Telefone #1</th>
-				<th>Telefone #2</th>
+<script>
+	function mascaraFone(event) {
+    var valor = document.getElementById("telefone").attributes[0].ownerElement['value'];
+    var retorno = valor.replace(/\D/g, "");
+    retorno = retorno.replace(/^0/, "");
+    if (retorno.length > 10) {
+      retorno = retorno.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+    } else if (retorno.length > 5) {
+      if (retorno.length == 6 && event.code == "Backspace") { 
+        // necessário pois senão o "-" fica sempre voltando ao dar backspace
+        return; 
+      } 
+      retorno = retorno.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    } else if (retorno.length > 2) {
+      retorno = retorno.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+    } else {
+      if (retorno.length != 0) {
+        retorno = retorno.replace(/^(\d*)/, "($1");
+      }
+    }
+    document.getElementById("telefone").attributes[0].ownerElement['value'] = retorno;
+    
+  }
+</script>
+<script>
+	function mascaraFone_2(event) {
+    var valor = document.getElementById("telefone_2").attributes[0].ownerElement['value'];
+    var retorno = valor.replace(/\D/g, "");
+    retorno = retorno.replace(/^0/, "");
+    if (retorno.length > 10) {
+      retorno = retorno.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+    } else if (retorno.length > 5) {
+      if (retorno.length == 6 && event.code == "Backspace") { 
+        // necessário pois senão o "-" fica sempre voltando ao dar backspace
+        return; 
+      } 
+      retorno = retorno.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    } else if (retorno.length > 2) {
+      retorno = retorno.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+    } else {
+      if (retorno.length != 0) {
+        retorno = retorno.replace(/^(\d*)/, "($1");
+      }
+    }
+    document.getElementById("telefone_2").attributes[0].ownerElement['value'] = retorno;
+    
+  }
+</script>
+
+<div class="table-responsive">
+    <!-- <div class="col-2"> -->
+    <!-- <div class="flex-center flex-column"> -->
+    <!-- <div class="card card-body"> -->
+
+    <!-- <div class="table-responsive"> -->
+    <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive" cellspacing="0"
+        width="100%">
+        <!-- <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"> -->
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Bairro</th>
+                <th>Cidade</th>
+                <th>CEP</th>
+                <th>Telefone #1</th>
+                <th>Telefone #2</th>
 				<th>Ação</th>
-			</tr>
-		</thead>
-		<tbody>
-			<?php
-			$num = 0;
 
-			while ($rows_clientes = mysqli_fetch_assoc($clientes)) { // mysqli_fetch_assoc senpre retorna um array associaivo
-				$num += 1;
 
-			?>
-				<tr>
-					<td><?php echo $num ?></td>
-					<td><?php echo $rows_clientes['nome'] ?></td>
-					<td><?php echo $rows_clientes['endereco'] ?></td>
-					<td><?php echo $rows_clientes['bairro'] ?></td>
-					<td><?php echo $rows_clientes['cidade'] ?></td>
-					<td><?php echo $rows_clientes['cep'] ?></td>
-					<td><?php echo $rows_clientes['tel1'] ?></td>
-					<td><?php echo $rows_clientes['tel2'] ?></td>
-					<td>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                    $index = 0;
+                    while ($rows_clientes = mysqli_fetch_assoc($clientes)) {
+                    ?>
+
+            <tr>
+
+                <td><?php echo $rows_clientes['nome'] ?></td>
+                <td><?php echo $rows_clientes['endereco'] ?></td>
+                <td><?php echo $rows_clientes['bairro'] ?></td>
+                <td><?php echo $rows_clientes['cidade'] ?></td>
+                <td><?php echo $rows_clientes['cep'] ?></td>
+                <td><?php echo $rows_clientes['tel1'] ?></td>
+                <td><?php echo $rows_clientes['tel2'] ?></td>
+				<td>
 						<button type="button" class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" data-target="#myModal<?php echo $rows_clientes['id']; ?>">Visualizar</button>
 
 
@@ -284,107 +351,109 @@ $clientes = mysqli_query($conn, $tab_clientes);
 
 						<button type="button" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#excluirModal<?php echo $rows_clientes['id']; ?>">Excluir</button>
 
-					</td>
-				</tr>
+				</td>
+            </tr>
 
-				<!-- CONSTRUÇÃO DO MODAL DE VIZUALIZAÇÃO -->
-				<div class="modal fade bd-example-modal-xl" id="myModal<?php echo $rows_clientes['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog modal-xl" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title text-center" id="myModalLabel"><b><?php echo $rows_clientes['nome']; ?></b></h4>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<!-- FIM DO CABEÇALHO DO MODAL DE VIZUALIZAÇÃO -->
-
-
-							</div>
-							<div class="modal-body">
-								<p><b>Nome: </b><?php echo $rows_clientes['nome']; ?></p>
-								<p><b>Endereço: </b><?php echo $rows_clientes['endereco']; ?></p>
-								<p><b>Bairro: </b><?php echo $rows_clientes['bairro']; ?></p>
-								<p><b>Cidade: </b><?php echo $rows_clientes['cidade']; ?></p>
-								<p><b>Estado: </b><?php echo $rows_clientes['estado']; ?></p>
-								<p><b>Complemento: </b><?php echo $rows_clientes['complemento']; ?></p>
-								<p><b>Cep: </b><?php echo $rows_clientes['cep']; ?></p>
-								<p><b>Ponto de Referência: </b><?php echo $rows_clientes['ponto_referecia']; ?></p>
-								<p><b>Telefone #1: </b><?php echo $rows_clientes['tel1']; ?></p>
-								<p><b>Telefone #2: </b><?php echo $rows_clientes['tel2']; ?></p>
-								<p><b>E-Mail: </b><?php echo $rows_clientes['email']; ?></p>
-								<p><b>CPF / CNPJ: </b><?php echo $rows_clientes['cpf_cnpj']; ?></p>
-								<p><b>RG: </b><?php echo $rows_clientes['rg']; ?></p>
-								<p><b>Condomínio: </b><?php echo $rows_clientes['condominio']; ?></p>
-								<p><b>Bloco / Edifício: </b><?php echo $rows_clientes['bloco']; ?></p>
-								<p><b>Aparatmento: </b><?php echo $rows_clientes['apartamento']; ?></p>
-								<p><b>Local de Entrega: </b><?php echo $rows_clientes['local_entrega']; ?></p>
-								<p><b>Observações: </b><?php echo $rows_clientes['observacoes']; ?></p>
-
-							</div>
-						</div>
-						<!-- FIM DO CORPO DA MENSAGEM DO MODAL DE VIZUALIZAÇÃO -->
-					</div>
-				</div>
+            <!-- CONSTRUÇÃO DO MODAL DE VIZUALIZAÇÃO -->
+            <div class="modal fade bd-example-modal-xl" id="myModal<?php echo $rows_clientes['id']; ?>" tabindex="-1"
+                role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-xl" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel">
+                                <b><?php echo $rows_clientes['nome']; ?></b></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <!-- FIM DO CABEÇALHO DO MODAL DE VIZUALIZAÇÃO -->
 
 
-				<!-- CONSTRUÇÃO DO MODAL DE EXCLUZÃO -->
-				<div class="modal fade bd-example-modal-xl" id="excluirModal<?php echo $rows_clientes['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-					<div class="modal-dialog modal-xl" role="document">
+                        </div>
+                        <div class="modal-body">
+                            <p><b>Nome: </b><?php echo $rows_clientes['nome']; ?></p>
+                            <p><b>Endereço: </b><?php echo $rows_clientes['endereco']; ?></p>
+                            <p><b>Bairro: </b><?php echo $rows_clientes['bairro']; ?></p>
+                            <p><b>Cidade: </b><?php echo $rows_clientes['cidade']; ?></p>
+                            <p><b>Estado: </b><?php echo $rows_clientes['estado']; ?></p>
+                            <p><b>Complemento: </b><?php echo $rows_clientes['complemento']; ?></p>
+                            <p><b>Cep: </b><?php echo $rows_clientes['cep']; ?></p>
+                            <p><b>Ponto de Referência: </b><?php echo $rows_clientes['ponto_referecia']; ?></p>
+                            <p><b>Telefone #1: </b><?php echo $rows_clientes['tel1']; ?></p>
+                            <p><b>Telefone #2: </b><?php echo $rows_clientes['tel2']; ?></p>
+                            <p><b>E-Mail: </b><?php echo $rows_clientes['email']; ?></p>
+                            <p><b>CPF / CNPJ: </b><?php echo $rows_clientes['cpf_cnpj']; ?></p>
+                            <p><b>RG: </b><?php echo $rows_clientes['rg']; ?></p>
+                            <p><b>Condomínio: </b><?php echo $rows_clientes['condominio']; ?></p>
+                            <p><b>Bloco / Edifício: </b><?php echo $rows_clientes['bloco']; ?></p>
+                            <p><b>Aparatmento: </b><?php echo $rows_clientes['apartamento']; ?></p>
+                            <p><b>Local de Entrega: </b><?php echo $rows_clientes['local_entrega']; ?></p>
+                            <p><b>Observações: </b><?php echo $rows_clientes['observacoes']; ?></p>
 
-						<div class="modal-content">
-							<div class="modal-header">
-								<h4 class="modal-title text-center" id="myModalLabel"><b>Excluir o Iten <?php echo $rows_clientes['id']; ?> da sua lista de Clientes?</b></h4>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<!-- FIM DO CABEÇALHO DO MODAL DE EXCLUZÃO -->
+                        </div>
+                    </div>
+                    <!-- FIM DO CORPO DA MENSAGEM DO MODAL DE VIZUALIZAÇÃO -->
+                </div>
+            </div>
 
-							</div>
+            <!-- CONSTRUÇÃO DO MODAL DE EXCLUZÃO -->
 
-							<div class="modal-body">
+            <div class="modal fade bd-example-modal-xl" id="excluirModal<?php echo $rows_clientes['id']; ?>"
+                tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-xl" role="document">
 
-								<p><b>Nome: </b><?php echo $rows_clientes['nome']; ?></p>
-								<p><b>Endereço: </b><?php echo $rows_clientes['endereco']; ?></p>
-								<p><b>Bairro: </b><?php echo $rows_clientes['bairro']; ?></p>
-								<p><b>Cidade: </b><?php echo $rows_clientes['cidade']; ?></p>
-								<p><b>Estado: </b><?php echo $rows_clientes['estado']; ?></p>
-								<p><b>Complemento: </b><?php echo $rows_clientes['complemento']; ?></p>
-								<p><b>Cep: </b><?php echo $rows_clientes['cep']; ?></p>
-								<p><b>Ponto de Referência: </b><?php echo $rows_clientes['ponto_referecia']; ?></p>
-								<p><b>Telefone #1: </b><?php echo $rows_clientes['tel1']; ?></p>
-								<p><b>Telefone #2: </b><?php echo $rows_clientes['tel2']; ?></p>
-								<p><b>E-Mail: </b><?php echo $rows_clientes['email']; ?></p>
-								<p><b>CPF / CNPJ: </b><?php echo $rows_clientes['cpf_cnpj']; ?></p>
-								<p><b>RG: </b><?php echo $rows_clientes['rg']; ?></p>
-								<p><b>Condomínio: </b><?php echo $rows_clientes['condominio']; ?></p>
-								<p><b>Bloco / Edifício: </b><?php echo $rows_clientes['bloco']; ?></p>
-								<p><b>Aparatmento: </b><?php echo $rows_clientes['apartamento']; ?></p>
-								<p><b>Local de Entrega: </b><?php echo $rows_clientes['local_entrega']; ?></p>
-								<p><b>Observações: </b><?php echo $rows_clientes['observacoes']; ?></p>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-center" id="myModalLabel"><b>Excluir o Iten
+                                    <?php echo $rows_clientes['id']; ?> da sua lista de Clientes?</b></h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <!-- FIM DO CABEÇALHO DO MODAL DE EXCLUZÃO -->
 
-								<div class="modal-footer">
-									<button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-									<a href="mvc/model/exclui_clientes.php?id=<?php echo $rows_clientes['id']; ?>"><button type="button" class="btn btn-xs btn-danger">Excluir</button></a>
-								</div>
+                        </div>
 
-							</div>
+                        <div class="modal-body">
 
-						</div>
-					</div>
-					<!-- FIM DO CORPO DA MENSAGEM DO MODAL DE EXCLUZÃO -->
+                            <p><b>Nome: </b><?php echo $rows_clientes['nome']; ?></p>
+                            <p><b>Endereço: </b><?php echo $rows_clientes['endereco']; ?></p>
+                            <p><b>Bairro: </b><?php echo $rows_clientes['bairro']; ?></p>
+                            <p><b>Cidade: </b><?php echo $rows_clientes['cidade']; ?></p>
+                            <p><b>Estado: </b><?php echo $rows_clientes['estado']; ?></p>
+                            <p><b>Complemento: </b><?php echo $rows_clientes['complemento']; ?></p>
+                            <p><b>Cep: </b><?php echo $rows_clientes['cep']; ?></p>
+                            <p><b>Ponto de Referência: </b><?php echo $rows_clientes['ponto_referecia']; ?></p>
+                            <p><b>Telefone #1: </b><?php echo $rows_clientes['tel1']; ?></p>
+                            <p><b>Telefone #2: </b><?php echo $rows_clientes['tel2']; ?></p>
+                            <p><b>E-Mail: </b><?php echo $rows_clientes['email']; ?></p>
+                            <p><b>CPF / CNPJ: </b><?php echo $rows_clientes['cpf_cnpj']; ?></p>
+                            <p><b>RG: </b><?php echo $rows_clientes['rg']; ?></p>
+                            <p><b>Condomínio: </b><?php echo $rows_clientes['condominio']; ?></p>
+                            <p><b>Bloco / Edifício: </b><?php echo $rows_clientes['bloco']; ?></p>
+                            <p><b>Aparatmento: </b><?php echo $rows_clientes['apartamento']; ?></p>
+                            <p><b>Local de Entrega: </b><?php echo $rows_clientes['local_entrega']; ?></p>
+                            <p><b>Observações: </b><?php echo $rows_clientes['observacoes']; ?></p>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                <a href="mvc/model/exclui_clientes.php?id=<?php echo $rows_clientes['id']; ?>"><button
+                                        type="button" class="btn btn-xs btn-danger">Excluir</button></a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- FIM DO CORPO DA MENSAGEM DO MODAL DE EXCLUZÃO -->
 
 
-				</div>
+            </div>
+
+            <?php $index++;
+                    } ?>
+
+
+        </tbody>
+    </table>
 </div>
 
-
-<?php } ?>
-
-</tbody>
-</table>
-</div>
-</main>
-</div>
-</div>
-
-
-<!-- CONSTRUÇÃO DO MODAL DE EDIÇÃO -->
 <div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-xl" role="document">
 		<div class="modal-content">
@@ -490,6 +559,19 @@ $clientes = mysqli_query($conn, $tab_clientes);
 </div>
 
 
+<script>
+$(document).ready(function() {
+    $('#dtBasicExample').DataTable({
+        "paging": true, // false to disable pagination (or any other option)
+        "ordering": true, // false to disable sorting (or any other option)
+        "searching": true,
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json"
+        }
+    });
+    $('.dataTables_length').addClass('bs-select');
+});
+</script>
 
 <script type="text/javascript">
 	var var1 = document.getElementById("mensagem");
@@ -499,7 +581,6 @@ $clientes = mysqli_query($conn, $tab_clientes);
 </script>
 
 
-<!-- CRIA O SCRIPT JQUERY PARA TRATAR DOS DADOS QUE VEEM COM A CHAMADA DA REQUIZIÇÃO DO MODAL -->
 <script type="text/javascript">
 	$('#exampleModal').on('show.bs.modal', function(event) {
 

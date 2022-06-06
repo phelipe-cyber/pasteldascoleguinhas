@@ -4,13 +4,14 @@ session_start();
 
 include_once ('./conexao.php');
 
+date_default_timezone_set('America/Sao_Paulo');
+$data = date('Y-m-d H:i:s');
+
 $despesa = $_POST['despesa'];
 
 $data = $_POST['data'];
 
 $valor = $_POST['valor'];
-
-
 
 $insert_table = "INSERT INTO despesas (valor, despesa, data) VALUES ('$valor', '$despesa', '$data')";
 $cadastra_despesa = mysqli_query($conn, $insert_table);

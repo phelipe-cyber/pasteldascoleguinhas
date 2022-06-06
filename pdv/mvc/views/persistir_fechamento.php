@@ -32,28 +32,76 @@ $valor_pago = $_POST['valor_pago'];
 
 $valor_pago = str_replace(",",".", $valor_pago);
 
-$total = $total + $gorjeta + $acrecimo;
+ $total = $total + $gorjeta + $acrecimo;
 
 $venda = $total;
 
-$total = $total - $valor_pago;
+// $total = $total - $valor_pago;
 
-$pgto = $_POST['pgto'];
+ $pgto = $_POST['pgto'];
 
-if($pgto == ""){
+ ?>
 
-	$pgto = $_POST['pgto_2'];
+ <?php
+ if($pgto == ""){
+	 
+	 $pgto = ($_POST['pgto_2']);
+	 
+	}else{
+		
+	 $pgto = ($_POST['pgto']);
+		
+	}
+	
+	if( $pgto == "" ){
+		echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
+		$_SESSION['msg'] = "<div class='alert alert-danger text-center' role='alert'> Forma de pagamento não selecionado!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+		exit();
+	 }else{
+	
+	// Cartão Debito
 
-}else{
+	if($pgto == "Cartão Debito" ){
 
-	$pgto = $_POST['pgto'];
+		// $valor_base = 190;
+		// $valor = 185.46;
+		// $resultado = ($valor / $valor_base) * 100;
+        // $Valor_format = number_format($resultado, 2);
+		// var_dump($Valor_format);
+		
+		$total = $_POST['total'];
+		$porcentagem = 97.61;
+		$resultado = $total - ($total * $porcentagem / 100);
+		$R = $total - $resultado;
+        $Valor_format = number_format($R, 2);
 
-}
+	}else{
+
+		
+		if( $pgto == 'Cartão Credito' ){
+			
+			// print_r( "Valor da venda R$ ". $_POST['total']);
+			// echo "<br>";
+			$total = $_POST['total'];
+			$pctm = 4.99;
+			$valor_descontado = $total - ($total * $pctm / 100);
+			$Valor_format = number_format($valor_descontado, 2);
+			
+		}
+		
+		// $Valor_format = $Valor_format = $venda;
+	}
+	
+	// echo $Valor_format;
+
+	// print_r($_POST);
+
+	// exit();
 
 $idmesa = $_POST['idmesa'];
 
 
-if ($total == 0) {
+if ($total > 0) {
 
 	$tab_pedidos = "SELECT * FROM pedido WHERE numeropedido = $id";
 
@@ -84,7 +132,7 @@ if ($total == 0) {
 	
 	$mesas = mysqli_query($conn, $tab_mesas);
 
-	$insert_table = "INSERT INTO vendas ( id_pedido, valor, cliente, data, rendimento, pgto) VALUES ( '$id', '$venda', '$cliente', '$data', 'Mesa', '$pgto')";
+	$insert_table = "INSERT INTO vendas ( id_pedido, valor, valor_maquina, cliente, data, rendimento, pgto) VALUES ( '$id', '$venda', '$Valor_format', '$cliente', '$data', 'Mesa', '$pgto')";
 
 	$produtos_editados = mysqli_query($conn, $insert_table);
 	// $exclude_table = "DELETE FROM pedido WHERE numeropedido = '$id'";	
@@ -93,7 +141,7 @@ if ($total == 0) {
 	 $produto_excluido = mysqli_query($conn, $alterar_table);
 
 	echo "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=/pdv/?view=todosPedidoBalcao'>";
-	$_SESSION['msg'] = "<div class='alert alert-success' role='alert'> Comanda da Mesa encerrada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+	$_SESSION['msg'] = "<div class='alert alert-success text-center' role='alert'> Comanda da Mesa encerrada com sucesso!<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 
 }else if ($total < 0) {
 
@@ -128,19 +176,19 @@ if ($total == 0) {
 	$alterar_table = "UPDATE `pedido` SET `status` = '4', `pgto` = '$pgto' WHERE `pedido`.`numeropedido` = '$id' ";
 	$produto_excluido = mysqli_query($conn, $alterar_table);
 
-
 	$tab_mesas = "UPDATE mesas SET nome = '$cliente', status = '1'  WHERE id_mesa = $idmesa";
 	$mesas = mysqli_query($conn, $tab_mesas);
 
-	$insert_table = "INSERT INTO vendas (id_pedido, valor, cliente, data, rendimento, pgto) VALUES ('$id','$venda', '$cliente', '$data', 'Mesa', '$pgto')";	
+	$insert_table = "INSERT INTO vendas ( id_pedido, valor, valor_maquina, cliente, data, rendimento, pgto) VALUES ( '$id', '$venda', '$Valor_format', '$cliente', '$data', 'Mesa', '$pgto')";
+	
 	$produtos_editados = mysqli_query($conn, $insert_table);
 
-	$total = abs($total);?>
-	<h2 class="mb-10 text-center" style="color: black; padding: 20px;">Fechamento de Comanda Efetuado!</h2>
- 	<div class="form-group col-md-6">
-  					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago Cliente</label>
-  					<input autofocus name="valor_pago" id="valor_pago" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="">
-  				</div><h4 class="mb-10 text-center" style="color: red; padding: 20px; font-size: 30px;">TROCO: R$ <?php echo number_format($total, 2); ?></h4>
+	// $total = abs($total);?>
+	<!-- <h2 class="mb-10 text-center" style="color: black; padding: 20px;">Fechamento de Comanda Efetuado!</h2> -->
+ 	<!-- <div class="form-group col-md-6"> -->
+  					<!-- <label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: green; color: white; ">Valor Pago Cliente</label> -->
+  					<!-- <input autofocus name="valor_pago" id="valor_pago" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value=""> -->
+  				<!-- </div><h4 class="mb-10 text-center" style="color: red; padding: 20px; font-size: 30px;">TROCO: R$ <?php echo number_format($total, 2); ?></h4> -->
  	<h4 class="text-center" ><a class="form-group col-md-6 btn btn-success" href="?view=Dashboard1" type="button" style="font-size: 25px;">VOLTAR</a></h4> 
 
 <?php } else { ?>
@@ -151,20 +199,20 @@ if ($total == 0) {
 </div>
 
   <?php
-  include "./mvc/model/conexao.php";
+//   include "./mvc/model/conexao.php";
 
 
-  $tab_pedidos = "SELECT * FROM pedido WHERE idmesa = $id";
+//   $tab_pedidos = "SELECT * FROM pedido WHERE idmesa = $id";
 
-  $pedidos = mysqli_query($conn, $tab_pedidos);
+//   $pedidos = mysqli_query($conn, $tab_pedidos);
 
 
 ?> 
 
 
-<div class="row">
+<!-- <div class="row">
 
-  <!-- Earnings (Monthly) Card Example -->
+  
   <div class="col-xl-6 col-md-6 mb-4">
 
   	<form method="POST" action="?view=persistir_fechamento">
@@ -191,8 +239,7 @@ if ($total == 0) {
 
   				<div class="form-group col-md-12">
   					<label for="recipient-name" class="col-xl-12 text-center" style="font-size: 25px; background: #c42eff; color: white; ">Forma de Pgto </label>
-  					<!-- <input name="acrecimo" id="acrecimo" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="text" name="pagamento" value="0.00"> -->
-  				</div>
+  					</div>
   				<div class="form-group col-md-3">
   					<div class="form-check">
   						<input name="pgto" class="form-check-input" type="checkbox" value="Dinheiro" id="Dinheiro">
@@ -271,7 +318,7 @@ if ($total == 0) {
   </div>
 
   
-</div>
+</div> -->
 
-<?php } ?>
+<?php } } ?>
 

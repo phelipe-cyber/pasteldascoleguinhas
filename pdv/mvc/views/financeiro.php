@@ -75,17 +75,17 @@ if (isset($escolha)) {
 
 								<div class="form-group col-md-8">
 									<label for="message-text" class="col-form-label">Despesa:</label>
-									<input name="despesa" id="despesa" class="form-control"></input>
+									<input required= "" value="" name="despesa" id="despesa" class="form-control"></input>
 								</div>
 
-								<div class="form-group col-md-2">
+								<!-- <div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Data</label>
 									<input name="data" id="data" type="text" class="form-control">
-								</div>
+								</div> -->
 
 								<div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Valor</label>
-									<input placeholder="R$" name="valor" id="valor" type="text" class="form-control">
+									<input required= "" value="" placeholder="R$" name="valor" id="valor" type="text" class="form-control">
 								</div>
 
 							</div>
@@ -159,22 +159,22 @@ if (isset($escolha)) {
 
 								<div class="form-group col-md-4">
 									<label for="message-text" class="col-form-label">Rendimento:</label>
-									<input name="rendimento" id="rendimento" class="form-control"></input>
+									<input required= "" value="" name="rendimento" id="rendimento" class="form-control"></input>
 								</div>
 
 								<div class="form-group col-md-4">
 									<label for="message-text" class="col-form-label">Cliente:</label>
-									<input name="cliente" id="cliente" class="form-control"></input>
+									<input required= "" value="" name="cliente" id="cliente" class="form-control"></input>
 								</div>
 
-								<div class="form-group col-md-2">
+								<!-- <div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Data</label>
 									<input name="data" id="data" type="text" class="form-control">
-								</div>
+								</div> -->
 
 								<div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Valor</label>
-									<input placeholder="R$" name="valor" id="valor" type="text" class="form-control">
+									<input required= "" value="" placeholder="R$" name="valor" id="valor" type="text" class="form-control">
 								</div>
 
 							</div>
@@ -250,7 +250,8 @@ if (isset($escolha)) {
 					<th class="text-center">Imprimir</th>
 					<th class="text-center">Rendimento</th>
 					<th class="text-center">Cliente</th>
-					<th class="text-center">Valor</th>
+					<th class="text-center">Valor Venda</th>
+					<th class="text-center">Valor Receber</th>
 					<th class="text-center">Pagamento</th>
 					<th class="text-center">Categoria</th>
 				</tr>
@@ -271,6 +272,7 @@ if (isset($escolha)) {
 					$rendimento = $rows_vendas['rendimento'];
 					$cliente = $rows_vendas['cliente'];
 					$valor = $rows_vendas['valor'];
+					$valor_maquina = $rows_vendas['valor_maquina'];
 					$pgto = $rows_vendas['pgto'];
 					$pedido = $rows_vendas['id_pedido'];
 					$total1 += $valor;
@@ -291,6 +293,14 @@ if (isset($escolha)) {
 						<td class="text-center"><?php echo $rendimento; ?></td>
 						<td class="text-center"><?php echo $cliente; ?></td>
 						<td class="text-center" style="color: green;">R$ <?php echo number_format($valor, 2); ?></td>
+						<?php
+						
+							if( $valor_maquina == 0 ){
+								?><td class="text-center" style="color: green;">R$ <?php echo number_format($valor, 2); ?></td><?php
+							}else{
+								?><td class="text-center" style="color: green;">R$ <?php echo number_format($valor_maquina, 2); ?></td><?php
+							}
+						?>
 						<td class="text-center" style="color: blue;"><?php echo $pgto; ?></td>
 						<td class="text-center">
 							<div style="width: 100%; color: green;">Rendimento</div>

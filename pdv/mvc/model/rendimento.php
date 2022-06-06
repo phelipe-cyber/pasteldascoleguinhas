@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+date_default_timezone_set('America/Sao_Paulo');
+$data = date('Y-m-d H:i:s');
+
 include_once ('./conexao.php');
 
 $rendimento = $_POST['rendimento'];

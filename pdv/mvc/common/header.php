@@ -97,30 +97,30 @@ $usuario = $_SESSION['user'];
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Ver Pedidos - Balcão</span></a>
       </li>
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=delivery">
           <i class="fa fa-motorcycle"></i>
           <span>Novo Pedido - Delivery</span></a>
-      </li>
+      </li> -->
 
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link" href="/pdv/?view=pedidos_delivery">
           <i class="fa fa-motorcycle"></i>
           <span>Pedidos - Delivery</span></a>
-      </li>
+      </li> -->
 
 
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <!-- <hr class="sidebar-divider"> -->
 
       <!-- Heading -->
-      <div class="sidebar-heading">
+      <!-- <div class="sidebar-heading">
         Grupo 1
-      </div>
+      </div> -->
 
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-wrench"></i>
           <span>FERRAMENTAS</span>
@@ -133,14 +133,14 @@ $usuario = $_SESSION['user'];
 
           </div>
         </div>
-      </li>
+      </li> -->
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Grupo 2
+        Menu
       </div>
 
 
@@ -155,9 +155,9 @@ $usuario = $_SESSION['user'];
             <h6 class="collapse-header">Gestão</h6>
             <a class="collapse-item" href="/pdv/?view=estoque" style=" border-radius: 8px; font-size:18px;">Estoque</a>
             <a class="collapse-item" href="/pdv/?view=financeiro" style=" border-radius: 8px; font-size:18px;">Financeiro</a>
-            <a class="collapse-item" href="/pdv/?view=cards" style=" border-radius: 8px; font-size:18px;">Pessoal</a>
-            <a class="collapse-item" href="/pdv/?view=open" style=" border-radius: 8px; font-size:18px;">Abertura Caixa</a>
-            <a class="collapse-item" href="/pdv/?view=exit" style=" border-radius: 8px; font-size:18px;">Fechamento Caixa</a>
+            <!-- <a class="collapse-item" href="/pdv/?view=cards" style=" border-radius: 8px; font-size:18px;">Pessoal</a> -->
+            <!-- <a class="collapse-item" href="/pdv/?view=open" style=" border-radius: 8px; font-size:18px;">Abertura Caixa</a> -->
+            <!-- <a class="collapse-item" href="/pdv/?view=exit" style=" border-radius: 8px; font-size:18px;">Fechamento Caixa</a> -->
 
           </div>
         </div>
