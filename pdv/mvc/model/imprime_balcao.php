@@ -152,11 +152,11 @@ include "conexao.php";
 </body>
 
 
-<!-- <script>
+<script>
     window.print();
     window.addEventListener("afterprint", function(event) { window.close(); });
     window.onafterprint();
-</script> -->
+</script>
 
 
 </html>
