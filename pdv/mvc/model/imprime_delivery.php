@@ -18,6 +18,7 @@
 		$endereco = $_POST['endereco'];
 		$bairro = $_POST['bairro'];
 		$complemento = $_POST['complemento'];
+		$cep = $_POST['cep'];
 		$pontoreferencia = $_POST['pontoreferencia'];
 		$tel1 = $_POST['tel1'];
 		$tel2 = $_POST['tel2'];
@@ -92,6 +93,9 @@ $i = 0;
 			<a class="text-center"><b>Complemento:</b></a>
 			<a class="text-center"><?php echo $complemento;?></a><br><br>
 
+			<a class="text-center"><b>CEP:</b></a>
+			<a class="text-center"><?php echo $cep;?></a><br><br>
+
 			<a class="text-center"><b>Ponto de Referência:</b></a>
 			<a class="text-center"><?php echo $pontoreferencia;?></a><br><br>
 
@@ -129,3 +133,9 @@ $i = 0;
 <!-- <script type="text/javascript"> -->
 	<!-- window.onload = function() { window.print(); } -->
 <!-- </script> -->
+
+<script>
+    window.print();
+    window.addEventListener("afterprint", function(event) { window.close(); });
+    window.onafterprint();
+</script>

@@ -341,13 +341,37 @@ $clientes = mysqli_query($conn, $tab_clientes);
                 <td><?php echo $rows_clientes['tel1'] ?></td>
                 <td><?php echo $rows_clientes['tel2'] ?></td>
 				<td>
-						<button type="button" class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" data-target="#myModal<?php echo $rows_clientes['id']; ?>">Visualizar</button>
 
+				<form method="POST" action="/pdv/mvc/model/imprime_delivery.php" target="_blank">
+
+				    <input name="nome" type="hidden" value="    <?php echo $rows_clientes['nome']; ?>				">
+                    <input name="endereco" type="hidden" value="    <?php echo $rows_clientes['endereco']; ?>			">
+                    <input name="bairro" type="hidden" value="    <?php echo $rows_clientes['bairro']; ?>				">
+                    <input name="cidade" type="hidden" value="    <?php echo $rows_clientes['cidade']; ?>				">
+                    <input name="estado" type="hidden" value="    <?php echo $rows_clientes['estado']; ?>				">
+                    <input name="complemento" type="hidden" value="    <?php echo $rows_clientes['complemento']; ?>		">
+                    <input name="cep" type="hidden" value="    <?php echo $rows_clientes['cep']; ?>				">
+                    <input name="ponto_referencia" type="hidden" value="    <?php echo $rows_clientes['ponto_referecia']; ?>	">
+                    <input name="tel1" type="hidden" value="    <?php echo $rows_clientes['tel1']; ?>				">
+                    <input name="tel2" type="hidden" value="    <?php echo $rows_clientes['tel2']; ?>				">
+                    <input name="email" type="hidden" value="    <?php echo $rows_clientes['email']; ?>				">
+                    <input name="cpf_cnpj" type="hidden" value="    <?php echo $rows_clientes['cpf_cnpj']; ?>			">
+                    <input name="rg" type="hidden" value="	<?php echo $rows_clientes['rg']; ?>					">
+                    <input name="condiominio" type="hidden" value="    <?php echo $rows_clientes['condominio']; ?>			">
+                    <input name="bloco" type="hidden" value="    <?php echo $rows_clientes['bloco']; ?>				">
+                    <input name="apartamento" type="hidden" value="    <?php echo $rows_clientes['apartamento']; ?>		">
+                    <input name="local_entrega" type="hidden" value="    <?php echo $rows_clientes['local_entrega']; ?>		">
+                    <input name="observacoes" type="hidden" value="    <?php echo $rows_clientes['observacoes']; ?>		">
+
+					<button type="submit" class="btn btn-success btn-icon-split btn-sm" data-target="">imprimir</button>
+
+        		</form>
+
+						<button type="button" class="btn btn-primary btn-icon-split btn-sm" data-toggle="modal" data-target="#myModal<?php echo $rows_clientes['id']; ?>">Visualizar</button>
 
 						<button type="button" class="btn btn-warning btn-icon-split btn-sm" data-toggle="modal" data-target="#exampleModal" data-id="<?php echo $rows_clientes['id']; ?>" data-nome="<?php echo $rows_clientes['nome']; ?>" data-endereco="<?php echo $rows_clientes['endereco']; ?>" data-bairro="<?php echo $rows_clientes['bairro']; ?>" data-cidade="<?php echo $rows_clientes['cidade']; ?>" data-estado="<?php echo $rows_clientes['estado']; ?>" data-complemento="<?php echo $rows_clientes['complemento']; ?>" data-cep="<?php echo $rows_clientes['cep']; ?>" data-ponto_referecia="<?php echo $rows_clientes['ponto_referecia']; ?>" data-tel1="<?php echo $rows_clientes['tel1']; ?>" data-tel2="<?php echo $rows_clientes['tel2']; ?>" data-email="<?php echo $rows_clientes['email']; ?>" data-cpf_cnpj="<?php echo $rows_clientes['cpf_cnpj']; ?>" data-rg="<?php echo $rows_clientes['rg']; ?>" data-condominio="<?php echo $rows_clientes['condominio']; ?>" data-bloco="<?php echo $rows_clientes['bloco']; ?>" data-apartamento="<?php echo $rows_clientes['apartamento']; ?>" data-local_entrega="<?php echo $rows_clientes['local_entrega']; ?>" data-observacoes="<?php echo $rows_clientes['observacoes']; ?>">
 							Editar
 						</button>
-
 
 						<button type="button" class="btn btn-danger btn-icon-split btn-sm" data-toggle="modal" data-target="#excluirModal<?php echo $rows_clientes['id']; ?>">Excluir</button>
 
