@@ -78,10 +78,10 @@ if (isset($escolha)) {
 									<input required= "" value="" name="despesa" id="despesa" class="form-control"></input>
 								</div>
 
-								<!-- <div class="form-group col-md-2">
+								 <div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Data</label>
 									<input name="data" id="data" type="text" class="form-control">
-								</div> -->
+								</div>
 
 								<div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Valor</label>
@@ -167,10 +167,10 @@ if (isset($escolha)) {
 									<input required= "" value="" name="cliente" id="cliente" class="form-control"></input>
 								</div>
 
-								<!-- <div class="form-group col-md-2">
+								 <div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Data</label>
 									<input name="data" id="data" type="text" class="form-control">
-								</div> -->
+								</div>
 
 								<div class="form-group col-md-2">
 									<label for="message-text" class="col-form-label">Valor</label>
@@ -221,6 +221,7 @@ if (isset($escolha)) {
 		$mes = $_POST['mes'];
 		$ano = $_POST['ano'];
 		$mes = "$mes" . '/' . "$ano";
+		$mes_despesa = $_POST['ano'] . '-' . $_POST['mes'];
 
 
 	?>
@@ -232,10 +233,10 @@ if (isset($escolha)) {
 		</form>
 		<?php
 
-		$tab_vendas = "SELECT * FROM vendas WHERE data LIKE '%$mes'";
+		 $tab_vendas = "SELECT * FROM vendas WHERE data LIKE '%$mes%'";
 		$vendas = mysqli_query($conn, $tab_vendas);
 
-		$tab_despesas = "SELECT * FROM despesas WHERE data LIKE '%$mes'";
+		$tab_despesas = "SELECT * FROM despesas WHERE data LIKE '%$mes_despesa%'";
 		$despesas = mysqli_query($conn, $tab_despesas);
 
 		echo "<hr>"; ?>

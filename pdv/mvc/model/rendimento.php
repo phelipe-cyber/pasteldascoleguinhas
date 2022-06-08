@@ -2,21 +2,27 @@
 session_start();
 
 date_default_timezone_set('America/Sao_Paulo');
-$data = date('Y-m-d H:i:s');
+// $data = date('Y-m-d H:i:s');
+
+$data = date('d/m/Y');
 
 include_once ('./conexao.php');
 
 $rendimento = $_POST['rendimento'];
 
-$data = $_POST['data'];
+// $data = $_POST['data'];
 
 $cliente = $_POST['cliente'];
 
 $valor = $_POST['valor'];
 
+//  $insert_table = "INSERT INTO vendas (valor, cliente, rendimento, data) 
+
+ $insert_table = "INSERT INTO vendas ( id_pedido, valor, valor_maquina, cliente, rendimento, pgto, data) VALUES ('', '$valor', '$valor', '$cliente', '$rendimento', '' , '$data')";
+
+// VALUES ('$valor', '$cliente', '$rendimento', '$data')";
 
 
-$insert_table = "INSERT INTO vendas (valor, cliente, rendimento, data) VALUES ('$valor', '$cliente', '$rendimento', '$data')";
 $cadastra_despesa = mysqli_query($conn, $insert_table);
 
 ?>

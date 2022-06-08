@@ -36,27 +36,28 @@ include "conexao.php";
     <label for="">06412-250</label>
 </div>
 
-<h1 class="text-center col-lg-2"><b>Pedido #<?php echo $id ?></b> </h1>
+<h1 class="text-center col-lg-1"><b>Pedido #<?php echo $id ?></b> </h1>
 
 <div class="row">
-    <a class="text-center col-lg-2"><b>Forma de Pgto: </b><?php echo $pgto; ?></a><br>
+    <!--<a class="text-center col-lg-1"><b>Forma de Pgto: </b><?php echo $pgto; ?></a><br>-->
     <!-- <a class="text-center"><b><?php echo $pgto; ?></b><br> -->
+    <label> <b>Forma de Pgto: </b><?php echo $pgto; ?> </label>
     <hr>
 
 
     <a class="text-center col-lg-2"><b>Cliente: </b><?php echo $cliente ?></a></br>
     <a class="text-center col-lg-2"><b>Data Hora: </b><?php echo $data_hora ?></a>
     <!-- <hr> -->
-    <table BORDER RULES=rows id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"
-        style="text-align: center">
+    <!--<table BORDER RULES=rows id="dtBasicExample" class="" cellspacing="0" width="100%"-->
+        <!--style="text-align: center">-->
         <thead>
             <tr >
-                <th class="th-sm">#</th>
-                <th class="th-sm">Descrição</th>
-                <th class="th-sm">Valor Unit</th>
-                <th class="th-sm">Qtde Unit</th>
-                <th class="th-sm">Observação</th>
-                <th class="th-sm">Total</th>
+                <!--<th class="th-sm">#</th>-->
+                <!--<th class="th-sm">Descrição</th>-->
+                <!--<th class="th-sm">Valor Unit</th>-->
+                <!--<th class="th-sm">Qtde Unit</th>-->
+                <!--<th class="th-sm">Obs</th>-->
+                <!--<th class="th-sm">Total</th>-->
             </tr>
         </thead>
         <tbody>
@@ -99,16 +100,19 @@ include "conexao.php";
             $total = number_format($total, 2); ?>
 
             <tr  >
-
-                <td class="th-sm"> <?php echo $index ?> </td>
+                    <hr>
+                <!--<td class="th-sm"> <?php echo $index ?> </td>-->
                 <td class="th-sm"> <?php echo $produto ?> </td>
-                <td class="th-sm"> <?php echo $valor ?> </td>
-                <td class="th-sm"> <?php echo $quantidade ?> un </td>
+                <br>
+                <!--<td class="th-sm"> <?php echo $valor ?> </td>-->
+                <td class="th-sm"> <b> <?php echo $quantidade ?> </b> Un. </td>
                 <td class="th-sm"> <?php echo $obs ?> </td>
-                <td class="th-sm"> <?php echo $total ?> </td>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <td class="th-sm"> <?php echo "R$ ". $total ?> </td>
 
             </tr>
-
+            
+<br>
 
             <!-- <a class="text-center col-lg-2"> # <?php echo $i; ?></a> -->
             <!-- </br> -->
@@ -141,6 +145,7 @@ include "conexao.php";
         while ($rows_clientes = mysqli_fetch_assoc($pedido)) {
             $Total = $rows_clientes['totalValor'];
         ?>
+        <hr>
     <a class="text-center"><b>Valor Total:</b></a>
     <a class="text-center">R$: <b><?php echo number_format($Total, 2); ?></b></a><br><br>
     <?php
@@ -148,6 +153,13 @@ include "conexao.php";
         ?>
 
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </body>
 
