@@ -4,13 +4,13 @@ session_start();
 date_default_timezone_set('America/Sao_Paulo');
 // $data = date('Y-m-d H:i:s');
 
-$data = date('d/m/Y');
+// $data = date('d/m/Y');
 
 include_once ('./conexao.php');
 
 $rendimento = $_POST['rendimento'];
 
-// $data = $_POST['data'];
+$data = $_POST['data'];
 
 $cliente = $_POST['cliente'];
 

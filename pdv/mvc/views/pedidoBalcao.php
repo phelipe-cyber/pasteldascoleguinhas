@@ -200,3 +200,11 @@ if ($mesa == 'delivery') {
             }, 5000)
         </script>
         </form>
+
+        <?php 
+        
+        "UPDATE Reparos_Finalizados_Rma_db SET Reparos_Finalizados_Rma_db.update_qtde = '0' 
+
+         WHERE (SELECT id_db FROM `reparos_finalizados_rma_result` WHERE Reparos_Finalizados_Rma_db.id = reparos_finalizados_rma_result.id_db )"
+
+        ?>

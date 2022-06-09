@@ -5,7 +5,7 @@ session_start();
 include_once ('./conexao.php');
 
 date_default_timezone_set('America/Sao_Paulo');
-$data = date('Y-m-d H:i:s');
+// $data = date('Y-m-d H:i:s');
 
 $despesa = $_POST['despesa'];
 

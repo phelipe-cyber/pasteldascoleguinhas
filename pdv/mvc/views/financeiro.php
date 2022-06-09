@@ -42,7 +42,7 @@ if (isset($escolha)) {
 
 	<?php }
 	if ($escolha == 2) {
-		$data = date('Y-m-d H:m:s');
+		$data = date('d/m/Y');
 
 	?>
 
@@ -124,7 +124,7 @@ if (isset($escolha)) {
 	<?php
 	}
 	if ($escolha == 3) {
-		$data = date('Y-m-d H:m:s');
+		$data = date('d/m/Y');
 
 
 	?>
@@ -236,7 +236,7 @@ if (isset($escolha)) {
 		 $tab_vendas = "SELECT * FROM vendas WHERE data LIKE '%$mes%'";
 		$vendas = mysqli_query($conn, $tab_vendas);
 
-		$tab_despesas = "SELECT * FROM despesas WHERE data LIKE '%$mes_despesa%'";
+		$tab_despesas = "SELECT * FROM despesas WHERE data LIKE '%$mes%'";
 		$despesas = mysqli_query($conn, $tab_despesas);
 
 		echo "<hr>"; ?>
@@ -264,6 +264,8 @@ if (isset($escolha)) {
 				<?php
 
 				$total1 = 0;
+				$total3 = 0;
+
 
 				while ($rows_vendas = mysqli_fetch_assoc($vendas)) {
 
@@ -277,6 +279,7 @@ if (isset($escolha)) {
 					$pgto = $rows_vendas['pgto'];
 					$pedido = $rows_vendas['id_pedido'];
 					$total1 += $valor;
+					$total3 += $valor_maquina;
 
 				?>
 
@@ -332,9 +335,16 @@ if (isset($escolha)) {
 					<td class="text-center"></td>
 					<td class="text-center"></td>
 					<td class="text-center"></td>
+					<td class="text-center"></td>
+
 					<td class="text-center">
 						<h4 style="width: 100%; color: green;"><b>R$ <?php echo number_format($total1, 2); ?></b></h4>
 					</td>
+					<td class="text-center">
+						<h4 style="width: 100%; color: green;"><b>R$ <?php echo number_format($total3, 2); ?></b></h4>
+					</td>
+					<td class="text-center"></td>
+					<td class="text-center"></td>
 					<td class="text-center"></td>
 				</tr>
 
@@ -403,11 +413,11 @@ if (isset($escolha)) {
 						<h4 style="width: 100%; color: red;"><b>Total:</b></h4>
 					</td>
 					<td class="text-center"></td>
-					<td class="text-center"></td>
-					<td class="text-center"></td>
 					<td class="text-center">
 						<h4 style="width: 100%; color: red;"><b>R$ -<?php echo number_format($total2, 2); ?></b></h4>
 					</td>
+					<td class="text-center"></td>
+					<td class="text-center"></td>
 					<td class="text-center"></td>
 				</tr>
 
@@ -577,7 +587,7 @@ if (isset($escolha)) {
 
 		echo "<hr>";
 
-		$saldo = $total1 - $total2;
+		$saldo = $total3 - $total2;
 
 		if ($saldo > 0) {
 		?>
