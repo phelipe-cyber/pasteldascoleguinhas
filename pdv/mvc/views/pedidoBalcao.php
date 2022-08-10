@@ -272,6 +272,11 @@ if ($mesa == 'delivery') {
                                                     .value
                                                 Quantidade--;
 
+                                                if( Quantidade == "-1"){
+
+                                                }else{
+
+
                                                 Q = document.getElementById(
                                                         "detalhes[<?php echo $index ?>][quantidade]")
                                                     .value = Quantidade;
@@ -329,8 +334,8 @@ if ($mesa == 'delivery') {
                                                     },
 
                                                 });
-
-                                                
+  
+                                            };
                                             });
                                         });
                                     </script>
