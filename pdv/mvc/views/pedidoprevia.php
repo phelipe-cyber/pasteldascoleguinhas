@@ -69,7 +69,7 @@ session_start();
     ?>
                     </table>
 <?php
-                    $valor_total = array_sum( $valor );
+                    @$valor_total = array_sum( $valor );
                     $valor_real = number_format($valor_total, 2)
                     ?>
 
