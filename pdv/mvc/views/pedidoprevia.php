@@ -19,7 +19,8 @@ session_start();
             <div class="form-group col-md-12">
                 <label for="recipient-name" class="col-xl-12 text-center"
                     style="font-size: 25px; background: gray; color: white; ">Valor Total Previsto</label>
-                <input id="pagamento" style="font-size: 25px" class="col-xl-12 col-md-6 mb-4 text-center" type="reset"
+                
+                    <input id="pagamento" class="col-xl-12 col-md-6 mb-4 text-center" type="text"
                     name="pagamento" value="0.00" disabled>
 
                     <table id="dtBasicExample" class="table table-striped table-bordered table-sm reponsive"
@@ -53,10 +54,10 @@ session_start();
         // echo $quantidade = $row_usuario['quantidade'];
         // echo "<br>";
         echo "<td>";
-        echo "R$ ". $row_usuario['valor'];
+        echo "R$ ". number_format($row_usuario['valor'],2);
         echo "</td>";
         
-         $valor[] = $row_usuario['valor'];
+         $valor[] = number_format($row_usuario['valor'],2);
         // echo "<br>";
 
         echo "</tr>";
@@ -67,11 +68,18 @@ session_start();
     
     ?>
                     </table>
+<?php
+                    $valor_total = array_sum( $valor );
+                    $valor_real = number_format($valor_total, 2)
+                    ?>
 
 <script>
 
 
-        document.getElementById("pagamento").value = "R$ " +  <?php echo array_sum( $valor ) ?>
+    var valorFormatado = <?php echo ($valor_real); ?>.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    console.log(valorFormatado);
+
+        document.getElementById("pagamento").value = valorFormatado
 
 </script>
 
