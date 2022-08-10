@@ -168,6 +168,16 @@ if ($mesa == 'delivery') {
                                             R$ <?php echo ($rows_produtos['preco_venda']); ?>
                                         </b>
                                     </p>
+                                    <?php
+                                        
+                                    if( $rows_produtos['categoria'] == 'LANCHE' ){
+                                        echo ($rows_produtos['detalhes']);
+                                    }else{
+
+                                    }
+
+                                    ?>
+
 
                                     <input id="detalhes[<?php echo $index ?>][preco_venda]"
                                         name="detalhes[<?php echo $index ?>][preco_venda]" type="hidden"
