@@ -34,11 +34,15 @@ session_start();
     $selectSQL = ("SELECT * FROM `pedido_previa` where quantidade <> ''  GROUP BY id_produto order by id ASC ");
     
     $recebidos = mysqli_query($conn, $selectSQL);
-    
+    $index = 1;
     while ($row_usuario = mysqli_fetch_assoc($recebidos)) {
         
         // echo "<tbody>";
         echo "<tr>";
+
+        echo "<td>";
+            echo "#" ." ".$index ;
+        echo "</td>";
 
         echo "<td>";
         echo $produto = "<b>" . $row_usuario['quantidade'] ."x" . "</b> ( " . $row_usuario['produto'] . " )";
@@ -58,7 +62,7 @@ session_start();
         echo "</tr>";
 
         // echo "<tbody>";
-   
+        $index ++;
     }
     
     ?>
