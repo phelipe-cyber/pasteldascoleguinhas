@@ -193,7 +193,7 @@ if ($mesa == 'delivery') {
                                         type="button">
                                     </input>
 
-                                    <input id="detalhes[<?php echo $index ?>][quantidade]"
+                                    <input readonly id="detalhes[<?php echo $index ?>][quantidade]"
                                         class="bg-gradient-default text-center" style="width:50px;"
                                         name="detalhes[<?php echo $index ?>][quantidade]" min="0" maxlength="5"
                                         name="quantity" value="0" type="number">
